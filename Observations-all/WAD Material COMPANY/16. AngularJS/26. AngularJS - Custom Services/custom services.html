@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>Angular JS - Custom Services</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<script src="angular.js" type="text/javascript">
+		</script>
+
+		<script type="text/javascript">
+			//create a module called "mymodule"
+			var app = angular.module("mymodule", [ ] );
+
+			//add service called "myservice" to "mymodule"
+			app.service("myservice", function()
+			{
+				this.add = function(a, b)
+				{
+					var c = parseInt(a) + parseInt(b);
+					return c;
+				}
+				this.subtract = function(a, b)
+				{
+					var c = parseInt(a) - parseInt(b);
+					return c;
+				}
+			});
+
+			//add controller called "mycontroller" to "mymodule"
+			app.controller("mycontroller", [ "$scope", "myservice", function($scope, myservice)
+			{
+				$scope.firstnumber = "";
+				$scope.secondnumber = "";
+				$scope.result = "";
+
+				$scope.add = function()
+				{
+					$scope.result = myservice.add($scope.firstnumber, $scope.secondnumber);
+				}
+			} ] );
+		</script>
+	</head>
+	<body>
+		<h2>Angular JS Custom Services</h2>
+
+		<div ng-app="mymodule" ng-controller="mycontroller">
+			First number: <input type="text" ng-model="firstnumber"><br>
+			Second number: <input type="text" ng-model="secondnumber"><br>
+			<input type="button" value="Add" ng-click="add()"><br>
+			Result: <input type="text" ng-model="result"><br>
+		</div>
+	</body>
+</html>

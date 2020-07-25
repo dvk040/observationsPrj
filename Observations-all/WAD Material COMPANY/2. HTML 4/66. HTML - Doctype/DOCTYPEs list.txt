@@ -1,0 +1,53 @@
+HTML 4.01 Strict (1999)
+===============
+
+"HTML 4.01 Strict (1999)" means we should not use the deprecated tags like <font>, <basefont>, <center>, <marquee>, <bgsound>, <frameset>.
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+XHTML 1.0 Strict (2000)
+=================
+
+Same as "HTML 4.01 Strict (1999)", and also we should follow the specified 10 rules of XHTML.
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HTML 5 (2012)
+==========
+
+"HTML 5 (2012)" supports HTML 5 tags and attributes, except deprecated tags like <font>, <center>, <marquee>, <bgsound> etc., and also <frameset>.
+
+
+<!DOCTYPE html>
+
+

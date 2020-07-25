@@ -1,0 +1,60 @@
+<!--
+Link properties:
+    a:link - a normal, unvisited link
+    a:visited - a link the user has visited
+    a:hover - a link when the user mouses over it
+    a:active - a link the moment it is clicked
+-->
+
+<html>   
+    <head>
+        <title>CSS - Links</title>
+        <style>
+   		    body
+		    {
+			    font-family: 'Tahoma';
+			    font-size: 20px;
+		    }
+
+			/* unvisited link */
+		    a:link
+			{
+				background-color: darkgreen;
+				color: white;
+				padding: 2px;
+				text-decoration: none;
+				font-weight: bold;
+			}
+		
+			/* mouse over link */
+			a:hover
+			{
+				background-color: yellow;
+				color: darkgreen;
+				text-decoration: underline;
+			}
+			
+			/* selected link */
+			a:active
+			{
+				background-color: darkred;
+				color: cyan;
+			}
+			
+			/* visited link */
+		    a:visited
+			{
+				background-color: black;
+				color: yellow;
+			}
+
+        </style>
+    </head>	
+    <body>
+   
+		<a href="http://www.google.com">Google</a>
+		<a href="http://www.facebook.com">Facebook</a>
+		<a href="http://www.gmail.com">Gmail</a>
+		
+    </body>
+</html>

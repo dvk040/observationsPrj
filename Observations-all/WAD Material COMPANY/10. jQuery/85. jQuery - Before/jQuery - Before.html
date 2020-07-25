@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<title>jQuery - Before</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#div1
+			{
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="div1">Hello</div>
+		<br>
+
+		<input type="button" id="button1" value="before">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+				//before
+				$("#div1").before("<span>How do you do</span>");
+			}
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<html>
+	<head>
+		<title>jQuery UI - Menu</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Segoe UI';
+				font-size: 20px;
+			}
+			.ui-menu
+			{
+				width: 300px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<ul id="list1">
+			<li>Home</li>
+			<li>About</li>
+			<li>Contact</li>
+			<li>Download</li>
+			<li>Express Download</li>
+			<li>Product Info
+				<ul>
+					<li>Order</li>
+					<li>Features</li>
+					<li>Installation</li>
+					<li>Supported Browsers
+						<ul>
+							<li>Google Chrome</li>
+							<li>Mozilla Firefox</li>
+							<li>Internet Explorer</li>
+							<li>Safari</li>
+							<li>Opera</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>Purchase</li>
+			<li>Demo / Installation</li>
+		</ul>
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript" src="jquery-ui.js">
+		</script>
+
+		<link href="jquery-ui.css" type="text/css" rel="stylesheet">
+
+		<script type="text/javascript">
+			$("#list1").menu();
+		</script>
+	</body>
+</html>

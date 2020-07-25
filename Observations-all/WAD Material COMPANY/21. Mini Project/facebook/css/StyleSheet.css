@@ -1,0 +1,191 @@
+body
+{
+	font-family: 'Tahoma';
+	font-size: 24px;
+}
+
+#outercontainer
+{
+	width: 100%;
+}
+
+#header
+{
+	width: 100%;
+	background-color: #0066cc;
+	height: 100px;
+}
+
+*
+{
+	margin: 0px;
+}
+
+#leftheader
+{
+	width: 40%;
+	float: left;
+	height: 100px;
+	padding-left: 20px;
+	padding-top: 40px;
+}
+
+#rightheader
+{
+	padding-top: 10px;
+	width: 55%;
+	float: left;
+	height: 100px;
+}
+
+#pagecontent
+{
+	clear: left;
+}
+
+#rightheader form
+{
+	color: white;
+	font-size: 22px;
+}
+
+#rightheader form #txt1, #rightheader form #txt2
+{
+	font-size: 20px;
+	width: 170px;
+}
+
+#rightheader form #txt1
+{
+	margin-right: 10px;
+}
+
+#logindiv1
+{
+	/*background-color: #ccff99;*/
+	width: 180px;
+	float: left;
+}
+
+#logindiv2
+{
+	/*background-color: #ccffff;*/
+	width: 180px;
+	float: left;
+}
+
+#logindiv3
+{
+	/*background-color: #ffffcc;*/
+	width: 100px;
+	float: left;
+	padding-top: 26px;
+
+}
+
+#logindiv3 #btn1
+{
+	font-size: 22px;
+	background-color: #003399;
+	border: 1px ridge blue;
+	font-family: 'Tahoma';
+	color: white;
+}
+
+#rightheader #chk1+label
+{
+	font-size: 16px;
+	color: #ffff99;
+}
+
+#logindiv2 #forgotlink:link
+{
+	margin-top: 5px;
+	color: #ffff99;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+#logindiv2 #forgotlink:hover
+{
+	text-decoration: underline;
+}
+
+#rightheader form #txt2
+{
+	margin-bottom: 4px;
+}
+
+#pagecontent #content1
+{
+	background-color: #33ccff;
+	width: 50%;
+	height: 600px;
+	float: left;
+}
+
+#pagecontent #content2
+{
+	background-color: #00ffcc;
+	width: 50%;
+	height: 600px;
+	float: left;
+}
+
+#footer
+{
+	clear: left;
+}
+
+
+#pagecontent #content1 #content1div1
+{
+	margin-top: 30px;
+}
+
+#pagecontent #content1 #content1div2
+{
+	margin-top: 10px;
+}
+
+#pagecontent #content1 #content1div3
+{
+	margin-top: 10px;
+}
+
+#content1 h5
+{
+	display: inline;
+}
+
+#content1
+{
+	font-size: 20px;
+}
+
+#form2 input[type=text], #form2 input[type=password]
+{
+	font-size: 24px;
+	width: 220px;
+}
+
+#form2 #signupdiv2 input[type=text], #form2 #signupdiv3 input[type=text], #form2 #signupdiv4 input[type=password]
+{
+	width: 447px;
+}
+
+#signupdiv1, #signupdiv2, #signupdiv3, #signupdiv4
+{
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+#signupdiv1
+{
+	margin-top: 20px;
+}
+
+#signupdiv5 select
+{
+	font-size: 22px;
+}

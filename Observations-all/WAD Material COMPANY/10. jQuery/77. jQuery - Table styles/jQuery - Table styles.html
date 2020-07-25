@@ -1,0 +1,124 @@
+<html>
+	<head>
+		<title>jQuery - Tables</title>
+		<style type="text/css">
+			body,table
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			.class1
+			{
+				background-color: #ff3399;
+			}
+			.class2
+			{
+				background-color: #99ffff;
+			}
+			.class3
+			{
+				background-color: #33ccff;
+			}
+			.class4
+			{
+				padding: 5px;
+			}
+			.class5
+			{
+				background-color: #ffff33;
+			}
+			.class6
+			{
+				cursor: pointer;
+				background-color: #0099ff;
+			}
+		</style>
+	</head>	
+	<body>
+		
+		<table id="table1">
+		
+			<tr>
+			  <th>Item</th>
+			  <th>Price</th>
+			</tr>
+		  
+			<tr>
+			  <td>Milk</td>
+			  <td>1.99</td>
+			</tr>
+
+			<tr>
+			  <td>Eggs</td>
+			  <td>2.29</td>
+			</tr>
+
+			<tr>
+			  <td>Butter</td>
+			  <td>3.49</td>
+			</tr>
+
+			<tr>
+			  <td>Bread</td>
+			  <td>0.99</td>
+			</tr>
+
+			<tr>
+			  <td>Pasta</td>
+			  <td>1.19</td>
+			</tr>
+
+			<tr>
+			  <td>Honey</td>
+			  <td>4.39</td>
+			</tr>
+
+			<tr>
+			  <td>Cookies</td>
+			  <td>2.99</td>
+			</tr>
+
+			<tr>
+			  <td>Apples</td>
+			  <td>0.59</td>
+			</tr>
+
+			<tr>
+			  <td>Sugar</td>
+			  <td>1.78</td>
+			</tr>
+
+			<tr>
+			  <td>Pepper</td>
+			  <td>1.56</td>
+			</tr>
+
+		</table>
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+		
+		<script type="text/javascript">
+
+			$("#table1").addClass("class1");
+			$("#table1 tr:even").addClass("class2");
+			$("#table1 tr:odd").addClass("class3");
+			$("#table1 tr td, #table1 tr th").addClass("class4");
+			$("#table1 tr:first").addClass("class5");
+
+			$("#table1 tr:gt(0)").hover(fun1, fun2);
+
+			function fun1()
+			{
+				$(this).addClass("class6");
+			}
+
+			function fun2()
+			{
+				$(this).removeClass("class6");
+			}
+
+		</script>
+
+	</body>
+</html>

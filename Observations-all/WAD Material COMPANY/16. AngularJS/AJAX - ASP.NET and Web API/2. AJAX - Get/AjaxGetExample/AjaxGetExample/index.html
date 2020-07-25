@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS - AJAX - Get</title>
+	<meta charset="utf-8" />
+    <style type="text/css">
+        body, input {
+            font-family: Tahoma;
+            font-size: 30px;
+        }        
+        #table1 {
+            background-color: #e4055d;
+        }
+        #table1 tr {
+            background-color: #68dcfb;
+        }
+        #table1 tr:first-child {
+            background-color: gold;
+        }
+        #table1 tr td, #table1 tr th {
+            padding: 5px;
+        }
+        #table1 tr:hover {
+            background-color: #21b1d8;
+            cursor: pointer;
+        }
+    </style>
+
+    <script src="Scripts/angular.js"></script>
+    <script>
+        var app = angular.module("mymodule", []);
+
+        app.controller("mycontroller", function ($scope, $http) {
+
+            $scope.employees= [];
+
+            $http.get("/api/employeesapi").success(function (response) {
+                $scope.employees = response;
+            })
+            .error(function (err) { alert(JSON.stringify(err)); });
+
+        });
+    </script>
+</head>
+<body>
+    <h1>AngularJS - Ajax - Get</h1>
+
+    <div ng-app="mymodule" ng-controller="mycontroller">
+
+        <table border="1" id="table1">
+
+            <tr>
+                <th>Emp ID</th>
+                <th>Emp Name</th>
+                <th>Salary</th>
+            </tr>
+
+            <tr ng-repeat="emp in employees">
+                <td>{{emp.EmpID}}</td>
+                <td>{{emp.EmpName}}</td>
+                <td>{{emp.Salary}}</td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+</html>

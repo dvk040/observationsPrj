@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>KnockoutJS First Example</title>
+		<style type="text/css">
+			body
+			{
+				font-family: Tahoma;
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h1>Employee Details</h1>
+
+		<p>Emp ID: <span data-bind="text: empid"></span></p>
+		<p>Emp Name: <span data-bind="text: empname"></span></p>
+		<p>Salary: <span data-bind="text: salary"></span></p>
+
+		<script type="text/javascript" src="knockout-3.4.0.js">
+		</script>
+
+		<script type="text/javascript">
+
+			//view model
+            function myviewmodel()
+			{
+				this.empid = 101;
+				this.empname = "scott";
+				this.salary = 6000;
+			}
+
+            ko.applyBindings(new myviewmodel());
+		</script>
+		
+	</body>
+</html>

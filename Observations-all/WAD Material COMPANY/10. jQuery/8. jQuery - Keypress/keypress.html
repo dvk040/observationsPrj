@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>jQuery - keypress</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: Tahoma;
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		Source text:
+		<input type="text" id="txt1"><br>
+
+		Destination text:
+		<input type="text" id="txt2"><br>
+
+		<script src="jquery-2.2.1.js" type="text/javascript">
+		</script>
+
+		<script type="text/javascript">
+			$("#txt1").keypress(function() {
+				$("#txt2").val( $("#txt1").val() );
+			});
+		</script>
+
+	</body>
+</html>
+

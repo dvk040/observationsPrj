@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>jQuery - Animations</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#div1
+			{
+				width: 100px;
+				height: 100px;
+				background-color: #00cc66;
+				border: 2px solid red;
+				font-size: 20px;
+				font-family: corbel;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="div1">Hello World</div>
+		<br>
+
+		<input type="button" id="button1" value="animate width and then height">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+
+				//jquery chaining (calling jquery functions in a sequence)
+				$("#div1").animate({"width": "300px"}, 1000).animate({"height": "300px"},1000).delay(1000).fadeOut(3000);
+			}
+
+		</script>
+	</body>
+</html>

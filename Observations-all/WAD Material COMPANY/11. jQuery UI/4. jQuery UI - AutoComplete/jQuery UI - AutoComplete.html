@@ -1,0 +1,31 @@
+﻿<html>
+	<head>
+		<title>jQuery UI - AutoComplete</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Segoe UI';
+				font-size: 25px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<label for="txt1">Type something here: </label>
+		<input type="text" id="txt1">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript" src="jquery-ui.js">
+		</script>
+
+		<link href="jquery-ui.css" type="text/css" rel="stylesheet">
+
+		<script type="text/javascript">
+			var myarray = [ "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme" ];
+
+			$("#txt1").autocomplete( { source: myarray } );
+		</script>
+	</body>
+</html>

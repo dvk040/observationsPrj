@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>JavaScript - Keypress</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Keypress</h1>
+
+		Source Text:
+		<input type="text" id="txt1">
+		<br>
+
+		Destination Text:
+		<input type="text" id="txt2">
+
+		<script type="text/javascript">
+			document.getElementById("txt1").addEventListener("keypress", fun1);
+
+			function fun1()
+			{
+				document.getElementById("txt2").value = document.getElementById("txt1").value;
+			}
+		</script>
+	</body>
+</html>

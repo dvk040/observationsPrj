@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>JavaScript - getAttribute</title>
+		<style type="text/css">
+			body,input
+			{
+				font: 30px tahoma;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img1.jpg" id="myimage" width="300px"><br>
+		<input type="button" id="btn1" value="Get attribute">
+
+		<script type="text/javascript">
+			document.getElementById("btn1").addEventListener("click", fun1);
+
+			function fun1()
+			{
+				var a = document.getElementById("myimage").getAttribute("src");
+				alert(a);
+			}
+		</script>
+	</body>
+</html>

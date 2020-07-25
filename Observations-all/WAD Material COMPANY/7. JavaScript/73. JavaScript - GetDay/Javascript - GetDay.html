@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>JavaScript - getDay</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>getDay</h1>
+		<script type="text/javascript">
+			var d = new Date();
+			var n = d.getTime(); //milliseconds since 01.01.1970
+			n = d.getDay();
+			document.write(n); //1444533023043
+
+			/*Note:
+				Sunday = 0
+				Saturday = 6
+			*/
+		</script>
+	</body>
+</html>

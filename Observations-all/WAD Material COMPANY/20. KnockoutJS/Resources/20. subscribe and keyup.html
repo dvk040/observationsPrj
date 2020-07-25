@@ -1,0 +1,38 @@
+<html>
+
+	<head>
+        <title>Subscribe and keyup</title>
+	</head>
+
+	<body>
+
+        <p>First Name: <input data-bind="value: firstName, valueUpdate: 'keyup' "></p>
+
+		<p>First Name: <span data-bind="text: firstName"></span></p>
+
+        <p>First Name: <input data-bind="value: firstName" /></p>
+
+        <p>First Name: <input data-bind="value: firstName" /></p>
+
+        <p>First Name: <input data-bind="value: firstName" /></p>
+
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js">
+		</script>
+
+		<script type="text/javascript">
+
+            var obj = {
+                firstName: ko.observable("scott")
+            };
+
+            obj.firstName.subscribe(function (val) {
+                console.log("Someone has changed firstName: " + val);
+            });
+
+            ko.applyBindings(obj);
+
+		</script>
+
+	</body>
+
+</html>

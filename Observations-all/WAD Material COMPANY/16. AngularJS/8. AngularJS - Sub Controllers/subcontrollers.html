@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJS - Sub Controllers</title>		
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<!-- import angular-js script file -->
+		<script type="text/javascript" src="angular.js">
+		</script>
+
+		<script type="text/javascript">
+			//creating a module called "mymodule"
+			var app = angular.module("mymodule", [ ] );
+
+			//creating a controller called "mycontroller", in a module called "mymodule"
+			app.controller("mycontroller", function($scope)
+			{
+				//$scope means "model".
+				$scope.empid = 101;
+				$scope.empname = "Scott";
+				$scope.salary = 4000;
+			});
+		</script>
+	</head>
+	<body>
+		<!-- angularjs view starts -->
+		<div ng-app="mymodule" ng-controller="mycontroller">
+			Emp ID: {{empid}}<br>
+			Emp Name: {{empname}}<br>
+			Salary: {{salary}}<br>
+		</div>
+		<!-- angularjs view ends -->
+	</body>
+</html>

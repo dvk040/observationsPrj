@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>jQuery - calculate</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		Price: <input type="text" id="textbox1"> <br>
+
+		Discount: <input type="text" id="textbox2"> <br>
+
+		<input type="button" id="button1" value="Calculate">
+
+		<br>
+		Net Price: <input type="text" id="textbox3"> <br>
+		
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+				var price = parseInt( $("#textbox1").val() );
+				var discount = parseInt( $("#textbox2").val() );
+
+				var netprice = price - discount;
+
+				$("#textbox3").val(netprice);
+			}			
+		</script>
+	</body>
+</html>

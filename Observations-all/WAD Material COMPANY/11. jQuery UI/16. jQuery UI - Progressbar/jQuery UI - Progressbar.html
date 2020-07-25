@@ -1,0 +1,32 @@
+﻿<html>
+	<head>
+		<title>jQuery UI - Progressbar</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Segoe UI';
+				font-size: 20px;
+			}
+			#div1
+			{
+				height: 20px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="div1"></div>
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript" src="jquery-ui.js">
+		</script>
+
+		<link href="jquery-ui.css" type="text/css" rel="stylesheet">
+
+		<script type="text/javascript">
+			$("#div1").progressbar( { value: 40 } );
+		</script>
+	</body>
+</html>

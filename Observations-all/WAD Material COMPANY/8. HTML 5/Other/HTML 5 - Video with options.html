@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		
+		<div style="text-align:center"> 
+			<button onclick="playPause()">Play/Pause</button> 
+			<button onclick="makeBig()">Big</button>
+			<button onclick="makeSmall()">Small</button>
+			<button onclick="makeNormal()">Normal</button>
+			<br>
+			
+			Enjoy video:<br>
+			<video width="420" controls="controls" id="video1">
+				<source src="trailer.ogg" type="video/ogg">
+				<source src="trailer.mp4" type="video/mp4">
+				<source src="trailer.webm" type="video/webm">
+			</video>
+		
+		</div>
+
+		<script type="text/javascript">		
+			var myVideo=document.getElementById("video1");
+
+			function playPause()
+			{
+				if (myVideo.paused)
+				  myVideo.play();
+				else 
+				  myVideo.pause();
+			}
+
+			function makeBig()
+			{
+				myVideo.width=760;
+			}
+
+			function makeSmall()
+			{ 
+				myVideo.width=320;
+			}
+
+			function makeNormal()
+			{ 
+				myVideo.width=420;
+			}		
+		</script>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML 5</title>		
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Segoe UI';
+				font-size: 25px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="mymap"></div>
+
+		<script type="text/javascript">
+
+			if (navigator.geolocation)
+			{
+				//If the feature exists, try to get the current location. If it’s available, then 
+				navigator.geolocation.getCurrentPosition(onsuccess, onfailure, {timeout:5000} );
+			}
+
+			function onsuccess(position)
+			{
+				var mymap=document.getElementById("mymap");
+
+				var latitude = position.coords.latitude;
+				var longitude = position.coords.longitude;
+
+				mymap.innerHTML = "<img src='http://maps.google.com/maps/api/staticmap?center="+ latitude + ","+ longitude + "&zoom=18&size=" + screen.width +"x"+ screen.height + "&markers=color:green|label:P|" + latitude + ","+ longitude + " ' />";
+			}
+
+			function onfailure(whicherror)
+			{
+				var mymap = document.getElementById("mymap");
+				if (whicherror.code ==1) { mymap.innerHTML = "Permission Denied";}
+				if (whicherror.code == 2) { mymap.innerHTML = "Network or Satellites Down"; }
+				if (whicherror.code == 3) { mymap.innerHTML = "GeoLocation timed out"; }
+				if (whicherror.code == 0) { mymap.innerHTML = "Other Error"; }
+			}
+			
+		</script>
+	</body>	
+</html>

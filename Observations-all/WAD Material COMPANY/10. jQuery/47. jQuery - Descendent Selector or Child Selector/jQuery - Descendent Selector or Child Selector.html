@@ -1,0 +1,50 @@
+﻿<html>
+	<head>
+		<title>jQuery - Selectors</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			div
+			{
+				margin-bottom: 5px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div>
+
+			<p>Lorem Ipsum is simply dummy text of the printing.</p>
+
+			<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+
+		</div>
+
+		<p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+
+		<p>It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
+
+		<p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+
+		<input type="button" value="Select" id="button1">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+				$("div p").css("background-color", "lightgreen"); //Descendent Selector or Child Selector
+				//It selects all the <p> tags that are children of <div>
+			}
+
+		</script>
+
+	</body>
+</html>

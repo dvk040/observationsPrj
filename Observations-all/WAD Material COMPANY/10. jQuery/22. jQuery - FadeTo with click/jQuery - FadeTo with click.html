@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>fadeTo with click</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			div.class1
+			{
+				width: 150px;
+				height: 130px;
+				background-color: #00cc99;
+				margin: 10px;
+				float: left;
+				color: #003399;
+				font-size: 40px;
+				padding: 5px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="div1" class="class1">1</div>
+		<div id="div2" class="class1">2</div>
+		<div id="div3" class="class1">3</div>
+		<div id="div4" class="class1">4</div>
+		<div id="div5" class="class1">5</div>
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+			$("div").click(fun1);
+
+			function fun1()
+			{
+				$(this).fadeTo(700, 0.4); //Syntax: fadeTo(milli sec, opacity)
+			}
+		</script>
+	</body>
+</html>

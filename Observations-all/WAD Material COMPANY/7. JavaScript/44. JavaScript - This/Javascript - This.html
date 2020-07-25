@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>JavaScript - This</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>This</h1>
+
+		<input type="button" id="button1" value="click me">
+		<input type="button" id="button2" value="click me">
+		<input type="button" id="button3" value="click me">
+		<input type="button" id="button4" value="click me">
+		<input type="button" id="button5" value="click me">
+		<input type="button" id="button6" value="click me">
+		<input type="button" id="button7" value="click me">
+		<input type="button" id="button8" value="click me">
+		<input type="button" id="button9" value="click me">
+		<input type="button" id="button10" value="click me">
+
+		<script type="text/javascript">
+			document.getElementById("button1").addEventListener("click", fun1);
+			document.getElementById("button2").addEventListener("click", fun1);
+			document.getElementById("button3").addEventListener("click", fun1);
+			document.getElementById("button4").addEventListener("click", fun1);
+			document.getElementById("button5").addEventListener("click", fun1);
+			document.getElementById("button6").addEventListener("click", fun1);
+			document.getElementById("button7").addEventListener("click", fun1);
+			document.getElementById("button8").addEventListener("click", fun1);
+			document.getElementById("button9").addEventListener("click", fun1);
+			document.getElementById("button10").addEventListener("click", fun1);
+
+			function fun1()
+			{
+				this.setAttribute("value", "thanx");
+				this.style.backgroundColor = "skyblue";
+			}
+		</script>
+	</body>
+</html>

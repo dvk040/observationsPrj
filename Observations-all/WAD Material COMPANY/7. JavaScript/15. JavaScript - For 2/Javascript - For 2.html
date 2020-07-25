@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>JavaScript - for</title>
+		<style type="text/css">
+			body
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>JavaScript - for</h1>
+
+		<script type="text/javascript">
+			var i;
+			document.write("<h3>loop starts</h3>");
+
+			for (i=1; i <= 100; i++)
+			{
+				if (i % 2 == 0)
+				{
+					document.write("<span style='color:green'>");
+					document.write(i);
+					document.write(" </span>");
+				}
+				else
+				{
+					document.write("<span style='color:red'>");
+					document.write(i);
+					document.write(" </span>");
+				}
+			}
+			document.write("<h3>loop finished</h3>");
+		</script>
+	</body>
+</html>

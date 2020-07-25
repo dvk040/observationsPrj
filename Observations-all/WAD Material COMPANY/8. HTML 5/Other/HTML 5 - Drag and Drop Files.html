@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<style type="text/css">
+			#div1
+			{
+				width:450px;
+				height:270px;
+				padding:10px;
+				border:1px solid #aaaaaa;
+				overflow:auto;
+			}
+		</style>
+	</head>
+	<body>
+
+		<p>Drag image(s) into this rectangle:</p>
+
+		<div id="div1">
+
+		</div>
+		<br>
+
+		<script>
+
+			document.getElementById("div1").addEventListener("dragover", fun2);
+			document.getElementById("div1").addEventListener("drop", fun3);
+			
+			function allowDrop(ev)
+			{
+				ev.preventDefault(); //allowing dropping on div
+			}
+
+			function drop(evt)
+			{
+				evt.preventDefault();
+				
+				var files = evt.dataTransfer.files;
+				var count = files.length;
+
+				// Only call the handler if 1 or more files was dropped.
+				if (count > 0)
+				{
+					for(i=0; i<files.length; i++)
+					{
+						var file = files[i];
+						
+						//init the reader
+						var reader = new FileReader();
+
+						// begin the read operation
+						reader.readAsDataURL(files[i]);
+
+						reader.onloadend = function handleReaderLoadEnd(evt)
+						{
+							document.getElementById("div1").innerHTML += file.name + "<br>";
+						
+							document.getElementById("div1").innerHTML += "<img width=200px src='" + evt.target.result + "'>";
+							
+							document.getElementById("div1").innerHTML += "<hr>";
+						};
+						
+					}
+				}
+			}
+				
+		</script>
+
+	</body>
+
+</html>

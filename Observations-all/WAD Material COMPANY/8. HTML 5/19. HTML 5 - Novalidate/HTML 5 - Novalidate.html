@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML 5 - novalidate</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="http://localhost/serverpage.aspx" novalidate="novalidate" method="get">
+		
+			<label for="txt1">E-mail:</label><br>
+			<input type="email" name="email" id="txt1" required="required"><br>
+			
+			<label for="txt2">Age:</label><br>
+			<input type="number" name="age" id="txt2" min="18" max="70"><br>
+			
+			<input type="submit">
+		</form>
+	</body>
+</html>

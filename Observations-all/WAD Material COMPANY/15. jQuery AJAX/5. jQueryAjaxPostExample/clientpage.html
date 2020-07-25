@@ -1,0 +1,72 @@
+﻿<html>
+
+    <head>
+
+        <title>Client Page</title>
+
+        <style type="text/css">
+            body, input, select, table {
+                font-family: Tahoma;
+                font-size: 26px;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        Emp ID:
+        <input type="text" id="textbox1" />
+        <br />
+
+        Emp Name:
+        <input type="text" id="textbox2" />
+        <br />
+
+        Salary:
+        <input type="text" id="textbox3" />
+        <br />
+
+        <input type="button" id="button1" value="Insert" />
+
+        <div id="div1">Output here</div>
+
+        <script type="text/javascript" src="jquery-2.1.4.min.js">
+        </script>
+
+        <script type="text/javascript">
+
+            $("#button1").click(fun1);
+
+            function fun1() {
+    
+                var address = "Page2.aspx";
+
+                var empdata = { "EmpID": $("#textbox1").val(), "EmpName": $("#textbox2").val(), "Salary": $("#textbox3").val() };
+
+                $.ajax({
+                    url: address,
+                    type: "POST",
+                    data: empdata,
+                    success: fun2,
+                    error: fun3
+                });
+                
+            }
+
+            function fun2(response)
+            {
+                $("#div1").html(response);
+            }
+
+            function fun3(xhr)
+            {
+                alert(xhr.responseText);
+            }
+
+        </script>
+
+
+    </body>
+
+</html>

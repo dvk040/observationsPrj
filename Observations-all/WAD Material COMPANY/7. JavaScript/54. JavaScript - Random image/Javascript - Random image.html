@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>JavaScript - Random</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Random image</h1>
+		<img src="" alt="Image here" width="200px" id="randomimage">
+
+		<script type="text/javascript">
+			var n = Math.floor(Math.random() * 10);
+			var myimages = [ "img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg", "img6.jpg", "img7.jpg", "img8.jpg", "img9.jpg", "img10.jpg" ];
+			document.getElementById("randomimage").setAttribute("src", myimages[n]);
+		</script>
+	</body>
+</html>

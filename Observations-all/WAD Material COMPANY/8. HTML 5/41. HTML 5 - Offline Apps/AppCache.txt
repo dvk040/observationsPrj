@@ -1,0 +1,24 @@
+			App Cache
+			=========
+
+ - Also called as 'Offline pages'.
+
+ - It is used to automatically save the page in the browser's memory, so that the page can run on the browser offline also, later.
+
+ - Here, the system automatically stores the page on the browser's memory, without user interaction, when the page is opened for the first time.
+
+ - Next time on words, the page runs locally (offline) from browser memory.
+
+ - The programmer can force the browser to get a latest copy of the page, at-a-later time, by changing the some date in the ".appcache' file.
+
+
+=====================================================
+
+
+Benefits of AppCache:
+    * Users can view the pages offline also
+    * Reducing burden on the servers
+
+
+=====================================================
+

@@ -1,0 +1,67 @@
+﻿<html>
+
+    <head>
+
+        <title>jQuery Ajax Get data from Database Example</title>
+
+        <style type="text/css">
+
+            body, input, select, table
+            {
+                font-family: Tahoma;
+                font-size: 26px;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <input type="button" id="button1" value="Get Data from Database" />
+
+        <table id="table1" border="1">
+            <tr style="background-color:gold">
+                <th>Emp ID</th>
+                <th>Emp Name</th>
+                <th>Salary</th>
+            </tr>
+        </table>
+
+        <script type="text/javascript" src="jquery-2.1.4.js">
+        </script>
+
+        <script type="text/javascript">
+
+            $("#button1").click(fun1);
+
+            function fun1() {
+
+                $.ajax({
+                    url: 'serverpage.aspx',
+                    type: 'GET',
+                    success: fun2,
+                    error: fun3
+                });
+
+            }
+
+            function fun2(response)
+            {
+                for (var i = 0; i < response.length; i++) {
+                    var emp = response[i];
+                    var s = "<tr> <td>" + emp.EmpID + "</td> <td>" + emp.EmpName + "</td> <td>" + emp.Salary + "</td> </tr>";
+                    $("#table1").append(s);
+                }
+            }
+
+            function fun3(xhr)
+            {
+                alert(xhr.responseText);
+            }
+
+        </script>
+
+    </body>
+
+</html>

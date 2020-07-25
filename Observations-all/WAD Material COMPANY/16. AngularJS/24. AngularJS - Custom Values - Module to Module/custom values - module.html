@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>Angular JS - Custom Values</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<script src="angular.js" type="text/javascript">
+		</script>
+
+		<script type="text/javascript">
+			//create a module called "mymodule"
+			var app1 = angular.module("mymodule1", [ ] );
+			var app2 = angular.module("mymodule2", [ "mymodule1" ] );
+
+			//create a "myvalue" to "mymodule1"
+			app1.value("myvalue", "100");
+
+			//add controller called "mycontroller" to "mymodule2"
+			app2.controller("mycontroller", function($scope, myvalue)
+			{
+				$scope.x = myvalue;
+			});
+		</script>
+	</head>
+	<body>
+		<h2>Angular JS Custom Values</h2>
+
+		<div ng-app="mymodule2" ng-controller="mycontroller">
+			My Value: {{x}}
+		</div>
+	</body>
+</html>

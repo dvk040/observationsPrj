@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>jQuery - change</title>
+		<style type="text/css">
+			body,input,select
+			{
+				font-family: Tahoma;
+				font-size: 30px;
+			}
+			#p1
+			{
+				font-weight: bold;
+				font-size: 40px;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+
+		Country:
+		<select id="dropdownlist1">
+			<option>Please select</option>
+			<option>India</option>
+			<option>China</option>
+			<option>UK</option>
+			<option>USA</option>
+		</select>
+
+		<p id="p1"></p>
+
+		<script src="jquery-2.2.1.js" type="text/javascript">
+		</script>
+
+		<script type="text/javascript">
+			$("#dropdownlist1").change(function() {
+				if ($("#dropdownlist1").val() == "Please select")
+				{
+					$("#p1").html( "You selected none" );
+				}
+				else
+				{
+					$("#p1").html( $("#dropdownlist1").val() );
+				}
+			});
+		</script>
+
+	</body>
+</html>
+

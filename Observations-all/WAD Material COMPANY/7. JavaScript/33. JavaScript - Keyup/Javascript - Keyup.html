@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>JavaScript - Keyup</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Keyup</h1>
+
+		Source Text:
+		<input type="text" id="txt1">
+		<br>
+
+		Destination Text:
+		<input type="text" id="txt2">
+
+		<script type="text/javascript">
+			document.getElementById("txt1").addEventListener("keyup", fun1);
+
+			function fun1()
+			{
+				document.getElementById("txt2").value = document.getElementById("txt1").value;
+			}
+		</script>
+	</body>
+</html>

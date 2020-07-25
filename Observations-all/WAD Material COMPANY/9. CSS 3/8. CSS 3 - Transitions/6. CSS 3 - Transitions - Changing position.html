@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>CSS 3 - Transitions - Position</title>
+		<style type="text/css">
+			body
+			{
+				font-family: 'Tahoma';
+				font-size: 28px;
+			}
+            #div1
+			{
+                width: 200px;
+                height: 200px;
+                background-color: darkgreen;
+                position: relative;
+                color: yellow;
+
+                left: 0px;
+                top: 0px;
+
+                transition: left 1.5s, top 1.5s;
+            }
+
+			#div1:hover
+			{
+				left: 50px;
+				top: 50px;
+			}
+        </style>
+	</head>	
+	<body>
+
+		<div id="div1">hover me</div>
+
+	</body>	
+</html>

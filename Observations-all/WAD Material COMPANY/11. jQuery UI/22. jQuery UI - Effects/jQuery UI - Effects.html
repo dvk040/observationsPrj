@@ -1,0 +1,58 @@
+﻿<html>
+	<head>
+		<title>jQuery UI - Effects</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Segoe UI';
+				font-size: 20px;
+			}
+			#div1
+			{
+				background-color: darkred;
+				color: cyan;
+				font-size: 30px;
+				font-family: 'Segoe UI';
+				width: 800px;
+				padding: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<input type="button" id="button1" value="Hide">
+		<input type="button" id="button2" value="Show">
+
+		<div id="div1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript" src="jquery-ui.js">
+		</script>
+
+		<link href="jquery-ui.css" type="text/css" rel="stylesheet">
+
+		<script type="text/javascript">
+			$("#button1").click(fun1);
+			$("#button2").click(fun2);
+
+			function fun1()
+			{
+				$("#div1").hide("scale", {}, 1000, callback );
+				// Options: blind | bounce | clip | drop | explode | fold | highlight | puff | pulsate | scale | shake | size | slide
+			}
+
+			function fun2()
+			{
+				$("#div1").show("scale", {}, 1000, callback );
+				// Options: blind | bounce | clip | drop | explode | fold | highlight | puff | pulsate | scale | shake | size | slide
+			}
+
+			function callback()
+			{
+				alert("Done");
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+﻿<html>
+	<head>
+		<title>jQuery UI - Sortable</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Segoe UI';
+				font-size: 25px;
+			}
+			#list1 { list-style-type: none; padding: 0; }
+			#list1 li { margin: 5px; }
+		</style>
+	</head>
+	<body>
+
+		<ul id="list1">
+			<li class="ui-widget-content">Item 1</li>
+			<li class="ui-widget-content">Item 2</li>
+			<li class="ui-widget-content">Item 3</li>
+			<li class="ui-widget-content">Item 4</li>
+			<li class="ui-widget-content">Item 5</li>
+			<li class="ui-widget-content">Item 6</li>
+			<li class="ui-widget-content">Item 7</li>
+		</ul>
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript" src="jquery-ui.js">
+		</script>
+
+		<link href="jquery-ui.css" type="text/css" rel="stylesheet">
+
+		<script type="text/javascript">
+			$("#list1").sortable();
+		</script>
+	</body>
+</html>

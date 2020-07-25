@@ -1,0 +1,114 @@
+<html>
+	<head>
+		<title>JavaScript OOPS - Prototype</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>JavaScript OOPS - Prototype</h1>
+
+		<script type="text/javascript">
+
+			/*creating class*/
+			function Student(a, b, c, d, e)
+			{
+				this.studentid = a;
+				this.studentname = b;
+				this.marks1 = c;
+				this.marks2 = d;
+				this.marks3 = e;
+				this.totalmarks = 0;
+				this.averagemarks = 0;
+				this.grade = "";
+			}
+
+			Student.prototype.calculatetotalmarks = function()
+			{
+				this.totalmarks = this.marks1 + this.marks2 + this.marks3;
+			};
+
+			Student.prototype.calculateaveragemarks = function()
+			{
+				this.averagemarks = this.totalmarks / 3;
+			};
+
+			Student.prototype.calculategrade = function()
+			{
+				if (this.marks1 >= 35 && this.marks2 >=35 && this.marks3 >= 35)
+				{
+					if (this.averagemarks >= 80 && this.averagemarks <=100)
+					{
+						this.grade = "A grade";
+					}
+					else if (this.averagemarks >= 60 && this.averagemarks < 80)
+					{
+						this.grade = "B grade";
+					}
+					else if (this.averagemarks >= 50 && this.averagemarks < 60)
+					{
+						this.grade = "C grade";
+					}
+					else if (this.averagemarks >= 35 && this.averagemarks < 50)
+					{
+						this.grade = "D grade";
+					}
+				}
+				else
+				{
+					this.grade = "Fail";
+				}
+			};
+
+			/*creating objects*/
+			var student1 = new Student(101, "scott", 70, 85, 90);
+			var student2 = new Student(102, "allen", 80, 45, 77);
+
+			/* call methods */
+			student1.calculatetotalmarks();
+			student1.calculateaveragemarks();
+			student1.calculategrade();
+			student2.calculatetotalmarks();
+			student2.calculateaveragemarks();
+			student2.calculategrade();
+
+			/* display output */
+			document.write("Student ID: " + student1.studentid);
+			document.write("<br>");
+			document.write("Student Name: " + student1.studentname);
+			document.write("<br>");
+			document.write("Marks 1: " + student1.marks1);
+			document.write("<br>");
+			document.write("Marks 2: " + student1.marks2);
+			document.write("<br>");
+			document.write("Marks 3: " + student1.marks3);
+			document.write("<br>");
+			document.write("Total Marks: " + student1.totalmarks);
+			document.write("<br>");
+			document.write("Average Marks: " + student1.averagemarks);
+			document.write("<br>");
+			document.write("Grade: " + student1.grade);
+			document.write("<hr>");
+
+			document.write("Student ID: " + student2.studentid);
+			document.write("<br>");
+			document.write("Student Name: " + student2.studentname);
+			document.write("<br>");
+			document.write("Marks 1: " + student2.marks1);
+			document.write("<br>");
+			document.write("Marks 2: " + student2.marks2);
+			document.write("<br>");
+			document.write("Marks 3: " + student2.marks3);
+			document.write("<br>");
+			document.write("Total Marks: " + student2.totalmarks);
+			document.write("<br>");
+			document.write("Average Marks: " + student2.averagemarks);
+			document.write("<br>");
+			document.write("Grade: " + student2.grade);
+		</script>
+	</body>
+</html>

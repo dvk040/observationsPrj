@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<title>Angular JS - Custom Factories</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<script src="angular.js" type="text/javascript">
+		</script>
+
+		<script type="text/javascript">
+			//create a module called "mymodule"
+			var app = angular.module("mymodule", [ ] );
+
+			//add factory called "myfactory" to "mymodule"
+			app.factory("myfactory", function()
+			{
+				var temp = { };
+
+				temp.add = function(a, b)
+				{
+					var c = parseInt(a) + parseInt(b);
+					return c;
+				}
+
+				temp.subtract = function(a, b)
+				{
+					var c = parseInt(a) - parseInt(b);
+					return c;
+				}
+
+				return temp;
+			});
+
+			//add controller called "mycontroller" to "mymodule"
+			app.controller("mycontroller", [ "$scope", "myfactory", function($scope, myfactory)
+			{
+				$scope.firstnumber = "";
+				$scope.secondnumber = "";
+				$scope.result = "";
+
+				$scope.add = function()
+				{
+					$scope.result = myfactory.add($scope.firstnumber, $scope.secondnumber);
+				}
+
+			} ] );
+		</script>
+	</head>
+	<body>
+		<h2>Angular JS Custom Factories</h2>
+
+		<div ng-app="mymodule" ng-controller="mycontroller">
+			First number: <input type="text" ng-model="firstnumber"><br>
+			Second number: <input type="text" ng-model="secondnumber"><br>
+
+			<input type="button" value="Add" ng-click="add()"><br>
+
+			Result: <input type="text" ng-model="result" readonly="readonly"><br>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJS - Ajax - Get</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<!-- import angular-js script file -->
+		<script type="text/javascript" src="angular.js">
+		</script>
+
+		<script type="text/javascript">
+				//creating a module called "mymodule"
+				var app = angular.module("mymodule", [ ] );
+
+				//creating a controller called "mycontroller", in a module called "mymodule"
+				app.controller("mycontroller", function($scope, $http)
+				{
+					//ajax
+					$http.get("ServerPage.aspx").success(
+					function (response)
+					{
+						alert(JSON.stringify(response));
+						$scope.emps = response;
+					});
+				});
+
+		</script>
+	</head>
+	<body>
+		<!-- angularjs view starts -->
+		<div ng-app="mymodule" ng-controller="mycontroller">
+
+			Seach: <input type="text" ng-model="search.empname">
+
+			<table border="1" cellpadding="5px">
+
+				<tr>
+					<th>Emp ID</th>
+					<th>Emp Name</th>
+					<th>Salary</th>
+				</tr>
+
+				<tr ng-repeat="emp in emps | filter:search | orderBy:'salary' ">
+					<td>{{emp.empid}}</td>
+					<td>{{emp.empname}}</td>
+					<td>{{emp.salary}}</td>
+				</tr>
+
+			</table>
+
+		</div>
+		<!-- angularjs view ends -->
+	</body>
+</html>

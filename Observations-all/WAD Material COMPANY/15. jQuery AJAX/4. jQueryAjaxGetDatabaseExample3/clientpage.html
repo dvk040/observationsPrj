@@ -1,0 +1,100 @@
+﻿<html>
+
+    <head>
+
+        <title>jQuery Ajax Get data from Database Example</title>
+
+        <style type="text/css">
+
+            body, input, select, table
+            {
+                font-family:Tahoma;
+                font-size: 26px;
+            }
+
+            #DropDownList1, #DropDownList2
+            {
+                width: 200px;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        Country:
+        <select id="DropDownList1">
+            <option>Please Select</option>
+        </select>
+        <br />
+
+        State: <select id="DropDownList2"></select>
+
+        <script type="text/javascript" src="jquery-2.1.4.js">
+        </script>
+
+        <script type="text/javascript">
+
+            $(fun1);
+
+            function fun1() {
+
+                $.ajax({
+                    url: 'serverpage1.aspx',
+                    type: 'GET',
+                    success: fun2,
+                    error: fun3
+                });
+
+            }
+
+            function fun2(response)
+            {
+                for (var i = 0; i < response.length; i++) {
+                    var emp = response[i];
+                    var s = "<option value=' " + emp.CountryID + " '>" + emp.CountryName + "</option>";
+                    $("#DropDownList1").append(s);
+                }
+            }
+
+            function fun3(xhr)
+            {
+                alert(xhr.responseText);
+            }
+
+            //////////////////////////////
+
+            $("#DropDownList1").change(fun4);
+
+            function fun4()
+            {
+                $.ajax({
+                    url: 'serverpage2.aspx?CountryID=' + $("#DropDownList1").val(),
+                    type: 'GET',
+                    success: fun5,
+                    error: fun6
+                });
+            }
+
+            function fun5(response) {
+
+                $("#DropDownList2").empty();
+
+                for (var i = 0; i < response.length; i++) {
+                    var emp = response[i];
+                    var s = "<option value=' " + emp.StateID + " '>" + emp.StateName + "</option>";
+                    $("#DropDownList2").append(s);
+                }
+
+            }
+
+            function fun6(xhr) {
+                alert(xhr.responseText);
+            }
+
+        </script>
+
+    </body>
+
+</html>

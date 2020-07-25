@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<title>jQuery - JSON User Data</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h3>Type Person Details</h3>
+
+		<div id="div1">
+			
+			First Name:<br>
+			<input type="text" id="textbox1"><br>
+			
+			Last Name:<br>
+			<input type="text" id="textbox2"><br>
+			
+			Age:<br>
+			<input type="text" id="textbox3"><br>
+			
+		</div>
+		
+		<input type="button" id="button1" value="Add">
+		
+        <script type="text/javascript" src="jquery-2.2.1.js">
+        </script>
+
+        <script type="text/javascript">
+            
+            $("#button1").click(fun1);
+
+			//global variable
+            var Persons = [ ];
+
+			function fun1()
+			{
+				var p = { "FirstName": $("#textbox1").val(), "LastName": $("#textbox2").val(), "Age": $("#textbox3").val() };
+				Persons.push(p);
+
+				alert(JSON.stringify(Persons)); //convert json to string.
+
+				$("#div1 input[type=text]").val("");
+				$("#textbox1").focus();
+			};
+        </script>
+	</body>	
+</html>
+
+<!--
+push = Adding json object into json array
+-->
+
+<!--
+JSON.stringify() ==>  Converting "json object or json array" into "string" format.
+-->
+
+<!--
+JSON.parse() ==> Converting "string" into "json object or json array" format.
+-->

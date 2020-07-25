@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<title>Math</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h2>Math</h2>
+
+		First number:
+		<input type="text" data-bind="value: m.firstnumber">
+		<br>
+
+		Second number:
+		<input type="text" data-bind="value: m.secondnumber">
+		<br>
+
+		<input type="button" value="Add" data-bind="click: add">
+		<input type="button" value="Subtract" data-bind="click: subtract">
+		<input type="button" value="Multiply" data-bind="click: multiply">
+		<input type="button" value="Divide" data-bind="click: divide">
+		<br>
+
+		Result:
+		<input type="text" data-bind="value: m.result">
+
+		<script type="text/javascript" src="knockout-3.4.0.js">
+		</script>
+
+		<script type="text/javascript">
+
+			function mymodel()
+			{
+					this.firstnumber = ko.observable("");
+					this.secondnumber = ko.observable("");
+					this.result = ko.observable("");
+			};
+
+            function myviewmodel()
+			{
+				var self = this;
+
+				self.m = new mymodel();
+
+				self.add = function() 
+				{
+					self.m.result(parseInt(self.m.firstnumber()) + parseInt(self.m.secondnumber()));
+				};
+
+				self.subtract = function() 
+				{
+					self.m.result(parseInt(self.m.firstnumber()) - parseInt(self.m.secondnumber()));
+				};
+
+				self.multiply = function() 
+				{
+					self.m.result(parseInt(self.m.firstnumber()) * parseInt(self.m.secondnumber()));
+				};
+
+				self.divide = function() 
+				{
+					self.m.result(parseInt(self.m.firstnumber()) / parseInt(self.m.secondnumber()));
+				};
+
+            };
+
+            ko.applyBindings(new myviewmodel());
+		</script>
+		
+	</body>
+</html>

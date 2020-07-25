@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>JavaScript - click</title>
+		<style type="text/css">
+			body
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#div1
+			{
+				background-color: hotpink;
+				width: 200px;
+				height: 200px;
+				border: 4px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>click</h1>
+
+		<div id="div1">click me</div>
+
+		<script type="text/javascript">
+			document.getElementById("div1").addEventListener("click", fun1);
+
+			function fun1()
+			{
+				document.getElementById("div1").innerHTML = "thanx";
+				//this = div1
+			}
+		</script>
+	</body>
+</html>

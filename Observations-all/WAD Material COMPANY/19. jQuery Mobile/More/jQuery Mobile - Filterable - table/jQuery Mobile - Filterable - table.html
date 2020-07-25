@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<title>jQuery Mobile</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="jquery.mobile-1.4.5.css" type="text/css">
+
+		<script src="jquery-2.2.0.js" type="text/javascript">
+		</script>
+
+		<script src="jquery.mobile-1.4.5.js" type="text/javascript">
+		</script>
+
+	</head>
+	<body>
+
+		<div data-role="page">
+
+			<div data-role="header">
+				<h1>Filterable Table</h1>
+			</div>
+
+			<div role="main" class="ui-content">
+
+				<form>
+					<input id="TextBox1" data-type="search">
+				</form>
+
+				<table data-role="table" data-filter="true" data-input="#TextBox1" class="ui-responsive">
+
+					<thead>
+
+						<tr>
+							<th data-priority="1">Rank</th>
+							<th data-priority="persist">Movie Title</th>
+							<th data-priority="2">Year</th>
+							<th data-priority="3"><abbr title="Rotten Tomato Rating">Rating</abbr></th>
+							<th data-priority="4">Reviews</th>
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+						<tr>
+							<th>1</th>
+							<td><a href="http://en.wikipedia.org/wiki/Citizen_Kane" data-rel="external">Citizen Kane</a></td>
+							<td>1941</td>
+							<td>100%</td>
+							<td>74</td>
+						</tr>
+
+						<tr>
+							<th>2</th>
+							<td><a href="http://en.wikipedia.org/wiki/Casablanca_(film)" data-rel="external">Casablanca</a></td>
+							<td>1942</td>
+							<td>97%</td>
+							<td>64</td>
+						</tr>
+
+						<tr>
+							<th>3</th>
+							<td><a href="http://en.wikipedia.org/wiki/The_Godfather" data-rel="external">The Godfather</a></td>
+							<td>1972</td>
+							<td>97%</td>
+							<td>87</td>
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+			<div data-role="footer">
+				<h4>Page Footer</h4>
+			</div>
+
+		</div>
+
+	</body>
+</html>

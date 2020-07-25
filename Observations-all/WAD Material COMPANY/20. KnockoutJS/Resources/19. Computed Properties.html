@@ -1,0 +1,39 @@
+<html>
+
+	<head>
+        <title>Computed Properties</title>
+	</head>
+
+	<body>
+
+        <p>First Name: <input data-bind="value: firstName"></p>
+		<p>First Name: <span data-bind="text: firstName"></span></p>
+        <br />
+
+        <p>Last Name: <input data-bind="value: lastName"></p>
+        <p>Last Name: <span data-bind="text: lastName"></span></p>
+        <br />
+
+        <p>Full Name: <span data-bind="text: fullName"></span></p>
+
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js">
+		</script>
+
+		<script type="text/javascript">
+
+            var obj = {
+                firstName: ko.observable("Harry"),
+                lastName: ko.observable("Potter")
+            };
+
+            obj.fullName = ko.computed(function () {
+                return obj.firstName() + " " + obj.lastName();
+            });
+
+            ko.applyBindings(obj);
+
+		</script>
+
+	</body>
+
+</html>

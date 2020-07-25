@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>jQuery - slide</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#div1
+			{
+				width: 245px;
+				height: 130px;
+				background-color: #ff6699;
+				text-align: justify;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="div1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+
+		<input type="button" id="button1" value="slide up">
+		<input type="button" id="button2" value="slide down">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+			$("#button1").click(fun1);
+			$("#button2").click(fun2);
+
+			function fun1()
+			{
+				$("#div1").slideUp(1000);
+			}
+
+			function fun2()
+			{
+				$("#div1").slideDown(1000);
+			}
+		</script>
+	</body>
+</html>

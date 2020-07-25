@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CSS 3 - Animations - Position</title>
+		<style type="text/css">
+			body
+			{
+				font-family: 'Tahoma';
+				font-size: 23px;
+			}
+			#div1
+			{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				position: relative;
+
+				animation: animation1 20s;
+			}
+
+			@keyframes animation1
+			{
+				0%   { background-color: red; left: 0px; top: 0px;}
+				25%  { background-color: yellow; left: 200px; top: 0px;}
+				50%  { background-color: blue; left: 200px; top: 200px;}
+				75%  { background-color: green; left: 0px; top: 200px;}
+				100% { background-color: red; left: 0px; top: 0px;}
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="div1">div 1</div>
+
+	</body>	
+</html>

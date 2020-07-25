@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>jQuery - PrependTo</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#div1
+			{
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+
+		<span id="span1">
+			span1
+		</span>
+
+		<div id="div1">
+			div1
+		</div>
+		<br>
+
+		<input type="button" id="button1" value="prepend to">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+				$("#span1").prependTo("#div1");
+				//$("#span1").clone().prependTo("#div1");
+			}
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>CSS - Adjacent one sibling selector</title>
+		<style type="text/css">
+            body
+			{
+                font-family: 'Tahoma';
+                font-size: 24px;
+            }
+
+			/*Selecting next <p> tag after </div> */
+			div+p
+			{
+				background-color: skyblue;
+			}
+
+			/*Selecting all <p> tags next to the </div> */
+			/*div~p
+			{
+				background-color: skyblue;
+			}*/
+
+		</style>
+	</head>
+	<body>
+		<h1>Adjacent One Sibling Selector</h1>
+
+		<div id="div1">
+			<p>para 1</p>
+			<p>para 2</p>
+			<p>para 3</p>
+			<p>para 4</p>
+		</div>
+
+		<p>para 5</p>
+		<p>para 6</p>
+		<p>para 7</p>
+		<p>para 8</p>
+		<p>para 9</p>
+		<p>para 10</p>
+	</body>
+</html>

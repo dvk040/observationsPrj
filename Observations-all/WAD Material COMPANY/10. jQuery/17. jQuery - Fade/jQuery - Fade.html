@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>jQuery - fade</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#div1
+			{
+				width: 245px;
+				height: 130px;
+				background-color: #ff6699;
+				text-align: justify;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="div1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+
+		<input type="button" id="button1" value="fade out">
+		<input type="button" id="button2" value="fade in">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+			$("#button1").click(fun1);
+			$("#button2").click(fun2);
+
+			function fun1()
+			{
+				$("#div1").fadeOut(1000); //1000 milli sec = 1 sec
+			}
+
+			function fun2()
+			{
+				$("#div1").fadeIn(1000);
+			}
+		</script>
+	</body>
+</html>

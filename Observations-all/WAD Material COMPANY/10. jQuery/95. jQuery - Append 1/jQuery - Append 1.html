@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>jQuery - Append 1</title>
+		<style type="text/css">
+			body,select
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		Years:
+		<select id="dropdownlist1">
+			
+		</select>
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+		
+		<script type="text/javascript">
+	
+			for(var i=2016; i>=1916; i--)
+			{
+				var s = "<option>" + i + "</option>";
+				$("#dropdownlist1").append(s);
+			}
+
+		</script>
+		
+	</body>
+</html>

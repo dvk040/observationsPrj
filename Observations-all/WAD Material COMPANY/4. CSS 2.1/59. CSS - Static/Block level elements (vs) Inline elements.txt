@@ -1,0 +1,14 @@
+Tags are two types (based on the position):
+----------------------------------------------------
+
+  1) Block level elements (Block level tags)
+  2) Inline elements (Inline tags)
+
+
+1) Block level elements:
+        * <div>, <h1>, <h2>, <h3>, <h4>, <h5>, <h6>, <p>, <table>, <tr>, <ul>, <ol>, <li> are block level elements.
+        * Will be displayed line-by-line.
+
+2) Inline elements:
+        * All remaining tags (like <span>, <b>, <i>, <u>, <a>, <img>, <input>, <select> etc.) are inline elements.
+        * Will be displayed side-by-side.

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Canvas - beginPath</title>
+	</head>
+	<body>
+
+		<canvas id="canvas1" width="400px" height="400px" style="border:5px solid black;">
+		</canvas>
+
+		<script>
+			var ctx = document.getElementById("canvas1").getContext("2d");
+
+			ctx.beginPath(); //Begins a path, or resets the current path
+			ctx.lineWidth = 5;
+			ctx.strokeStyle = "green";  //Green path
+			ctx.moveTo(0,75);
+			ctx.lineTo(250,75);
+			ctx.stroke();  //Draw it
+
+			ctx.beginPath(); //Begins a path, or resets the current path
+			ctx.strokeStyle = "purple";  //Purple path
+			ctx.moveTo(50,0);
+			ctx.lineTo(150,130);
+			ctx.stroke();  //Draw it
+		</script>
+
+	</body>
+</html>

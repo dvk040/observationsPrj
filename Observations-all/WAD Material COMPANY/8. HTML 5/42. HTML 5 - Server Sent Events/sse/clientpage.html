@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SSE Demo</title>
+	</head>
+	<body>
+		<h1>Getting server updates</h1>
+
+		<div id="result"></div>
+
+		<script type="text/javascript">
+			var source = new EventSource("serverpage.aspx");
+			source.onmessage = fun1;
+
+			function fun1(event)
+			{
+				document.getElementById("result").innerHTML += event.data + "<br>";
+			};
+        </script>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>jQuery - toggle</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#div1
+			{
+				width: 245px;
+				height: 130px;
+				background-color: #ff6699;
+				text-align: justify;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="div1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+
+		<input type="button" id="button1" value="fade toggle">
+		<input type="button" id="button2" value="slide toggle">
+		<input type="button" id="button3" value="show/hide toggle">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+			$("#button1").click(fun1);
+			$("#button2").click(fun2);
+			$("#button3").click(fun3);
+
+			function fun1()
+			{
+				$("#div1").fadeToggle(1000); //fadeOut or fadeIn
+			}
+
+			function fun2()
+			{
+				$("#div1").slideToggle(1000); //slideUp or slideDown
+			}
+
+			function fun3()
+			{
+				$("#div1").toggle(1000); //hide or show
+			}
+		</script>
+	</body>
+</html>

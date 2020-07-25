@@ -1,0 +1,39 @@
+﻿<html>
+	<head>
+		<title>jQuery UI - ButtonSet</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Segoe UI';
+				font-size: 25px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="div1">
+
+			<input type="radio" id="radio1" name="radio">
+			<label for="radio1">Debit Card</label>
+
+			<input type="radio" id="radio2" name="radio">
+			<label for="radio2">Credit Card</label>
+
+			<input type="radio" id="radio3" name="radio">
+			<label for="radio3">Net Banking</label>
+
+		</div>
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript" src="jquery-ui.js">
+		</script>
+
+		<link href="jquery-ui.css" type="text/css" rel="stylesheet">
+
+		<script type="text/javascript">
+			$("#div1").buttonset();
+		</script>
+	</body>
+</html>

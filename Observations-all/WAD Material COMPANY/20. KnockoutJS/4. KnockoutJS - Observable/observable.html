@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>KnockoutJS - observable</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<input type="text" data-bind="value: username, valueUpdate: 'keyup' ">
+		<input type="text" data-bind="value: username, valueUpdate: 'keyUp' ">
+
+		<script type="text/javascript" src="knockout-3.4.0.js">
+		</script>
+
+		<script type="text/javascript">
+
+            function myviewmodel()
+			{
+				this.username = ko.observable("scott");
+            };
+
+            ko.applyBindings(new myviewmodel());
+				
+		</script>
+
+	</body>
+</html>

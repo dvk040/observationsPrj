@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJS - JSON</title>		
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<!-- import angular-js script file -->
+		<script type="text/javascript" src="angular.js">
+		</script>
+	</head>
+	<body>
+		<!-- angularjs view starts -->
+		<div ng-app ng-init="employee = { empid: 101, empname:'scott', salary:5000 }; student = { stuid: 201, stuname: 'allen', marks: 80 }">
+			<p>Emp ID: {{employee.empid}}</p>
+			<p>Emp Name: {{employee.empname}}</p>
+			<p>Salary: {{employee.salary}}</p>
+			<hr>
+
+			<p>Student ID: {{student.stuid}}</p>
+			<p>Student Name: {{student.stuname}}</p>
+			<p>Marks: {{student.marks}}</p>
+		</div>
+		<!-- angularjs view ends -->
+	</body>
+</html>

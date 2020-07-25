@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>JavaScript - logical operators</title>
+		<style type="text/css">
+			body
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>JavaScript - logical operators</h1>
+
+		<script type="text/javascript">
+			var x = 100;
+			var y = 200;
+			var z = 50;
+
+			var temp1 = ( (x<y) && (x>z) );
+			document.write(temp1); //true
+			document.write("<br>");
+
+			var temp2 = ( (x<y) || (x<z) );
+			document.write(temp2); //true
+			document.write("<br>");
+
+			var temp3 = ( !(x<y) );
+			document.write(temp3); //false
+		</script>
+	</body>
+</html>

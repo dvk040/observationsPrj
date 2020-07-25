@@ -1,0 +1,44 @@
+﻿<html>
+	<head>
+		<title>jQuery - Selectors</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="div1">
+
+			<p>The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+
+			<p id="p1">Lorem Ipsum is simply dummy text of the printing.</p>
+
+			<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+
+			<p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+
+		</div>
+
+		<input type="button" value="Select" id="button1">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+				$("#p1").next().css("background-color", "lightgreen");
+				//The "next()" function returns next tag, which is present after "#p1".
+			}
+
+		</script>
+
+	</body>
+</html>

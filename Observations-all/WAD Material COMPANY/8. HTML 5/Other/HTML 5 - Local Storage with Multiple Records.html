@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Local storage with Multiple Records</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>	
+	<body>
+		<form>
+			<fieldset>
+				
+				<label for="txt1">First Name:</label><br>
+				<input type="text" name="txt1" id="txt1"><br>
+				
+				<label for="txt2">Last Name:</label><br>
+				<input type="text" name="txt2" id="txt2"><br>
+				
+				<label for="txt3">Age:</label><br>
+				<input type="text" name="txt3" id="txt3"><br>
+				
+				<input type="button" id="button1" value="Add">
+				<input type="button" id="button2"  value="Get Data">
+
+			</fieldset>
+		</form>
+
+		<div>
+			<table id="table1" border="1">
+			</table>
+		</div>
+
+		<script>
+
+			document.getElementById("button1").addEventListener("click", fun1);
+			document.getElementById("button2").addEventListener("click", fun2);
+
+			function fun1()
+			{
+				//get values from text boxes
+				var temp1 = document.getElementById("txt1").value;
+				var temp2 = document.getElementById("txt2").value;
+				var temp3 = document.getElementById("txt3").value;
+
+				var persons = JSON.parse(localStorage.getItem('persons'));
+				if (typeof persons == 'undefined' || persons == null)
+				{
+					persons = [ ];
+				}
+				
+				//create json object
+				var person = { "firstname": temp1, "lastname": temp2, "age": temp3 };
+
+				//store json object into array
+				persons.push(person);
+
+				localStorage.setItem("persons", JSON.stringify(persons));
+				
+				//clear the text boxes
+				document.getElementById("txt1").value = "";
+				document.getElementById("txt2").value = "";
+				document.getElementById("txt3").value = "";
+				
+				alert("Saved");
+			}
+			
+			function fun2()
+			{
+				var temp = "";
+				var persons = JSON.parse(localStorage.persons);
+
+				for (i=0; i< persons.length; i++)
+				{
+					temp = temp + "<tr> <td>" + persons[i].firstname + "</td> <td>" + persons[i].lastname + "</td> <td>" + persons[i].age + "</td> </tr>";
+				}
+				document.getElementById("table1").innerHTML = temp;
+			}
+			
+		</script>
+	</body>	
+</html>

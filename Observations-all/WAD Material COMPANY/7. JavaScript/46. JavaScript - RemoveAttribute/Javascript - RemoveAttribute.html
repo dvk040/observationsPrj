@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>JavaScript - removeAttribute</title>
+		<style type="text/css">
+			body,input
+			{
+				font: 30px tahoma;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img1.jpg" id="myimage" width="300px" title="title here">
+		<br>
+		<input type="button" id="btn1" value="Remove attribute">
+
+		<script type="text/javascript">
+			document.getElementById("btn1").addEventListener("click", fun1);
+
+			function fun1()
+			{
+				document.getElementById("myimage").removeAttribute("title");
+			}
+		</script>
+	</body>
+</html>

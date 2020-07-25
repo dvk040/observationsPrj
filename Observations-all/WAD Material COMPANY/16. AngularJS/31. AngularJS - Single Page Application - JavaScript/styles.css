@@ -1,0 +1,19 @@
+body
+{
+	font-family: 'Tahoma';
+	font-size: 30px;
+}
+
+#navigation a
+{
+	background-color: #00ccff;
+	color: white;
+	padding: 3px;
+	text-decoration: none;
+}
+
+#navigation a.active
+{
+	background-color: darkgreen;
+	text-decoration: underline;
+}

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="angularjscountriesdatabaseModelStoreContainer" CdmEntityContainer="angularjscountriesdatabaseEntities">
+    <EntitySetMapping Name="countries">
+      <EntityTypeMapping TypeName="angularjscountriesdatabaseModel.country">
+        <MappingFragment StoreEntitySet="countries">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="Population" ColumnName="Population" />
+          <ScalarProperty Name="FlagURL" ColumnName="FlagURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

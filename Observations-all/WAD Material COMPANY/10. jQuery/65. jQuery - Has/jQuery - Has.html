@@ -1,0 +1,52 @@
+﻿<html>
+	<head>
+		<title>jQuery - Selectors</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<p>Lorem Ipsum is simply dummy text of the printing.</p>
+
+		<p>It is a long established fact that a reader <span>will be distracted</span> by the readable content of a page when looking at its layout.</p>
+
+		<p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+
+		<p>It has roots in a piece of classical Latin literature from <span>45 BC</span>, making it over 2000 years old.</p>
+
+		<p>If you are going to use a passage of <span>Lorem Ipsum</span>, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+
+		<p>The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+
+		<p>Various versions have over the years, sometimes by accident, sometimes on purpose.</p>
+
+		<p>There are many variations of passages of <span>Lorem Ipsum available</span>, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+
+		<p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+
+		<p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+
+		<input type="button" value="Select" id="button1">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+				$("p:has('span')").css("background-color", "lightgreen"); //has
+				//It selects the <p> tags that have a child called <span>
+			}
+
+		</script>
+
+	</body>
+</html>

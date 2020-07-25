@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>jQuery - Attributes</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<img id="myImage" src="img1.jpg" width="120px" title="this is tooltip">
+		<br>
+
+		<input type="button" id="button1" value="remove attribute">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+				$("#myImage").removeAttr("title");
+			}			
+		</script>
+	</body>
+</html>

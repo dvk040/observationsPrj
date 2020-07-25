@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h1>jQuery - one</h1>
+
+		<input type="button" id="button1" value="click me">
+		<div id="div1">1</div>
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+			$("#button1").one("click", fun1);
+
+			function fun1()
+			{
+				var n = parseInt( $("#div1").html() ); //getting html
+				n++;
+				$("#div1").html(n); //setting html
+			}
+		</script>
+	</body>
+</html>

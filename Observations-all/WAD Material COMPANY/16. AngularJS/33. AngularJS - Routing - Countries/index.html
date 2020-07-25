@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="mymodule">
+	<head>
+		<title>AngularJS Routing - With Parameters - Example</title>
+
+		<link href="StyleSheet.css" rel="stylesheet" type="text/css">
+
+		<script src="angular.min.js" type="text/javascript">
+		</script>
+
+		<script src="angular-route.min.js" type="text/javascript">
+		</script>
+
+		<script type="text/javascript">
+			var app = angular.module("mymodule", ["ngRoute"]);
+
+			app.config(function($routeProvider)
+			{
+
+				  $routeProvider
+
+					.when("/allcountries", {
+						templateUrl: "allcountries.html",
+						controller: "allcountriescontroller",
+					  })
+
+					.when("/:countryname", {
+						templateUrl: "countrydetails.html",
+						controller: "countrydetailscontroller"
+					})
+
+					.otherwise({
+						redirectTo: "/allcountries"
+					});
+			});
+
+
+			app.controller("allcountriescontroller", function($scope, $http) {
+				$http.get("countries.json").success(function(data)
+				{
+					$scope.countries = data;
+				});
+			});
+
+
+			app.controller("countrydetailscontroller", function($scope, $http, $routeParams) {
+
+				$scope.selectedcountryname = $routeParams.countryname;
+
+				$http.get("countries.json").success(function(data)
+				{
+					for (i=0; i<data.length; i++)
+					{
+						if (data[i].countryname == $routeParams.countryname)
+						{
+							$scope.selectedcountrypopulation = data[i].population;
+							$scope.selectedcountryflagurl = data[i].flagurl;
+						}
+					}
+				});
+				
+			});
+
+		</script>
+
+	</head>
+	<body>
+
+		<h1>Countries</h1>
+
+		<div ng-view>
+		</div>
+
+		<p>This is footer</p>
+		
+	</body>
+</html>

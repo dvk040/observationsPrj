@@ -1,0 +1,39 @@
+﻿<html>
+	<head>
+		<title>jQuery - document.ready</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+
+			//fun1();
+
+			//$(document).ready(fun1);
+
+			$(fun1);
+
+			//Browser waits until the page load completed; after page loading completed, it calls fun1 automatically.
+
+			function fun1()
+			{
+				$("#div1").html("Welcome");
+			}
+
+		</script>
+	</head>
+	<body>
+
+		<h1>Page</h1>
+	
+		<div id="div1">div 1</div>
+
+	</body>
+</html>

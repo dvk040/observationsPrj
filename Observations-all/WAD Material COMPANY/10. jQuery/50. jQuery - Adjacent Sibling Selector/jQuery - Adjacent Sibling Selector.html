@@ -1,0 +1,45 @@
+﻿<html>
+	<head>
+		<title>jQuery - Selectors</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="div1">
+
+			<p id="p1">Lorem Ipsum is simply dummy text of the printing.</p>
+
+			<img src="img4.jpg" width="100px">
+			<img src="img5.jpg" width="100px">
+			<img src="img6.jpg" width="100px">
+
+		</div>
+
+		<input type="button" value="Select" id="button1">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+				//$("#p1+img").css("border", "10px solid lightgreen"); //Adjacent One Sibling Selector
+				//It selects one <img> tag, which is immediately next to </p>
+
+				$("#p1~img").css("border", "10px solid lightgreen"); //Adjacent Sibling Selector
+				//It selects all <img> tags, which are next to </p>
+			}
+
+		</script>
+
+	</body>
+</html>

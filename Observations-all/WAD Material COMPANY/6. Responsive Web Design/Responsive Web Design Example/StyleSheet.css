@@ -1,0 +1,390 @@
+@media (min-width: 1200px)
+{
+
+	body,input
+	{
+		font-family: Tahoma;
+		font-size: 28px;
+	}
+
+	*
+	{
+		margin: 0px;
+		padding: 0px;
+	}
+
+	#outercontainer
+	{
+		background-color: #00ffcc;
+		width: 98%;
+		margin: auto;
+	}
+
+	#header
+	{
+		background-color: #0066cc;
+		height: 200px;
+	}
+
+	#nav
+	{
+		background-color: #33ccff;
+		height: 120px;
+	}
+
+	#container
+	{
+		background-color: #ccffcc;
+	}
+
+	#leftcol
+	{
+		background-color: #ffcccc;
+		height: 700px;
+		width: 30%;
+		float: left;
+	}
+
+	#pagecontent
+	{
+		background-color: #99ccff;
+		height: 700px;
+		width: 70%;
+		float: left;
+	}
+
+	#footer
+	{
+		background-color: #ff0099;
+		height: 100px;
+		clear: left;
+	}
+
+	#div1
+	{
+		background-color: #ccffcc;
+		width: 25%;
+		height: 200px;
+		float: left;
+	}
+
+	#div2
+	{
+		background-color: #cccc99;
+		width: 25%;
+		height: 200px;
+		float: left;
+	}
+
+	#div3
+	{
+		background-color: #00ff33;
+		width: 25%;
+		height: 200px;
+		float: left;
+	}
+
+	#div4
+	{
+		background-color: #ffff99;
+		width: 25%;
+		height: 200px;
+		float: left;
+	}
+
+}
+
+
+
+
+
+@media (min-width: 1024px) and (max-width: 1199px)
+{
+
+	body,input
+	{
+		font-family: Tahoma;
+		font-size: 28px;
+	}
+
+	*
+	{
+		margin: 0px;
+		padding: 0px;
+	}
+
+	#outercontainer
+	{
+		background-color: #00ffcc;
+		width: 98%;
+		margin: auto;
+	}
+
+	#header
+	{
+		background-color: #0066cc;
+		height: 200px;
+	}
+
+	#nav
+	{
+		background-color: #33ccff;
+		height: 120px;
+	}
+
+	#container
+	{
+		background-color: #ccffcc;
+	}
+
+	#leftcol
+	{
+		background-color: #ffcccc;
+		height: 700px;
+		width: 30%;
+		float: left;
+	}
+
+	#pagecontent
+	{
+		background-color: #99ccff;
+		height: 700px;
+		width: 70%;
+		float: left;
+	}
+
+	#footer
+	{
+		background-color: #ff0099;
+		height: 100px;
+		clear: left;
+	}
+
+	#div1
+	{
+		background-color: #ccffcc;
+		width: 33%;
+		height: 200px;
+		float: left;
+	}
+
+	#div2
+	{
+		background-color: #cccc99;
+		width: 33%;
+		height: 200px;
+		float: left;
+	}
+
+	#div3
+	{
+		background-color: #00ff33;
+		width: 34%;
+		height: 200px;
+		float: left;
+	}
+
+	#div4
+	{
+		background-color: #ffff99;
+		width: 100%;
+		height: 200px;
+		clear: left;
+	}
+
+}
+
+
+
+
+
+@media (min-width: 768px) and (max-width: 1023px)
+{
+
+	body,input
+	{
+		font-family: Tahoma;
+		font-size: 28px;
+	}
+
+	*
+	{
+		margin: 0px;
+		padding: 0px;
+	}
+
+	#outercontainer
+	{
+		background-color: #00ffcc;
+		width: 98%;
+		margin: auto;
+	}
+
+	#header
+	{
+		background-color: #0066cc;
+		height: 200px;
+	}
+
+	#nav
+	{
+		background-color: #33ccff;
+		height: 120px;
+	}
+
+	#container
+	{
+		background-color: #ccffcc;
+	}
+
+	#leftcol
+	{
+		background-color: #ffcccc;
+		height: 150px;
+		width: 100%;
+	}
+
+	#pagecontent
+	{
+		background-color: #99ccff;
+		height: 500px;
+		width: 100%;
+	}
+
+	#footer
+	{
+		background-color: #ff0099;
+		height: 100px;
+		clear: left;
+	}
+
+	#div1
+	{
+		background-color: #ccffcc;
+		width: 50%;
+		height: 200px;
+		float: left;
+	}
+
+	#div2
+	{
+		background-color: #cccc99;
+		width: 50%;
+		height: 200px;
+		float: left;
+	}
+
+	#div3
+	{
+		background-color: #00ff33;
+		width: 50%;
+		height: 200px;
+		float: left;
+		clear: left;
+	}
+
+	#div4
+	{
+		background-color: #ffff99;
+		width: 50%;
+		height: 200px;
+		float: left;
+	}
+
+}
+
+
+
+
+
+@media (min-width: 300px) and (max-width: 767px)
+{
+
+	body,input
+	{
+		font-family: Tahoma;
+		font-size: 28px;
+	}
+
+	*
+	{
+		margin: 0px;
+		padding: 0px;
+	}
+
+	#outercontainer
+	{
+		background-color: #00ffcc;
+		width: 98%;
+		margin: auto;
+	}
+
+	#header
+	{
+		background-color: #0066cc;
+		height: 200px;
+	}
+
+	#nav
+	{
+		background-color: #33ccff;
+		height: 120px;
+	}
+
+	#container
+	{
+		background-color: #ccffcc;
+	}
+
+	#leftcol
+	{
+		background-color: #ffcccc;
+		height: 150px;
+		width: 100%;
+	}
+
+	#pagecontent
+	{
+		background-color: #99ccff;
+		height: 850px;
+		width: 100%;
+	}
+
+	#footer
+	{
+		background-color: #ff0099;
+		height: 100px;
+		clear: left;
+	}
+
+	#div1
+	{
+		background-color: #ccffcc;
+		width: 100%;
+		height: 200px;
+	}
+
+	#div2
+	{
+		background-color: #cccc99;
+		width: 100%;
+		height: 200px;
+	}
+
+	#div3
+	{
+		background-color: #00ff33;
+		width: 100%;
+		height: 200px;
+	}
+
+	#div4
+	{
+		background-color: #ffff99;
+		width: 100%;
+		height: 200px;
+	}
+
+}
+
+

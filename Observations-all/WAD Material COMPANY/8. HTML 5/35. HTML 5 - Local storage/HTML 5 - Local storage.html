@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<title>HTML 5</title>
+		
+		<style type="text/css">
+
+			body, input
+			{
+				font-family: 'Segoe UI';
+				font-size: 25px;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<form>
+
+			<fieldset>
+				
+				First Name:<br>
+				<input type="text" name="TextBox1" id="TextBox1">
+				<br>
+				
+				Last Name:<br>
+				<input type="text" name="TextBox2" id="TextBox2">
+				<br>
+				
+				Age:<br>
+				<input type="text" name="TextBox3" id="TextBox3">
+				<br>
+				
+				<input type="button" id="button1" value="Set Data" onclick="fun1()">
+				
+				<input type="button" id="button2"  value="Get Data" onclick="fun2()">
+
+			</fieldset>
+
+		</form>
+
+		<script>
+		
+			function fun1()
+			{
+				var a, b, c;
+
+				//get values from text boxes
+				a = document.getElementById("TextBox1").value;
+				b = document.getElementById("TextBox2").value;
+				c = document.getElementById("TextBox3").value;
+				
+				//store data into localStorage
+				localStorage.firstname = a;
+				localStorage.lastname = b;
+				localStorage.age = c;
+
+
+				//(or)
+				/*
+				localStorage.setItem("firstname", a);
+				localStorage.setItem("lastname", b);
+				localStorage.setItem("age", c);
+				*/
+				
+				//clear the text boxes
+				document.getElementById("TextBox1").value = "";
+				document.getElementById("TextBox2").value = "";
+				document.getElementById("TextBox3").value = "";
+				
+				alert("Saved");
+			}
+			
+
+			function fun2()
+			{
+				
+				var a, b, c;
+
+				//get values from local storage
+				a = localStorage.firstname;
+				b = localStorage.lastname;
+				c = localStorage.age;
+
+
+
+				//(or)
+				/*
+				a = localStorage.getItem("firstname");
+				b = localStorage.getItem("lastname");
+				c = localStorage.getItem("age");
+				*/
+				
+				//display data
+				document.getElementById("TextBox1").value = a;
+				document.getElementById("TextBox2").value = b;
+				document.getElementById("TextBox3").value = c;
+
+			}
+			
+		</script>
+
+	</body>
+	
+</html>

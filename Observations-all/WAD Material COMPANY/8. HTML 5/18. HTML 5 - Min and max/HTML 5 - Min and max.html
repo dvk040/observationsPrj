@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML 5 - min and max</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="http://localhost/serverpage.aspx">
+
+			Quantity (between 1 and 50):<br>
+			<input type="number" name="quantity" min="1" max="50">
+			<br><br>
+			
+			DOB:<br>
+			<input type="date" name="dateofbirth" min="1980-1-1" max="2016-12-31">
+			<br><br>
+
+			<input type="submit">
+		</form>
+	</body>
+</html>

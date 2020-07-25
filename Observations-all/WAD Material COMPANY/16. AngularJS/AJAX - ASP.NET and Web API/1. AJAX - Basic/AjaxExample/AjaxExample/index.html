@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS - AJAX</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        body, input {
+            font-family: Tahoma;
+            font-size: 30px;
+        }
+    </style>
+
+    <script src="Scripts/angular.js" type="text/javascript">
+    </script>
+
+    <script type="text/javascript">
+        var app = angular.module("mymodule", []);
+
+        app.controller("mycontroller", function ($scope, $http) {
+
+            $scope.getdata = function () {
+                $http.get("/api/Sample").success(function(response) {
+                    alert(response);
+                }).error(function (err) { alert(JSON.stringify(err)); });
+            };
+        });
+    </script>
+
+</head>
+<body>
+    <div ng-app="mymodule" ng-controller="mycontroller">
+
+        <input type="button" ng-click="getdata()" value="Get data from server" />
+
+    </div>
+</body>
+</html>

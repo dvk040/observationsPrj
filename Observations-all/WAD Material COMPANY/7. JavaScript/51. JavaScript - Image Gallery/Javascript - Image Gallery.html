@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>JavaScript - Image gallery</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			.class1
+			{
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Image gallery</h1>
+
+		<img src="img1.jpg" width="500px" id="myimage">
+		<br><br>
+
+		<img src="img1.jpg" width="75px" class="class1">
+		<img src="img2.jpg" width="75px" class="class1">
+		<img src="img3.jpg" width="75px" class="class1">
+		<img src="img4.jpg" width="75px" class="class1">
+		<img src="img5.jpg" width="75px" class="class1">
+		<img src="img6.jpg" width="75px" class="class1">
+		<img src="img7.jpg" width="75px" class="class1">
+		<img src="img8.jpg" width="75px" class="class1">
+		<img src="img9.jpg" width="75px" class="class1">
+		<img src="img10.jpg" width="75px" class="class1">
+
+		<script type="text/javascript">
+			var allimages = document.getElementsByClassName("class1");
+			for (i=0; i<allimages.length; i++)
+			{
+				allimages[i].addEventListener("click", fun1);
+			}
+
+			function fun1()
+			{
+				var currentsrc = this.getAttribute("src");
+				document.getElementById("myimage").setAttribute("src", currentsrc);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML 5 - Geo Location</title>
+		<style type="text/css">
+			body
+			{
+				font-family: Tahoma;
+				font-size: 30px;
+			}
+		</style>
+
+		<script src="https://maps.googleapis.com/maps/api/js">
+		</script>
+
+	</head>
+	<body>
+
+		Latitude: <span id="span1"></span><br>
+		Longitude: <span id="span2"></span>
+
+		<div id="div1"></div>
+
+		<script type="text/javascript">
+
+			navigator.geolocation.getCurrentPosition(OnSuccess, OnFailure, { timeout: 6000 } );
+
+			function OnSuccess(event)
+			{
+				document.getElementById("span1").innerHTML = event.coords.latitude;
+				document.getElementById("span2").innerHTML = event.coords.longitude;
+
+
+				var geocoder = new google.maps.Geocoder();
+
+				var latlng = new google.maps.LatLng(event.coords.latitude, event.coords.longitude);
+
+				geocoder.geocode(
+					{'latLng': latlng}, 
+					function(results, status)
+					{
+						if (status == google.maps.GeocoderStatus.OK)
+						{
+								if (results[0])
+								{
+									var areaname= results[0].formatted_address ;
+									document.getElementById("div1").innerHTML = areaname;
+								}
+								else
+								{
+									alert("address not found");
+								}
+						}
+						 else
+						 {
+							alert("Geocoder failed due to: " + status);
+						}
+					} //end of function
+				);
+
+			}
+
+			function OnFailure()
+			{
+				alert("Error");
+			}
+
+		</script>
+
+	</body>
+</html>

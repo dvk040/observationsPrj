@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Bootstrap - Modal Plugin</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+
+		<script src="jquery-2.2.0.js" type="text/javascript">
+		</script>
+
+		<script src="js/bootstrap.js" type="text/javascript">
+		</script>
+
+	</head>
+	<body>
+		
+		<div class="container">
+
+			<h2>Modal popup Example</h2>
+
+			<!-- Button trigger modal -->
+			<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+				Click to open modal popup
+			</button>
+
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" aria-labelledby="myModalLabel" aria-hidden="true">
+
+				<div class="modal-dialog">
+
+					<div class="modal-content">
+
+						<div class="modal-header">
+
+							<button class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+
+							<h4 class="modal-title" id="myModalLabel">
+								This is Modal title
+							</h4>
+
+						</div>
+
+						<div class="modal-body">
+							Add some text here
+						</div>
+
+						<div class="modal-footer">
+
+							<button class="btn btn-default"
+									data-dismiss="modal">
+								Close
+							</button>
+
+							<button class="btn btn-primary">
+								Submit changes
+							</button>
+
+						</div><!-- modal-footer ends -->
+
+					</div><!-- modal-content ends -->
+
+				</div><!-- modal-dialog ends -->
+
+			</div><!-- modal ends -->
+
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,52 @@
+							AJAX
+							=====
+
+What is AJAX?
+    - AJAX stands for 'Asynchronous JavaScript And Xml'.
+    - It is a technique of exchanging data between client and server, asynchronously (in background).
+
+
+When AJAX was born?
+    - In 2006
+
+
+What is the user-experience with AJAX:
+    - If AJAX is used in the page, browser internally in background send an 'asynchronous request' to the server and get response asynchronously.
+    - User will not feel that the page is refreshing / re-loading
+
+
+What is the advantage of AJAX?
+    - User experience will be improved a lot.
+    - Less burden on the internet connections, server and client, as we exchange light-weight data (the data which needs to be sent or received only will be exchanged).
+
+
+
+What is jQuery AJAX?
+    - jQuery (a popular java script library) has necessary methods (functions) to implement AJAX in the page.
+    - To work with this, you need to just import "jquery core script file" (Ex: jquery-1.9.1.min.js"). No extra files required.
+
+
+==============================================================
+
+Syntax of jQuery AJAX:
+
+	$.ajax(
+	     {
+			url: "server url here",
+			type: "GET/POST", //type of request
+			contentType: "application/json; charset=utf-8", //content type sent to server
+			dataType: "json", //Expected data format from server
+			success: ServiceSucceeded, //On Success
+			error: ServiceFailed // On exception
+	    }
+	);
+
+	function ServiceSucceeded (response)
+	{
+		//do something with response here
+	}
+
+	function ServiceFailed(xhr)
+	{
+		alert(xhr.responseText);
+        }

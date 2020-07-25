@@ -1,0 +1,62 @@
+<html>
+
+	<head>
+        <title>KO Add, Remove and Sort</title>
+	</head>
+
+	<body>
+
+        <form data-bind="submit:addItem">
+			Add friend <input type="text" data-bind='value:itemToAdd, valueUpdate: "keyup"'>
+			<input type="submit" data-bind="enable: itemToAdd().length > 0" value="Add">
+		</form>
+		 
+		Friends:<br>
+		<select multiple="multiple" height="5" data-bind="options:allFriends, selectedOptions:selectedItems">
+		</select>
+		 
+		<div>
+
+			<input type="button" value="Remove" data-bind="click: removeSelected, enable: selectedItems().length > 0">
+
+			<input type="button" value="Sort" data-bind="click: sortItems, enable: allFriends().length > 1">
+
+		</div>
+
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js">
+		</script>
+
+		<script type="text/javascript">
+
+            var FriendsViewModel = function ()
+			{
+
+				this.itemToAdd = ko.observable("");
+
+				this.allFriends = ko.observableArray(["scott", "jones", "allen", "james"]); // Initial items
+
+				this.selectedItems = ko.observableArray(["jones"]);                                // Initial selection
+			 
+				this.addItem = function () {
+					if ((this.itemToAdd() != "") && (this.allFriends.indexOf(this.itemToAdd()) < 0)) // Prevent blanks and duplicates
+						this.allFriends.push(this.itemToAdd());
+					this.itemToAdd(""); // Clear the text box
+				};
+			 
+				this.removeSelected = function () {
+					this.allFriends.removeAll(this.selectedItems());
+					this.selectedItems([]); // Clear selection
+				};
+			 
+				this.sortItems = function() {
+					this.allFriends.sort();
+				};
+			};
+		 
+			ko.applyBindings(new FriendsViewModel());
+
+		</script>
+
+	</body>
+
+</html>

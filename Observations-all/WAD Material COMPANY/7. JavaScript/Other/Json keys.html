@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>JSON - keys</title>
+		<style type="text/css">
+			body
+			{
+				font-family: "Tahoma";
+				font-size: 30px;
+			}
+		</style>
+	</head>	
+	<body>
+        <script type="text/javascript">
+			var mycar = { "carmodel": "Honda City", "carcolor": "Red", "caryear": 2015 };
+
+			for (i=0; i<Object.keys(mycar).length; i++)
+			{
+				alert(" name=" + Object.keys(mycar)[i] + " value=" + mycar[Object.keys(mycar)[i]]);
+			}
+        </script>
+	</body>
+</html>

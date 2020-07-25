@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>HTML 5 - Drag and drop</title>		
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#div1
+			{
+				width: 200px;
+				height: 200px;
+				padding: 10px;
+				border: 3px solid red;
+				float: left;				
+				background-color: skyblue;
+				cursor: pointer;
+			}
+			#div2
+			{
+				width: 400px;
+				height: 400px;
+				padding: 10px;
+				border: 6px solid darkgreen;
+				float: left;
+				background-color: hotpink;
+				position: absolute;
+				left: 280px;
+				top: 5px;
+				cursor: pointer;
+			}
+		</style>
+	</head>	
+	<body>
+
+		<div id="div1" draggable="true">
+			<h1>div 1</h1>
+		</div>
+
+		<div id="div2">
+			<h1>div 2</h1>
+
+		</div>
+
+		<script type="text/javascript">
+
+			document.getElementById("div1").addEventListener("dragstart", fun1);
+			document.getElementById("div2").addEventListener("dragover", fun2);
+			document.getElementById("div2").addEventListener("drop", fun3);
+
+			function fun1(event)
+			{
+				event.dataTransfer.setData("myvariable", event.target.id); //we are storing "div1" into "myvariable"
+			}
+
+			function fun2(event)
+			{
+				event.preventDefault(); //stop the default functionality
+			}
+
+			function fun3(event)
+			{
+				var id = event.dataTransfer.getData("myvariable"); //we are getting "div1" from "myvariable"
+				document.getElementById("div2").appendChild(document.getElementById(id));
+			}
+			//event = browser given information
+		</script>
+	</body>
+</html>

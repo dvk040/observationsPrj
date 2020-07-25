@@ -1,0 +1,57 @@
+﻿<html>
+
+    <head>
+
+        <title>Client Page</title>
+
+        <style type="text/css">
+
+            body, input, select, table
+            {
+                font-family: Tahoma;
+                font-size: 26px;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        Username:
+        <input type="text" id="textbox1" />
+        <br />
+
+        <input type="button" id="button1" value="OK" />
+        <div id="div1">Output here</div>
+
+        <script type="text/javascript">
+
+            document.getElementById("button1").addEventListener("click", fun1);
+
+            var xmlhttp;
+
+            function fun1()
+            {
+                var s = document.getElementById("textbox1").value;
+                var address = "serverpage.aspx?uname=" + s;
+
+                xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET", address);
+                xmlhttp.onreadystatechange = fun2;
+                xmlhttp.send();
+            }
+
+            function fun2()
+            {
+                if (xmlhttp.status == 200)
+                {
+                    document.getElementById("div1").innerHTML = xmlhttp.responseText;
+                }
+            }
+
+        </script>
+
+    </body>
+
+</html>

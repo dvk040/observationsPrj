@@ -1,0 +1,7 @@
+[
+	{ "empid": 101, "empname": "scott", "salary": 3000 },
+	{ "empid": 102, "empname": "allen", "salary": 6500 },
+	{ "empid": 103, "empname": "jones", "salary": 7500 },
+	{ "empid": 104, "empname": "smith", "salary": 2400 },
+	{ "empid": 105, "empname": "james", "salary": 9500 }
+]

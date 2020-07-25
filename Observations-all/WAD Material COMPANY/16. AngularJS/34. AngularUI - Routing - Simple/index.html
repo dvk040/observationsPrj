@@ -1,0 +1,64 @@
+<html ng-app="mymodule">
+	<head>
+		<title>AngularUI Routing</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: Tahoma;
+				font-size: 30px;
+			}
+		</style>
+
+		<script src="angular.js"></script>
+		<script src="angular-ui-router.js"></script>
+
+		<script>
+
+			var app = angular.module("mymodule", [ "ui.router" ] );
+
+			app.controller("homecontroller", function($scope)
+			{
+			});
+
+			app.controller("aboutcontroller", function($scope)
+			{
+			});
+
+			app.controller("contactcontroller", function($scope)
+			{
+			});
+
+
+			app.config(function($stateProvider, $urlRouterProvider) {
+			    
+			    $urlRouterProvider.otherwise("/home");
+			    
+			    $stateProvider
+				
+				.state("home", { url: "/home", templateUrl: "home.html", controller: "homecontroller" })
+
+				.state("about", { url: "/about", templateUrl: "about.html", controller: "aboutcontroller" })
+
+				.state("contact", { url: "/contact", templateUrl: "contact.html", controller: "contactcontroller" });
+
+			});
+
+		</script>
+
+	</head>
+	<body>
+
+		<h1>Web site title</h1>
+
+		<div id="menubar">
+			<a ui-sref="home">Home</a>
+			<a ui-sref="about">About</a>
+			<a ui-sref="contact">Contact</a>
+		</div>
+
+		<div ui-view>
+			
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML 5 - formaction formmethod formtarget</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- <form action="http://localhost/demo.aspx" method="post" target="_blank"> -->
+
+
+		<form>
+			First name:<br>
+			<input type="text" name="FirstName"><br>
+			
+			Last name:<br>
+			<input type="text" name="LastName"><br>
+			
+			<input type="submit" formaction="http://localhost/demo.aspx" formmethod="get" formtarget="_blank" value="Submit">
+		</form>
+	</body>
+</html>

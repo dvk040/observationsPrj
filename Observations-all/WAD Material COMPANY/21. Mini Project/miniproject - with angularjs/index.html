@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mymodule">
+
+	<head>
+		
+		<title>Mini Project</title>
+		
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+		<link href="css/StyleSheet.css" rel="stylesheet" type="text/css">
+
+		<script src="js/angular.js" type="text/javascript"></script>
+
+		<script src="js/angular-route.js" type="text/javascript"></script>
+
+		<script src="js/JavaScript.js" type="text/javascript"></script>
+
+	</head>
+
+	<body>
+
+		<div id="outercontainer">
+
+			<header>
+				
+				<div id="leftheader">
+					<img src="images/Mini-Project.png" alt="Mini Project" title="Mini Project" />
+				</div>
+
+				<div id="rightheader">
+					<input type="search" placeholder="Search" autofocus="autofocus" />
+				</div>
+
+			</header>
+
+			<nav>
+				
+				<div id="menubar">
+					<ul>
+						<li><a href="#home">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#contact">Contact</a></li>
+						<li><a href="#register">Register</a></li>
+						<li><a href="#login">Login</a></li>
+					</ul>
+				</div>
+
+			</nav>
+
+			<section id="pagecontent">
+
+				<div ng-view>
+				</div>
+
+			</section>
+
+			<footer>
+				footer content
+			</footer>
+
+		</div>
+
+	</body>
+
+</html>

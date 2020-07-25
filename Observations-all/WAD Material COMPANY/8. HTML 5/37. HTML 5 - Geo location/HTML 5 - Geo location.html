@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML 5</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="latitude">
+			geo location not supported
+		</div>
+
+		<div id="longitude">
+			geo location not supported
+		</div>
+
+		<script type="text/javascript">
+
+			if (navigator.geolocation) //check whether browser supports it
+			{
+				//Try to get the current location.
+				navigator.geolocation.getCurrentPosition(OnSuccess, OnFailure, { timeout:5000 } );
+			}
+
+
+			function OnSuccess(position)
+			{				
+				document.getElementById("latitude").innerHTML = position.coords.latitude;
+
+				document.getElementById("longitude").innerHTML = position.coords.longitude;
+			}
+
+			function OnFailure(whicherror)
+			{
+			    if (whicherror.code == 1)
+			    {
+			        document.getElementById("latitude").innerHTML = document.getElementById("longitude").innerHTML = "Permission Denied";
+			    }
+			    if (whicherror.code == 2)
+			    {
+			        document.getElementById("latitude").innerHTML = document.getElementById("longitude").innerHTML = "Network or Satellites Down";
+			    }
+			    if (whicherror.code == 3)
+			    {
+			        document.getElementById("latitude").innerHTML = document.getElementById("longitude").innerHTML = "GeoLocation timed out";
+			    }
+			    if (whicherror.code == 0)
+			    {
+			        document.getElementById("latitude").innerHTML = document.getElementById("longitude").innerHTML = "Other Error";
+			    }
+			}
+			
+		</script>
+
+	</body>	
+</html>

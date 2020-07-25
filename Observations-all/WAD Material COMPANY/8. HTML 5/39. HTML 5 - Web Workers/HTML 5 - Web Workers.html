@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML 5</title>		
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<p>
+			Count numbers:
+			<span id="result"></span>
+		</p>
+
+		<input type="button" id="btn1" value="Start Worker"> 
+		<input type="button" id="btn2" value="Stop Worker">
+
+		<script type="text/javascript">
+
+			document.getElementById("btn1").addEventListener("click", startworker);
+			document.getElementById("btn2").addEventListener("click", stopworker);
+
+			var w;
+
+			function startworker()
+			{
+				if (typeof(Worker) == "undefined")
+				{
+					document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
+				}
+				else
+				{
+
+					if (typeof(w)=="undefined")
+					{
+						w = new Worker("webworkers.js"); //calls webworkers.js file in background
+					}
+					
+					w.onmessage = function (event)
+					{
+						document.getElementById("result").innerHTML = event.data;
+					};
+
+				}
+			}
+
+			function stopworker()
+			{ 
+				w.terminate();
+			}
+			
+		</script>
+
+	</body>	
+</html>

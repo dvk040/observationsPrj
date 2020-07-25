@@ -1,0 +1,58 @@
+﻿<html>
+	<head>
+		<title>jQuery UI - Droppable</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Segoe UI';
+				font-size: 25px;
+			}
+			#div1
+			{
+				width: 200px;
+				height: 150px;
+				background-color: #ccffff;
+				cursor: pointer;
+				float: left;
+				margin-right: 10px;
+			}
+			#div2
+			{
+				width: 400px;
+				height: 350px;
+				background-color: #99ffcc;
+				cursor: pointer;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="div1">
+			div1
+		</div>
+ 
+		<div id="div2">
+			div2
+		</div>
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript" src="jquery-ui.js">
+		</script>
+
+		<link href="jquery-ui.css" type="text/css" rel="stylesheet">
+
+		<script type="text/javascript">
+			$("#div1").draggable();
+			$("#div2").droppable( { drop: fun1 } );
+
+			function fun1()
+			{
+				$(this).html("Dropped!").css("background-color", "#009999");
+				//this = div2
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>jQuery - Append 3</title>
+		<style>
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#div1 input[type=text]
+			{
+				font-family: Calibri;
+				font-size: 24px;
+				background-color: lightgreen;
+				margin: 2px;
+			}
+		</style>
+	</head>	
+	<body>
+
+		<h3>Type some numbers</h3>
+
+		<div id="div1">
+			
+		</div>
+		
+		<input type="button" id="button1" value="Add">
+		<span id="span1">Result here</span>
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+		
+		<script type="text/javascript">
+			
+			for(var i=1;i<=10;i++)
+			{
+				var s = "<input type='text' id='TextBox" + i + "'> <br>";
+				$("#div1").append(s);
+			}
+
+			$("#button1").click(fun1);
+
+			var sum = 0;
+
+			function fun1()
+			{
+				$("#div1 input[type=text]").each(fun2);
+				$("#span1").text(sum);
+			}
+
+			function fun2()
+			{
+				sum += parseInt( $(this).val() ); //'this' means current text box
+			}
+
+		</script>
+		
+	</body>
+</html>

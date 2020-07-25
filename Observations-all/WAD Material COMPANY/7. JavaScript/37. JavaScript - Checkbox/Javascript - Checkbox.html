@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>JavaScript - CheckBox</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>JavaScript - CheckBox</h1>
+
+		<input type="checkbox" id="chk1">
+		<label for="chk1">I accept license agreement</label>
+		<br>
+		<input type="submit" id="btn1" disabled="disabled">
+
+		<script type="text/javascript">
+			document.getElementById("chk1").addEventListener("change", fun1);
+
+			function fun1()
+			{
+				var b = document.getElementById("chk1").checked;
+				if (b == true)
+				{
+					document.getElementById("btn1").disabled = "";
+				}
+				else
+				{
+					document.getElementById("btn1").disabled = "disabled";
+				}
+			}
+		</script>
+	</body>
+</html>

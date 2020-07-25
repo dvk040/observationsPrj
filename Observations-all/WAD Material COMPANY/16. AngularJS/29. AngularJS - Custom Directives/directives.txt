@@ -1,0 +1,53 @@
+Custom Directives:
+---------------------
+
+steps:
+	
+	1. Create a directive function:
+
+		function directivefunctionname()
+		{
+			
+		}
+	
+	2. Create an object that represents the directive options:
+
+		var mydirective = {};
+	
+
+	3. Specify type of directive:
+	
+		mydirective.restrict = "EA";
+
+		   E = Element		<sampledirective></sampledirective>
+		   A = Attribute	<tag sampledirective></tag>
+
+
+	4. Set scope (temporary model for directive):
+
+		mydirective.scope = { property : "value" };
+
+	5. Set link function:
+
+		mydirective.link = function($scope, element, attributes)
+		{
+			element.html("data here");
+			element.css("property", "value");
+			$scope.property
+			attributes.attributename
+		}
+
+	6. return the directive:
+
+		return mydirective;
+	
+	7. Add directive to the module:
+
+		app.directive("directivename", directivefunctionname);
+
+
+	8. Call the directive (in the view):
+
+		<directivename attribute="value"></directivename>
+
+

@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>JavaScript - Photo navigation</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Photo navigation</h1>
+
+		<img src="img1.jpg" width="350px" id="myimage">
+		<br>
+
+		<input type="button" value="Previous" id="button1">
+		<input type="button" value="Next" id="button2">
+
+		<script type="text/javascript">
+			document.getElementById("button1") .addEventListener("click", fun1);
+			document.getElementById("button2") .addEventListener("click", fun2);
+
+			var allimages = [ "img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg", "img6.jpg", "img7.jpg", "img8.jpg", "img9.jpg", "img10.jpg" ];
+			var c = 0;
+
+			function fun1()
+			{
+				c--;
+				if (c == -1)
+				{
+					c = 0;//reset c
+				}
+				var i = document.getElementById("myimage");
+				i.setAttribute("src", allimages[c]);
+			}
+
+			function fun2()
+			{
+				c++;
+				if (c == allimages.length)
+				{
+					c = allimages.length - 1; //reset c
+				}
+				var i = document.getElementById("myimage");
+				
+				i.setAttribute("src", allimages[c]);
+			}
+		</script>
+	</body>
+</html>

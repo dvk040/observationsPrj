@@ -1,0 +1,73 @@
+﻿<html>
+	<head>
+		<title>jQuery UI - Dialog</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Segoe UI';
+				font-size: 20px;
+			}
+			#span1
+			{
+				font-size: 30px;
+			}
+			.ui-dialog, .ui-dialog-title, .ui-button-text, .ui-dialog p
+			{
+				font-size: 70%;
+			}
+		</style>
+	</head>
+	<body>
+
+		<input type="button" id="button1" value="Show dialog">
+		<br>
+
+		<span id="span1">Output here</span>
+
+		<div id="div1" title="Title here" style="display:none">
+			<p>Hello, how are you!</p>
+		</div>
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript" src="jquery-ui.js">
+		</script>
+
+		<link href="jquery-ui.css" type="text/css" rel="stylesheet">
+
+		<script type="text/javascript">
+
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+
+				$("#div1").dialog(
+				{
+					  resizable: false,
+					  width: 400,
+					  height: 300,
+					  modal: true,
+
+					  buttons:
+					  {
+
+							"OK": function()
+							{
+								$("#span1").html("OK clicked");
+								$( this ).dialog( "close" );
+							},
+
+							"Cancel": function()
+							{
+								$("#span1").html("Cancel clicked");
+								$( this ).dialog( "close" );
+							}
+					  }
+
+				});
+			}
+		</script>
+	</body>
+</html>

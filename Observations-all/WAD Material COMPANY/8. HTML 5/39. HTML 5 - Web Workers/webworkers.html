@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML 5 - Web Workers</title>
+		<style type="text/css">
+			body
+			{
+				font-family: Tahoma;
+				font-size: 30px;
+			}
+		</style>
+
+	</head>
+	<body>
+
+		<div id="div1"></div>
+
+		<script type="text/javascript">
+
+			var worker = new Worker("script.js");
+			worker.onmessage = function(event)
+			{
+				document.getElementById("div1").innerHTML = event.data;
+			}
+
+		</script>
+	</body>
+</html>

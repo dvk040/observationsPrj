@@ -1,0 +1,60 @@
+<html>
+
+	<head>
+
+		<title>Value</title>
+
+		<style type="text/css">
+
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 26px;
+			}
+
+			.c1
+			{
+				color: green;
+				font-weight: bold;
+			}
+
+		</style>
+
+		<script type="text/javascript" src="knockout-3.3.0.js">
+		</script>
+
+		<script type="text/javascript">
+
+			//view model
+            var obj = {
+				
+				x: ko.observable(100),
+
+				fun1: function() {
+					alert(this.x());
+				},
+
+				fun2: function() {
+					this.x(200);
+				}
+
+            };
+
+            ko.applyBindings(obj); //make the "obj" as "view model".
+
+		</script>
+
+	</head>
+
+	<body>
+
+		Value of x is: 
+		<input data-bind="value: x" class="c1">
+		<br>
+
+		<input type="button" value="Get the value" data-bind="click: fun1">
+		<input type="button" value="Set the value" data-bind="click: fun2">
+		
+	</body>
+
+</html>

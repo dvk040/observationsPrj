@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>JavaScript OOPS - Inheritance</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>JavaScript OOPS - Inheritance</h1>
+
+		<script type="text/javascript">
+			/*parent class*/
+			function Person(a, b)
+			{
+				this.name = a;
+				this.email = b;
+			}
+
+			/*child class 1*/
+			function Student(a, b, c)
+			{
+				Person.call(this, a, b);
+				this.marks = c;
+			}
+
+			/*child class 2*/
+			function Teacher(a, b, c)
+			{
+				Person.call(this, a, b);
+				this.specialization = c;
+			}
+
+			/*creating objects*/
+			var student1 = new Student("scott", "scott@gmail.com", 70);
+			var teacher1 = new Teacher("allen", "allen@gmail.com", "wad");
+
+			/* display output */
+			document.write("<h3>Student</h3>");
+			document.write("Name: " + student1.name);
+			document.write("<br>");
+			document.write("Email: " + student1.email);
+			document.write("<br>");
+			document.write("Marks: " + student1.marks);
+			document.write("<hr>");
+
+			document.write("<h3>Teacher</h3>");
+			document.write("Name: " + teacher1.name);
+			document.write("<br>");
+			document.write("Email: " + teacher1.email);
+			document.write("<br>");
+			document.write("Specialization: " + teacher1.specialization);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>CSS - Nth-child</title>
+		<style type="text/css">
+			body
+			{
+				font-family: 'Tahoma';
+				font-size: 24px;
+			}
+
+			/* selects 4th <p> in <div> */
+			/* index starts from 1 */
+			div p:nth-child(4)
+			{
+				color: green;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div>
+
+			<p>This is some text.</p>
+			<p>This is some text.</p>
+			<p>This is some text.</p>
+			<p>This is some text.</p>
+			<p>This is some text.</p>
+			<p>This is some text.</p>
+
+		</div>
+	</body>
+</html>

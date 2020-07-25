@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<title id="mytitle"></title>
+		<link href="styles.css" type="text/css" rel="stylesheet">
+
+		<script type="text/javascript">
+			window.addEventListener("hashchange", fun1);
+
+			function fun1()
+			{
+				//alert(window.location.hash);
+				var hash = window.location.hash;
+
+				var pagename = "";
+
+				if (hash == "#home")
+					pagename = "home.html";
+				else if (hash == "#about")
+					pagename = "about.html";
+				else if (hash == "#contact")
+					pagename = "contact.html";
+
+				var xmlhttp;
+				xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = fun2;
+				xmlhttp.open("get", pagename);
+				xmlhttp.send();
+
+				function fun2()
+				{
+					if (xmlhttp.readyState == 4)
+					{
+						document.getElementById("content").innerHTML = xmlhttp.responseText;
+						document.getElementById("mytitle").innerHTML = hash.slice(1);
+					}
+				}
+
+				var alllinks = document.querySelectorAll("#navigation a");
+				for (i=0; i<alllinks.length; i++)
+				{
+					alllinks[i].setAttribute("class", "");
+				}
+
+				document.querySelectorAll("#navigation a[href='" + hash + "']")[0].setAttribute("class", "active");
+			}
+
+			if (!window.location.hash)
+			{
+				window.location.hash = "#home"; //default page
+			}
+
+		</script>
+	</head>
+	<body>
+
+		<div id="navigation">
+			<a href="#home" class="">Home</a>
+			<a href="#about">About</a>
+			<a href="#contact">Contact</a>
+		</div>
+
+		<div id="content">
+		</div>
+	</body>
+</html>

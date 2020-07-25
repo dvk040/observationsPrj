@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<title>Angular JS - Custom Directives 2</title>
+		<style type="text/css">
+			body,table
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<script src="angular.js" type="text/javascript">
+		</script>
+
+		<script type="text/javascript">
+			//create a module called "mymodule"
+			var app = angular.module("mymodule", [ ] );
+
+			//add directive called "student" to "mymodule"
+			app.directive("students",  function()
+			{
+				var temp = { };	
+				temp.restrict = "E";
+				temp.scope = { currentarray : "=data" };
+
+				temp.link = function($scope, element, attributes)
+				{
+					var s = "<table border='1' width='300px'>";
+					s = s + "<caption>" + attributes.caption + "</caption>";
+					for (i = 0; i < $scope.currentarray.length; i++)
+					{
+						s = s + "<tr> <td>" + $scope.currentarray[i].studentid + "</td> <td>" + $scope.currentarray[i].studentname + "</td> <tr>";
+					}
+					s = s + "</table>";
+					element.html(s);
+					element.find("td").css("background-color", "skyblue");
+					element.find("td").css("padding", "10px");
+					element.find("td").css("border", "2px solid " + attributes.bordercolor);
+				}
+
+				return temp;
+			});
+
+			app.controller("mycontroller", function($scope)
+			{
+				$scope.students2015 = [
+					{ "studentid": 1, "studentname": "Scott", "age": 25 },
+					{ "studentid": 2, "studentname": "Allen", "age": 28 }
+				];
+
+				$scope.students2016 = [
+					{ "studentid": 3, "studentname": "Smith", "age": 24 },
+					{ "studentid": 4, "studentname": "Jones", "age": 26 }
+				];
+			});
+		</script>
+	</head>
+	<body>
+		<h2>Angular JS Custom Directives</h2>
+		<div ng-app="mymodule" ng-controller="mycontroller">
+			<p><students data="students2015" bordercolor="red" caption="Students 2015"></students></p>
+			<p><students data="students2016" bordercolor="blue" caption="Students 2016"></students></p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJS - animations</title>		
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+
+			.ng-enter
+			{
+				transition: 1.75s;
+				opacity: 0;
+			}
+
+			.ng-enter-active
+			{
+				opacity: 1;
+				background-color: green;
+			}
+
+			.ng-leave
+			{
+				transition: 0.75s;
+				opacity: 1;
+			}
+
+			.ng-leave-active
+			{
+				opacity: 0;
+				background-color: red;
+			}
+		</style>
+
+		<!-- import angular-js script file -->
+		<script type="text/javascript" src="angular.js">
+		</script>
+
+		<!-- import angular-js animations script file -->
+		<script type="text/javascript" src="angular-animate.js">
+		</script>
+
+		<script type="text/javascript">
+			//creating a module called "mymodule"
+			var app = angular.module("mymodule", [ "ngAnimate" ] );
+
+			//creating a controller called "mycontroller", in a module called "mymodule"
+			app.controller("mycontroller", function($scope)
+			{
+				//create a json array in the model
+				$scope.emps =
+				[
+					{ "empid": 101, "empname": "Scott", "salary": 3000 },
+					{ "empid": 102, "empname": "Allen", "salary": 6500 },
+					{ "empid": 103, "empname": "Jones", "salary": 7500 },
+					{ "empid": 104, "empname": "Smith", "salary": 2400 },
+					{ "empid": 105, "empname": "James", "salary": 9500 }
+				];
+
+				//create an object called "newemp"
+				$scope.newemp = { "empid": "", "empname": "", "salary": "" };
+
+				//create a function called "save()" to insert new employee to existing "emps" array
+				$scope.save = function() {
+					$scope.emps.push({ "empid": $scope.newemp.empid, "empname": $scope.newemp.empname, "salary": $scope.newemp.salary });
+					$scope.newemp.empid = "";
+					$scope.newemp.empname = "";
+					$scope.newemp.salary = "";
+					document.querySelectorAll("#newempid")[0].focus();
+				}
+
+				$scope.remove = function(currentempid) {
+					if (confirm("Are you sure to delete this employee") == true)
+					{
+						$scope.emps.splice(currentempid, 1);
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<!-- angularjs view starts -->
+		<div ng-app="mymodule" ng-controller="mycontroller">
+
+			Seach: <input type="text" ng-model="search">
+
+			<table border="1" cellpadding="5px">
+
+				<tr>
+					<th>Emp ID</th>
+					<th>Emp Name</th>
+					<th>Salary</th>
+					<th></th>
+				</tr>
+
+				<tr ng-repeat="emp in emps | filter: search ">
+					<td>{{emp.empid}}</td>
+					<td>{{emp.empname}}</td>
+					<td>{{emp.salary}}</td>
+					<td><a href="#" ng-click="remove($index)">Delete</a></td>
+				</tr>
+
+				<tr>
+					<td><input type="text" id="newempid" ng-model="newemp.empid" autofocus="autofocus"></td>
+					<td><input type="text" ng-model="newemp.empname"></td>
+					<td><input type="text" ng-model="newemp.salary"></td>
+					<td><input type="button" value="Save" ng-click="save()" ng-disabled="newemp.empid == '' || newemp.empname == '' || newemp.salary == '' "></td>
+				</tr>
+
+			</table>
+
+		</div>
+		<!-- angularjs view ends -->
+	</body>
+</html>

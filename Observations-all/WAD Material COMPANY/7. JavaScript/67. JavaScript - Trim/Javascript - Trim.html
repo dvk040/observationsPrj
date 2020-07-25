@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>JavaScript - Trim</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Trim</h1>
+
+		<script type="text/javascript">
+			var s1 = "          Hyderabad is one of the cities in India.     ";
+			var s2 = s1.trim();
+
+			var n1 = s1.length;
+			var n2 = s2.length;
+
+			document.write("Before trim: " + n1); //55
+			document.write("<br>");
+			document.write("After trim: " + n2); //40
+		</script>
+	</body>	
+</html>

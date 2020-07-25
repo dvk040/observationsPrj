@@ -1,0 +1,16 @@
+Features of HTML5:
+**********************
+
+	1) Clean seperation between Markup and Styles
+		HTML (vs) CSS
+
+	2) Better support for Search Engines (like Google)
+
+	3) JavaScript based
+
+	4) Game Development
+
+	5) Mobile
+		'Responsive Layout' and 'HTML 5 New Input types'
+
+	6) It's the future

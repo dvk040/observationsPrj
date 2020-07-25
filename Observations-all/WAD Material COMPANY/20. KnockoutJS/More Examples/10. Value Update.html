@@ -1,0 +1,51 @@
+<html>
+
+	<head>
+
+		<title>Value Update</title>
+
+		<style type="text/css">
+
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 26px;
+			}
+
+			.c1
+			{
+				color: green;
+				font-weight: bold;
+			}
+
+		</style>
+
+		<script type="text/javascript" src="knockout-3.3.0.js">
+		</script>
+
+		<script type="text/javascript">
+
+			//view model
+            var obj = {
+				
+				uname: ko.observable("")
+
+            };
+
+            ko.applyBindings(obj); //make the "obj" as "view model".
+
+		</script>
+
+	</head>
+
+	<body>
+
+		Username: 
+		<input data-bind="value: uname, valueUpdate: 'keyup' " class="c1">
+		<br>
+
+		Hello to: <span data-bind="text: uname" class="c1"></span>
+		
+	</body>
+
+</html>

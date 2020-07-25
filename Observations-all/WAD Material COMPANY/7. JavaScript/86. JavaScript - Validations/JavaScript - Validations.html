@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>JavaScript - Validations</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: Tahoma;
+				font-size: 30px;
+			}
+			.error
+			{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>JavaScript - Validations</h1>
+		<form id="f1">
+			Username: 
+			<input type="text" id="txtusername"> *
+			<span id="spanusername" class="error"></span>
+			<br>
+
+			Password: 
+			<input type="password" id="txtpassword"> *
+			<span id="spanpassword" class="error"></span>
+			<br>
+
+			<input type="submit" value="Login">
+		</form>
+
+		<script type="text/javascript">
+			document.getElementById("f1").addEventListener("submit", fun1);
+
+			function fun1(event)
+			{
+					//event = browser given information
+					var s1 = document.getElementById("txtusername").value;
+					if (s1 == "")
+					{
+						event.preventDefault();
+						document.getElementById("spanusername").innerHTML = "Username can't be blank";
+					}
+					else
+					{
+						document.getElementById("spanusername").innerHTML = "";
+					}
+
+					var s2 = document.getElementById("txtpassword").value;
+					if (s2== "")
+					{
+						event.preventDefault();
+						document.getElementById("spanpassword").innerHTML = "Password can't be blank";
+					}
+					else
+					{
+						document.getElementById("spanpassword").innerHTML = "";
+					}
+			}
+		</script>
+	</body>
+</html>

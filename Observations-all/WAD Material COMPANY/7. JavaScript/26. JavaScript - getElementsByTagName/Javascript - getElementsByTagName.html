@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>JavaScript - Getting elements by tag name</title>
+		<style type="text/css">
+			body
+			{
+				font: 30px tahoma;
+			}
+		</style>
+	</head>
+	<body>
+		<p>para 1</p>
+		<p>para 2</p>
+		<p>para 3</p>
+		<p>para 4</p>
+		<p>para 5</p>
+		<p>para 6</p>
+
+		<script type="text/javascript">
+			for (var i=0; i < 6; i++)
+			{
+				document.getElementsByTagName("p")[i].innerHTML = "Hai";
+			}
+		</script>
+	</body>
+</html>

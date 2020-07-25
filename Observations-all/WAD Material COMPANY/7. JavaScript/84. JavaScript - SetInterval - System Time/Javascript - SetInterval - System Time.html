@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>JavaScript - setInterval - System Time</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>setInterval - System Time</h1>
+		<div id="div1"></div>
+
+		<script type="text/javascript">
+			setInterval(fun1, 1000); //for every 1000 milli sec (1 sec) it calls fun1.
+			
+			function fun1()
+			{
+				var d = new Date();
+				var t = d.toLocaleTimeString();
+				document.getElementById("div1").innerHTML = t;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title>jQuery - Append 2</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#div1 p
+			{
+				font-family: Tahoma;
+				font-size: 22px;
+				background-color: orange;
+				margin: 2px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h3>Friends</h3>
+
+		<div id="div1">
+		</div>
+		
+		<input type="text" id="txt1">		
+		<input type="button" id="button1" value="+" title="Add">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+		
+		<script type="text/javascript">
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+				var s = "<p>" + $("#txt1").val() + "</p>";
+				$("#div1").append(s);
+				$("#txt1").val("").focus();
+			}
+		</script>
+	</body>
+</html>

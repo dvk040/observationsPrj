@@ -1,0 +1,11 @@
+/* Extra small devices (xs) - (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (sm) - (tablets, 768px to 991) */
+@media (min-width: @screen-sm-min) { ... }
+
+/* Medium devices (md) - (desktops or laptops, 992px to 1199) */
+@media (min-width: @screen-md-min) { ... }
+
+/* Large devices (lg) (large desktops or laptops, 1200px and up) */
+@media (min-width: @screen-lg-min) { ... }

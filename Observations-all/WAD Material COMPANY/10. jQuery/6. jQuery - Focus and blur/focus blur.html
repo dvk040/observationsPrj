@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>jQuery - focus and blur</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: Tahoma;
+				font-size: 30px;
+			}
+			#div1
+			{
+				width: 300px;
+				height: 200px;
+				background-color: #00cccc;
+			}
+			#span1
+			{
+				color: green;
+				font-weight: bold;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+
+		Email:
+		<input type="text" id="txt1">
+		<span id="span1">Use gmail only.<span>
+
+		<script src="jquery-2.2.1.js" type="text/javascript">
+		</script>
+
+		<script type="text/javascript">
+			$("#txt1").focus(function() {
+				$("#span1").show();
+			});
+
+			$("#txt1").blur(function() {
+				$("#span1").hide();
+			});
+		</script>
+
+	</body>
+</html>
+

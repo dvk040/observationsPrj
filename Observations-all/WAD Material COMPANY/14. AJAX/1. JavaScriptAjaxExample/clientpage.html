@@ -1,0 +1,50 @@
+﻿<html>
+
+    <head>
+
+		<title>Client Page</title>
+
+		<style type="text/css">
+
+			body, input
+			{
+				font-family:Tahoma;
+				font-size: 26px;
+			}
+
+		</style>
+
+	</head>
+
+    <body>
+
+        <input type="button" id="button1" value="Click Me">
+
+        <div id="div1">Output here</div>
+
+        <script type="text/javascript">
+
+            document.getElementById("button1").addEventListener("click", fun1);
+
+            var xmlhttp;
+
+            function fun1() {
+                xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET", "serverpage.aspx");
+                xmlhttp.onreadystatechange = fun2;
+                xmlhttp.send();
+            }
+
+            function fun2()
+            {
+                if (xmlhttp.status == 200)
+                {
+                    document.getElementById("div1").innerHTML = xmlhttp.responseText;
+                }
+            }
+
+        </script>
+
+    </body>
+
+</html>

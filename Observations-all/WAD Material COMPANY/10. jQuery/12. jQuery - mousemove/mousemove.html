@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>jQuery - mousemove</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: Tahoma;
+				font-size: 30px;
+			}
+			#div1
+			{
+				width: 300px;
+				height: 200px;
+				background-color: #00cccc;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="div1">mouse move me</div>
+
+		<script src="jquery-2.2.1.js" type="text/javascript">
+		</script>
+
+		<script type="text/javascript">
+			$("#div1").mousemove(function(event) {
+				$("#div1").html(event.pageX + ", " + event.pageY);
+			});
+		</script>
+
+	</body>
+</html>
+

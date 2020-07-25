@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width">
+		<title>Contacts Editor</title>
+	</head>
+
+	<body>
+
+		<h2>Contacts</h2>
+
+		<div>
+
+			<table border="1" data-bind="foreach: contacts">
+
+				<tr>
+
+					<td>
+						<input data-bind='value: personName' placeholder="Person Name" />
+					</td>
+
+					<td>
+						<input data-bind='value: mobile' placeholder="Mobile" />
+					</td>
+
+					<td>
+						<input data-bind='value: email' placeholder="Email" />
+					</td>
+
+					<td>
+						<div><a href='#' data-bind='click: $root.removeContact'>Delete</a></div>
+					</td>
+
+				</tr>
+
+			</table>
+
+		</div>
+		 
+		<p>
+			<input type="button" value="Add a contact" data-bind='click: addContact' />
+			<input type="button" value="Save to JSON" data-bind='click: save, enable: contacts().length > 0' />
+		</p>
+		 
+		<textarea data-bind='value: lastSavedJson' rows='5' cols='60' disabled='disabled'> </textarea>
+
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js">
+		</script>
+
+		<script type="text/javascript">
+
+			var initialData = [
+				{ personName: "scott", mobile: "9982939118", email: "scott@gmail.com" },
+				{ personName: "john", mobile: "8896743234", email: "john@gmail.com" },
+				{ personName: "allen", mobile: "7778635220", email: "allen@gmail.com" }
+			];
+			 
+			var ContactsViewModel = function() {
+				
+				var self = this;
+				
+				self.contacts = ko.observableArray(initialData);
+			 
+				self.addContact = function() {
+					self.contacts.push({
+						personName: "",
+						mobile: "",
+						email: ""
+					});
+				};
+			 
+				self.removeContact = function(contact) {
+					self.contacts.remove(contact);
+				};
+			 
+				self.save = function() {
+					self.lastSavedJson(JSON.stringify(ko.toJS(self.contacts), null, 2));
+				};
+			 
+				self.lastSavedJson = ko.observable("");
+			};
+			 
+			ko.applyBindings(new ContactsViewModel());
+
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,27 @@
+.class1 {
+  background-color: #006633;
+  border: 3px solid #ff3333;
+  padding: 10px;
+  font-family: 'Segoe UI';
+}
+h1 {
+  background-color: #006633;
+  border: 3px solid #ff3333;
+  padding: 10px;
+  font-family: 'Segoe UI';
+  color: #0066ff;
+}
+p {
+  background-color: #006633;
+  border: 3px solid #ff3333;
+  padding: 10px;
+  font-family: 'Segoe UI';
+  color: #ffff99;
+}
+span {
+  background-color: #006633;
+  border: 3px solid #ff3333;
+  padding: 10px;
+  font-family: 'Segoe UI';
+  color: #ccffcc;
+}

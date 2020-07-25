@@ -1,0 +1,114 @@
+body,input
+{
+	font-family: 'Tahoma';
+}
+
+body
+{
+	font-size: 26px;
+}
+
+input,select
+{
+	font-size: 24px;
+}
+
+*
+{
+	margin: 0px;
+}
+
+
+
+#outercontainer
+{
+	background-color: #00ffff;
+}
+
+
+header
+{
+	background-color: #006600;
+	color: white;
+	height: 200px;
+}
+
+nav
+{
+	background-color: #00cc66;
+	height: 60px;
+}
+
+#pagecontent
+{
+	background-color: #ccffff;
+	min-height: 500px;
+	height: auto;
+}
+
+footer
+{
+	background-color: #33cccc;
+	height: 100px;
+}
+
+#leftheader
+{
+	width: 50%;
+	padding-top: 10px;
+	padding-left: 30px;
+	float: left;
+	height: 180px;
+}
+
+#rightheader
+{
+	width: 45%;
+	float: left;
+	height: 190px;
+	padding-top: 20px;
+}
+
+nav #menubar
+{
+	height: 40px;
+	margin: auto;
+	width: 600px;
+}
+
+nav #menubar ul
+{
+	height: 40px;
+	list-style-type: none;
+	padding: 0px;
+}
+
+nav #menubar ul li
+{
+	float: left;
+	display: inline;
+	width: 120px;
+	text-align: center;
+	cursor: pointer;
+}
+
+nav #menubar ul li:hover
+{
+	background-color: #0099cc;
+}
+
+nav #menubar ul li a:link
+{
+	text-decoration: none;
+}
+
+
+#registrationform, #loginform
+{
+	padding: 10px;
+}
+
+#errormessagespan
+{
+	color: red;
+}

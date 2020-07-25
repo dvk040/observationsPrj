@@ -1,0 +1,47 @@
+﻿<html>
+	<head>
+		<title>jQuery UI - Easing Effects</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Segoe UI';
+				font-size: 20px;
+			}
+			#div1
+			{
+				background-color: darkred;
+				color: cyan;
+				font-size: 30px;
+				font-family: 'Segoe UI';
+				position: relative;
+				width: 300px;
+				padding: 5px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<input type="button" id="button1" value="easing effect animation">
+
+		<div id="div1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript" src="jquery-ui.js">
+		</script>
+
+		<link href="jquery-ui.css" type="text/css" rel="stylesheet">
+
+		<script type="text/javascript">
+
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+
+				$("#div1").animate( { "font-size": "40px", "border-width": "10px", "left": "30px", "top": "50px", "width": "700px", "padding": "15px" }, 1000, "easeOutBounce");
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>CSS 3 - Transitions - Opacity</title>
+		<style type="text/css">
+			body
+			{
+				font-family: 'Tahoma';
+				font-size: 23px;
+			}
+            #div1
+			{
+                width: 100px;
+                height: 100px;
+                background-color: darkgreen;
+                position: relative;
+                color: yellow;
+                opacity: 1;
+
+                transition: opacity 1.5s;
+            }
+			#div1:hover
+			{
+				opacity: 0;
+			}
+        </style>
+	</head>	
+	<body>
+
+		<div id="div1">hover me</div>
+
+	</body>	
+</html>

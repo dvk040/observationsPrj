@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<title>JavaScript - Add Subtract Multiply Divide</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#txt3
+			{
+				background-color: lightgray;
+			}
+			#button1,#button2,#button3,#button4
+			{
+				background-color: #ffcc99;
+				border: 1px ridge red;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Math</h1>
+
+		<form>
+			Enter value for a:
+			<input type="text" id="txt1"><br>
+
+			Enter value for b:
+			<input type="text" id="txt2"><br>
+
+			<input type="button" id="button1" value="Add">
+			<input type="button" id="button2" value="Subtract">
+			<input type="button" id="button3" value="Multiply">
+			<input type="button" id="button4" value="Divide">
+			<br>
+
+			Result:
+			<input type="text" id="txt3" readonly="readonly">
+
+		</form>
+
+		<script type="text/javascript">
+			document.getElementById("button1").addEventListener("click", fun1);
+			document.getElementById("button2").addEventListener("click", fun2);
+			document.getElementById("button3").addEventListener("click", fun3);
+			document.getElementById("button4").addEventListener("click", fun4);
+
+			function fun1()
+			{
+				var a = parseInt( document.getElementById("txt1").value );
+				var b = parseInt( document.getElementById("txt2").value );
+				var c = a + b;
+				document.getElementById("txt3").value = c;
+			}
+
+			function fun2()
+			{
+				var a = parseInt( document.getElementById("txt1").value);
+				var b = parseInt( document.getElementById("txt2").value);
+				var c = a - b;
+				document.getElementById("txt3").value = c;
+			}
+
+			function fun3()
+			{
+				var a = parseInt( document.getElementById("txt1").value);
+				var b = parseInt( document.getElementById("txt2").value);
+				var c = a * b;
+				document.getElementById("txt3").value = c;
+			}
+
+			function fun4()
+			{
+				var a = parseInt( document.getElementById("txt1").value);
+				var b = parseInt( document.getElementById("txt2").value);
+				var c = a / b;
+				document.getElementById("txt3").value = c;
+			}
+		</script>
+	</body>
+</html>

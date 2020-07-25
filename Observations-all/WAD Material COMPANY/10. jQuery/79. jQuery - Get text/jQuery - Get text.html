@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>jQuery - Get Text</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#div1
+			{
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="div1">
+			Hello, <b>how</b> are you
+		</div>
+		<br>
+
+		<input type="button" id="button1" value="get text">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+				//get text (excluding child tags)
+				var s = $("#div1").text();
+				alert(s);
+			}
+
+		</script>
+
+	</body>
+</html>

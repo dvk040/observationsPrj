@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>JavaScript - mouseover, mouseout</title>
+		<style type="text/css">
+			body
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#div1
+			{
+				width: 400px;
+				height: 200px;
+				background-color: lightgreen;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>JavaScript Events - mouseover, mouseout</h1>
+
+		<div id="div1">
+			mouseover me
+		</div>
+
+		<script type="text/javascript">
+			document.getElementById("div1").addEventListener("mouseover", fun1);
+			document.getElementById("div1").addEventListener("mouseout", fun2);
+
+			function fun1()
+			{
+				document.getElementById("div1").innerHTML = "thanx";
+			}
+
+			function fun2()
+			{
+				document.getElementById("div1").innerHTML = "mouseover me";
+			}
+		</script>
+	</body>
+</html>

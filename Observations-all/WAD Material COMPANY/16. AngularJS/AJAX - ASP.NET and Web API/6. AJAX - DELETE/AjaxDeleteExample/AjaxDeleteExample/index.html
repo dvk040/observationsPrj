@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS - AJAX - Delete</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        body, input {
+            font-family: Tahoma;
+            font-size: 30px;
+        }
+    </style>
+
+    <script src="Scripts/angular.js"></script>
+
+    <script>
+        var app = angular.module("mymodule", []);
+
+        app.controller("mycontroller", function ($scope, $http) {
+            $scope.empid = "";
+
+            $scope.deletedata = function () {
+                $http.delete("/api/employeesapi/" + $scope.empid).success(function (response) {
+                    alert(response);
+                }).error(function (err) { alert(JSON.stringify(err)); });
+            };
+        });
+    </script>
+</head>
+<body>
+    <h1>AngularJS - Ajax - Delete</h1>
+
+    <div ng-app="mymodule" ng-controller="mycontroller">
+        Emp ID to delete: <input type="text" ng-model="empid" />Ex: 1<br />
+        <input type="button" value="Delete" ng-click="deletedata()" /><br />
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJS - ng-init</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<!-- import angular-js script file -->
+		<script type="text/javascript" src="angular.js">
+		</script>
+
+	</head>
+	<body>
+		<!-- angularjs view starts -->
+		<div ng-app ng-init="x=10; y=20; z=x+y">
+            <p>{{x}}</p>
+            <p>{{y}}</p>
+            <p>{{z}}</p>
+		</div>
+		<!-- angularjs view ends -->
+	</body>
+</html>

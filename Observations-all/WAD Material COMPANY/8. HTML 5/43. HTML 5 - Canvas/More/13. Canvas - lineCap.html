@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Canvas - lineCap</title>
+	</head>
+	<body>
+
+		<p>The two types of line caps:</p>
+
+		<canvas id="canvas1" width="400px" height="400px" style="border:5px solid black;">
+		</canvas>
+
+		<script>
+			var ctx = document.getElementById("canvas1").getContext("2d");
+
+			ctx.beginPath();
+			ctx.lineWidth=10;
+			ctx.lineCap="butt"; //default
+			ctx.moveTo(20,20);
+			ctx.lineTo(200,20);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.lineCap="round";
+			ctx.moveTo(20,40);
+			ctx.lineTo(200,40);
+			ctx.stroke();
+		</script>
+
+	</body>
+</html>

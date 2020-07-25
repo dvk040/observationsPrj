@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>JavaScript - setTimeout</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>setTimeout</h1>
+		<input type="button" id="button1" value="Show Message after 3 seconds">
+
+		<script type="text/javascript">
+			document.getElementById("button1").addEventListener("click", fun1);
+			function fun1()
+			{
+				setTimeout(fun2, 3000);
+			}
+			function fun2()
+			{
+				alert("Hello");
+			}
+		</script>
+	</body>
+</html>

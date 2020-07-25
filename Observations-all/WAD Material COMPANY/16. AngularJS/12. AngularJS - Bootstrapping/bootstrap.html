@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJS - bootstrap</title>		
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			 .class1
+			 {
+				border: 5px solid red;
+				padding: 10px;
+				margin: 10px;
+			 }
+		</style>
+
+		<!-- import angular-js script file -->
+		<script type="text/javascript" src="angular.js">
+		</script>
+
+		<script type="text/javascript">
+			//creating two modules called "mymodule1" and "mymodule2"
+			var app1 = angular.module("mymodule1", [ ] );
+			var app2 = angular.module("mymodule2", [ ] );
+
+			//mycontroller1
+			app1.controller("mycontroller1", ["$scope", function($scope)
+			{
+				$scope.empid = 101;
+				$scope.empname = "scott";
+				$scope.salary = 4000;
+			}]);
+
+			//mycontroller2
+			app2.controller("mycontroller2", ["$scope", function($scope)
+			{
+				$scope.productid = 201;
+				$scope.productname = "mobile";
+				$scope.price = 45000;
+			}]);
+
+
+			//bootstrap (connect) the "div2" to "mymodule2"
+			angular.element(document).ready(function() {
+				angular.bootstrap(document.getElementById("div2"), ["mymodule2"]);
+			});
+		</script>
+	</head>
+	<body>
+		<!-- root view for mymodule1 -->
+		<div ng-app="mymodule1" ng-controller="mycontroller1" class="class1">
+			Emp ID: {{empid}}<br>
+			Emp Name: {{empname}}<br>
+			Salary: {{salary}}<br>
+		</div>
+	
+		<!-- root view for mymodule2 -->
+		<div id="div2" ng-controller="mycontroller2" class="class1">
+			Product ID: {{productid}}<br>
+			Product Name: {{productname}}<br>
+			Price: {{price}}<br>
+		</div>
+	</body>
+</html>

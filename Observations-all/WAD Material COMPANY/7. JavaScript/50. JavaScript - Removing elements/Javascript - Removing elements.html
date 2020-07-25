@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>JavaScript - Removing elements</title>
+		<style type="text/css">
+			body,input
+			{
+				font: 30px tahoma;
+			}
+		</style>
+	</head>
+	<body>
+		<div>	
+			<p>para 1</p>
+			<p id="p2">para 2</p>
+			<p>para 3</p>
+		</div>
+		<input type="button" id="btn1" value="remove para 2">
+
+		<script type="text/javascript">
+			document.getElementById("btn1").addEventListener("click", fun1);
+
+			function fun1()
+			{
+				document.getElementById("p2").remove();
+			}
+		</script>
+	</body>
+</html>

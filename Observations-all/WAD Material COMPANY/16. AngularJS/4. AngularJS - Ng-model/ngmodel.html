@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJS - ng-model</title>		
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<!-- import angular-js script file -->
+		<script type="text/javascript" src="angular.js">
+		</script>
+
+	</head>
+	<body>
+		<!-- angularjs view starts -->
+		<div ng-app ng-init="empid=101; empname='scott'; salary=4500">
+			Emp ID: <input type="text" ng-model="empid"><br>
+			Emp Name: <input type="text" ng-model="empname"><br>
+			Salary: <input type="text" ng-model="salary">
+		</div>
+		<!-- angularjs view ends -->
+	</body>
+</html>

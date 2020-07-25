@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML 5 - Geo Location</title>
+		<style type="text/css">
+			body
+			{
+				font-family: Tahoma;
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		Latitude: <span id="span1"></span><br>
+		Longitude: <span id="span2"></span>
+
+		<script type="text/javascript">
+
+			navigator.geolocation.getCurrentPosition(OnSuccess, OnFailure, { timeout: 6000 } );
+
+			function OnSuccess(event)
+			{
+				document.getElementById("span1").innerHTML = event.coords.latitude;
+				document.getElementById("span2").innerHTML = event.coords.longitude;
+			}
+
+			function OnFailure()
+			{
+				alert("Error");
+			}
+
+		</script>
+
+	</body>
+</html>

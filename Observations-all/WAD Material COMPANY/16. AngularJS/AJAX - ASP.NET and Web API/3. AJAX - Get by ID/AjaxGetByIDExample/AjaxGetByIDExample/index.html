@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS - AJAX - Get by ID</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        body, input {
+            font-family: Tahoma;
+            font-size: 30px;
+        }
+        .class1 {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+
+    <script src="Scripts/angular.js"></script>
+
+    <script>
+        var app = angular.module("mymodule", []);
+
+        app.controller("mycontroller", function ($scope, $http) {
+
+            $scope.emp = { "EmpID": "", "EmpName": "", "Salary": "" };
+
+            $scope.getdata = function () {
+                $http.get("/api/employeesapi/" + $scope.emp.EmpID).success(function (response) {
+                    $scope.emp.EmpName = response.EmpName;
+                    $scope.emp.Salary = response.Salary;
+                }).error(function (err) { alert(JSON.stringify(err)); });
+            };
+        });
+    </script>
+</head>
+<body>
+    <h1>AngularJS - Ajax - Get by ID</h1>
+
+    <div ng-app="mymodule" ng-controller="mycontroller">
+        Emp ID: <input type="text" ng-model="emp.EmpID" /> Ex: 1<br />
+        <input type="button" value="OK" ng-click="getdata()" />
+        <br />
+
+        Emp Name: <span class="class1">{{emp.EmpName}}</span><br />
+        Salary: <span class="class1">{{emp.Salary}}</span><br />
+    </div>
+</body>
+</html>

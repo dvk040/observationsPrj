@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<body>
+
+		Uploading progress:
+		<progress id="progress1" value="0" min="0" max="100">
+		</progress>
+		
+		<input type="button" id="button1" value="Start Uploading">
+
+		<script type="text/javascript">
+		
+			document.getElementById("button1").addEventListener("click", fun1);
+
+			function fun1()
+			{
+				 timer = setInterval(increment, 100);
+			}
+
+			var timer; /*global variable*/
+			
+			function increment()
+			{
+				var p = document.getElementById("progress1");
+				p.value += 3;
+				
+				if (p.value >=100)
+				{
+					clearInterval(timer); //stop timer
+					alert("Done");
+				}
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+﻿<html>
+	<head>
+		<title>jQuery - Selectors</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<img src="img1.jpg" width="100px">
+		<img src="img2.jpg" width="100px">
+		<img src="img3.jpg" width="100px">
+		<img src="img4.jpg" width="100px">
+		<img src="img5.jpg" width="100px">
+		<img src="img6.jpg" width="100px">
+		<img src="water.jpg" width="100px">
+		<img src="spring.jpg" width="100px">
+		<img src="apple.gif" width="100px">
+		<img src="earth.gif" width="100px">
+		<br>
+
+		<input type="button" value="Select" id="button1">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+				$("img[src$='jpg']").css("border", "4px solid red"); //attribute selector - ends with
+				//It selects <img> tag that has "src" attribute that ends with "jpg".
+			}
+
+		</script>
+
+	</body>
+</html>

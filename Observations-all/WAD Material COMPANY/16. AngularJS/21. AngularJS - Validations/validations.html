@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJS - Validations</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<!-- import angular-js script file -->
+		<script type="text/javascript" src="angular.js">
+		</script>
+
+		<script type="text/javascript">
+				//creating a module called "mymodule"
+				var app = angular.module("mymodule", [ ] );
+
+				//creating a controller called "mycontroller", in a module called "mymodule"
+				app.controller("mycontroller", function($scope)
+				{
+					$scope.user = { myemail: "", mypassword: "" };
+					$scope.register = function() { alert("Registered"); };
+				});
+		</script>
+	</head>
+	<body>
+		<!-- angularjs view starts -->
+		<div ng-app="mymodule" ng-controller="mycontroller">
+
+			<h3>User Registration - Validations</h3>
+
+			<form name="myform" novalidate="novalidate" action="http://localhost/serverpage.php">
+
+				Email:
+				<input type="email" name="myemail" ng-model="user.myemail" required="required">
+
+				<span ng-show="myform.myemail.$dirty && myform.myemail.$invalid">
+
+					<span style="color:red;" ng-show="myform.myemail.$error.email">
+						Invalid email address. 
+					</span>
+
+					<span style="color:red;" ng-show="myform.myemail.$error.required">
+						Email is mandatory. 
+					</span>
+
+				</span>
+
+				<br><br>
+
+				Password:
+				<input type="text" name="mypassword" ng-model="user.mypassword" required="required" pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15})">
+
+				<span ng-show="myform.mypassword.$dirty && myform.mypassword.$invalid">
+
+					<span style="color:red;" ng-show="myform.mypassword.$error.required">
+						Password is mandatory.
+					</span>
+
+					<span style="color:red;" ng-show="myform.mypassword.$error.pattern">
+						Password should be 6 to 15 characters length, with at least one upper case letter, one lower case letter, and one digit. 
+					</span>
+
+				</span>
+
+				<br><br>
+
+				<input type="submit" value="Register" ng-click="register()" 
+				ng-disabled="(!myform.myemail.$valid) || (!myform.mypassword.$valid)">
+			</form>
+
+		</div>
+		<!-- angularjs view ends -->
+	</body>
+</html>

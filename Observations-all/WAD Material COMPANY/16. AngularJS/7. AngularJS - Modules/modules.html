@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJS - Modules</title>		
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<!-- import angular-js script file -->
+		<script type="text/javascript" src="angular.js">
+		</script>
+
+		<script type="text/javascript">
+			//creating a module called "mymodule"
+			var app = angular.module("mymodule", [ ] );
+
+			//creating "run" function
+			app.run(function($rootScope)
+			{
+				//$rootScope means "model".
+				$rootScope.empid = 101;
+				$rootScope.empname = "Scott";
+				$rootScope.salary = 4000;
+			});
+		</script>
+	</head>
+	<body>
+		<!-- angularjs view starts -->
+		<div ng-app="mymodule">
+			Emp ID: {{empid}}<br>
+			Emp Name: {{empname}}<br>
+			Salary: {{salary}}<br>
+		</div>
+		<!-- angularjs view ends -->
+	</body>
+</html>

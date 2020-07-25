@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>Angular JS - Custom Directives</title>
+		<style type="text/css">
+			body
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<script src="angular.js" type="text/javascript">
+		</script>
+
+		<script type="text/javascript">
+			var app = angular.module("mymodule", [ ] );
+
+			app.directive("student",  function()
+			{
+				var temp = { };	
+				temp.restrict = "E";
+				temp.scope = { currentstudent : "=data" };
+
+				temp.link = function($scope, element, attributes)
+				{
+					element.html("Student name: <b>" + $scope.currentstudent.studentname + "</b>,  Age: <b>" + $scope.currentstudent.age + "</b>");
+
+					element.css("border", "5px solid " + attributes.bordercolor);
+					element.css("background-color", attributes.backgroundcolor);
+				}
+				return temp;
+			});
+
+			app.controller("mycontroller", function($scope)
+			{
+				$scope.students = [
+					{ "studentid": 1, "studentname": "Scott", "age": 25 },
+					{ "studentid": 2, "studentname": "Allen", "age": 28 }
+				];
+			});
+		</script>
+	</head>
+	<body>
+		<h2>Angular JS Custom Directives</h2>
+		<div ng-app="mymodule" ng-controller="mycontroller">
+			<p><student data="students[0]" bordercolor="red" backgroundcolor="yellow"></student></p>
+			<p><student data="students[1]" bordercolor="blue" backgroundcolor="pink"></student></p>
+		</div>
+	</body>
+</html>

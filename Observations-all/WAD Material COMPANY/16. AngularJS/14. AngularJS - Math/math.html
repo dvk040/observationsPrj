@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJS - Math</title>		
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<!-- import angular-js script file -->
+		<script type="text/javascript" src="angular.js">
+		</script>
+
+		<script type="text/javascript">
+			//creating a module called "mymodule"
+			var app = angular.module("mymodule", [ ] );
+
+			//creating a controller called "mycontroller", in a module called "mymodule"
+			app.controller("mycontroller", function($scope)
+			{
+				//$scope means "scope of mycontroller".
+				$scope.a = "10";
+				$scope.b = "3";
+				$scope.c = "";
+
+				$scope.add = function()
+				{
+					$scope.c = parseFloat($scope.a) + parseFloat($scope.b);
+				};
+
+				$scope.subtract = function()
+				{
+					$scope.c = $scope.a - $scope.b;
+				};
+
+				$scope.multiply = function()
+				{
+					$scope.c = $scope.a * $scope.b;
+				};
+
+				$scope.divide = function()
+				{
+					$scope.c = $scope.a / $scope.b;
+				};
+
+			});
+		</script>
+	</head>
+	<body>
+		<!-- angularjs view starts -->
+		<div ng-app="mymodule" ng-controller="mycontroller">
+
+			First number: <input type="text" ng-model="a"><br>
+			Second number: <input type="text" ng-model="b"><br>
+			<input type="button" value="Add" ng-click="add()">
+			<input type="button" value="Subtract" ng-click="subtract()">
+			<input type="button" value="Multiply" ng-click="multiply()">
+			<input type="button" value="Divide" ng-click="divide()">
+			<br>
+			Result: <span ng-bind="c"></span>
+
+		</div>
+		<!-- angularjs view ends -->
+	</body>
+</html>

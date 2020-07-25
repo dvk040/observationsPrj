@@ -1,0 +1,8 @@
+Viewport meta tag:
+--------------------------
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	This tag tells to the mobile browsers that we are using "responsive web design", and don't treat it as pc-based web page, and don't display in very small size.
+
+	Without viewport meta tag, the mobile browsers treat the web page as pc-based web page.

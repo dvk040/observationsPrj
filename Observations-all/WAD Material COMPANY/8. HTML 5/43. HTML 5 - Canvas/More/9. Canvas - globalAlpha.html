@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Canvas - globalAlpha</title>
+	</head>
+	<body>
+
+		<canvas id="canvas1" width="400px" height="400px" style="border:5px solid black;">
+		</canvas>
+
+		<script>
+			var ctx = document.getElementById("canvas1").getContext("2d");
+			
+			ctx.fillStyle="red";
+			ctx.fillRect(20,20,75,50);
+
+			//Turn transparency on
+			ctx.globalAlpha=0.2;
+			
+			ctx.fillStyle="blue";
+			ctx.fillRect(50,50,75,50); 
+			
+			ctx.fillStyle="green";
+			ctx.fillRect(80,80,75,50);
+		</script>
+
+	</body>
+</html>

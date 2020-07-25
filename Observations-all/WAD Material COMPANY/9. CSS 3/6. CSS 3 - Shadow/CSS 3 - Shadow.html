@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>CSS 3 - Shadow</title>
+		<style type="text/css">
+			body
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+            #div1
+			{
+                width: 300px;
+                height: 100px;
+                background-color: yellow;
+
+				/* Syntax: box-shadow: horizontalPosition verticalPosition blurRadius spread shadowColor */
+                box-shadow: 15px 15px 10px 5px darkgreen;
+
+				/* Syntax: text-shadow: horizontalPosition verticalPosition blurRadius shadowColor */
+				text-shadow: 5px 5px 5px red;
+            }
+			#txt1
+			{
+				box-shadow: 15px 15px 10px 5px darkgreen;
+				text-shadow: 5px 5px 5px red;
+				font-size: 30px;
+			}
+        </style>
+	</head>	
+	<body>
+
+		<div id="div1">CSS 3 shadow example</div><br><br>
+		<input type="text" id="txt1">
+
+	</body>
+</html>
+
+
+<!--
+Syntax of box-shadow:
+    Horizontal position: 35px
+    Vertical position: 20px
+    Blur Radius: 15px
+    Spread: 7px
+    Shadow color: rgba(r, g, b, a)
+-->
+
+<!--
+Syntax of text-shadow:
+    Horizontal Length: 35px
+    Vertical Length: 20px
+    Blur Radius: 15px
+    Shadow color: rgba(r, g, b, a)
+-->
+

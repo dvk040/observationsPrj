@@ -1,0 +1,52 @@
+<h1>Login</h1>
+<div id="loginform">
+	
+	<form novalidate="novalidate" name="myform">
+
+		<table>
+
+			<tr>
+				<td><label for="txtusername">Username:</label></td>
+				<td>
+					
+					<input type="text" id="txtusername" pattern="([A-Za-z0-9-]+)" ng-model="user.username" name="username">
+
+					<span ng-show="myform.username.$dirty && myform.username.$invalid">
+						<span style="color:red;" ng-show="myform.username.$error.pattern">
+							Special characters not allowed. 
+						</span>
+					</span>
+
+				</td>
+			</tr>
+
+			<tr>
+				<td><label for="txtpassword">Password:</label></td>
+				<td>
+
+					<input type="password" id="txtpassword" pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15})" ng-model="user.password" name="password">
+				
+					<span ng-show="myform.password.$dirty && myform.password.$invalid">
+						<span style="color:red;" ng-show="myform.password.$error.pattern">
+						6 to 15 character string with at least one upper case letter, one lower case letter, and one digit.
+						</span>
+					</span>
+
+				</td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td>
+					<input type="submit" value="Login" ng-click="login()" 
+			ng-disabled="!myform.username.$valid || !myform.password.$valid">
+				<span id="errormessagespan">{{errormessage}}</span>
+			
+				</td>
+			</tr>
+
+		</table>
+	
+	</form>
+
+</div>

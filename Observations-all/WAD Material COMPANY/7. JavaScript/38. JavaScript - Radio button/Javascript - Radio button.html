@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>JavaScript -RadioButton</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#div1
+			{
+				color: darkblue;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>JavaScript -RadioButton</h1>
+		<form>
+
+			<input type="radio" id="rb1" name="group1" checked="checked">
+			<label for="rb1">Small</label>
+
+			<input type="radio" id="rb2" name="group1">
+			<label for="rb2">Medium</label>
+
+			<input type="radio" id="rb3" name="group1">
+			<label for="rb3">Large</label>
+			<br>
+
+			<div id="div1" style="font-size:20px;">
+				Hello, World
+			</div>
+		</form>
+
+		<script type="text/javascript">
+			document.getElementById("rb1").addEventListener("change", fun1);
+			document.getElementById("rb2").addEventListener("change", fun1);
+			document.getElementById("rb3").addEventListener("change", fun1);
+
+			function fun1()
+			{
+				if (document.getElementById("rb1").checked == true)
+					document.getElementById("div1").style.fontSize = "20px"; //small
+
+				else if (document.getElementById("rb2").checked == true)
+					document.getElementById("div1").style.fontSize = "35px"; //medium
+
+				else if (document.getElementById("rb3").checked == true)
+					document.getElementById ("div1").style.fontSize = "50px"; //large
+			}
+		</script>
+	</body>
+</html>

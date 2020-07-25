@@ -1,0 +1,125 @@
+<html>
+	<head>
+		<title>AngularJS - AngularUI Routing Example</title>
+
+		<!-- import css file -->
+		<link href="StyleSheet.css" rel="stylesheet">
+
+		<!-- import angularjs script file -->
+		<script src="angular.js"></script>
+
+		<!-- import angular ui - router script file -->
+		<script src="angular-ui-router.js"></script>
+
+		<script>
+			var app = angular.module("mymodule", [ "ui.router" ] );
+
+			app.config(function($stateProvider, $urlRouterProvider) {
+				
+				$urlRouterProvider.otherwise("/home");
+				
+				$stateProvider
+					
+					//home
+					.state("home", { url: "/home", templateUrl: "home.html" })
+					
+					//home.countries (nested view 1)
+					.state("home.countries", { url: "/countries", templateUrl: "countries.html", controller: "countriescontroller" })
+					
+					//home.cities (nested view 2)
+					.state("home.cities", { url: "/cities", templateUrl: "cities.html", controller: "citiescontroller" })
+					
+
+					//about (named views)
+					.state("about", {
+						url: "/about",
+						views: {
+							"":
+							{
+								templateUrl: "about.html"
+							},
+							"firstcolumn@about":
+							{
+								templateUrl: "products.html",
+								controller: "productscontroller"
+							},
+							"secondcolumn@about":
+							{ 
+								templateUrl: "employees.html",
+								controller: "employeescontroller"
+							}
+						}
+						
+					});
+					
+			});
+
+
+			app.controller("countriescontroller", function($scope)
+			{
+				$scope.countries = ["India", "China", "UK"];
+			});
+
+
+			app.controller("citiescontroller", function($scope)
+			{
+				$scope.cities = ["Hyderabad", "Chennai", "Bangalore"];
+			});
+
+
+			app.controller("productscontroller", function($scope) {
+				
+				$scope.products = [
+					{
+						productname: "iPhone",
+						cost: 60000
+					},
+					{
+						productname: "Laptop",
+						cost: 40000
+					},
+					{
+						productname: "Tablet",
+						cost: 20000
+					}
+				];
+				
+			});
+
+
+			app.controller("employeescontroller", function($scope) {
+				
+				$scope.employees = [
+					{
+						employeename: "Scott",
+						salary: 5000
+					},
+					{
+						employeename: "Allen",
+						salary: 6500
+					},
+					{
+						employeename: "Jones",
+						salary: 7300
+					}
+				];
+				
+			});
+
+		</script>
+
+	</head>
+
+	<!-- angularjs application starts -->
+	<body ng-app="mymodule">
+
+		<a ui-sref="home">Home</a>
+		<a ui-sref="about">About</a>
+
+		<!-- the page content appears here -->
+		<div>
+			<div ui-view></div>
+		</div>
+
+	</body>
+</html>

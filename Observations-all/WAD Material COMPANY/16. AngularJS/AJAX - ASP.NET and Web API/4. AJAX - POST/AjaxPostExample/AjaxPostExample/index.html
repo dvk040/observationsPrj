@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS - AJAX - Post</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        body, input {
+            font-family: Tahoma;
+            font-size: 30px;
+        }
+    </style>
+
+    <script src="Scripts/angular.js"></script>
+
+    <script>
+        var app = angular.module("mymodule", []);
+
+        app.controller("mycontroller", function ($scope, $http) {
+            $scope.emp = { "EmpID": "", "EmpName": "", "Salary": "" };
+
+            $scope.savedata = function () {
+                $http.post("/api/employeesapi", $scope.emp).success(function (response) {
+                    alert(response);
+                }).error(function (err) { alert(JSON.stringify(err)); });
+            };
+        });
+    </script>
+</head>
+<body>
+    <h1>AngularJS - Ajax - Post</h1>
+
+    <div ng-app="mymodule" ng-controller="mycontroller">
+        Emp ID: <input type="text" ng-model="emp.EmpID" /><br />
+        Emp Name: <input type="text" ng-model="emp.EmpName" /><br />
+        Salary: <input type="text" ng-model="emp.Salary" /><br />
+        <input type="button" value="Insert" ng-click="savedata()" />
+    </div>
+</body>
+</html>

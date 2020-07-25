@@ -1,0 +1,207 @@
+<html>
+	<head>
+		<title>JavaScript - Multiple Validations</title>
+		<style type="text/css">
+			body
+			{
+				font-family: "Tahoma";
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="test.aspx" id="form1" onsubmit="return fun1()">
+			<h1>Registration Form</h1>
+
+			<table>
+				<tr>
+					<td>
+						Username:
+					</td>
+					<td>
+						<input type="text" name="txtUsername" id="txtUsername">
+						<span id="SpanUsername" class="error"></span>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						Password:
+					</td>
+					<td>
+						<input type="password" name="txtPassword" id="txtPassword">
+						<span id="SpanPassword" class="error"></span>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						Confirm Password:
+					</td>
+					<td>
+						<input type="password" name="txtConfirmPassword" id="txtConfirmPassword">
+						<span id="SpanConfirmPassword" class="error"></span>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						Amount:
+					</td>
+					<td>
+						<input type="text" name="txtAmount" id="txtAmount">
+						<span id="SpanAmount" class="error"></span>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						Payment Mode:
+					</td>
+					<td>
+						<select name="txtPaymentMode" id="txtPaymentMode">
+							<option value="None">---Select---</option>
+							<option value="DC">Debit Card</option>
+							<option value="CC">Credit Card</option>
+							<option value="NB">Net Banking</option>
+						</select>
+						<span id="SpanPaymentMode" class="error"></span>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						Email:
+					</td>
+					<td>
+						<input type="text" name="txtEmail" id="txtEmail">
+						<span id="SpanEmail" class="error"></span>
+					</td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td>
+						<input type="submit" value="Submit" >
+					</td>
+				</tr>
+
+			</table>
+
+			<ul id="ErrorsList" style="color:red">
+			</ul>
+		</form>
+
+		<style type="text/css">
+			.error{ color: red; }
+			body, input, select { font: 19px corbel; }
+		</style>
+
+		<script type="text/javascript">
+			function fun1(event)
+			{
+				document.getElementById("SpanUsername").innerHTML = 	"";
+				document.getElementById("SpanPassword").innerHTML = 	"";
+				document.getElementById("SpanConfirmPassword").innerHTML = "";
+				document.getElementById("SpanAmount").innerHTML = 	"";
+				document.getElementById("SpanPaymentMode").innerHTML = 	"";
+				document.getElementById("SpanEmail").innerHTML = 	"";
+
+				//get values from text boxes
+				var Username = document.getElementById("txtUsername").value;
+				var pwd = document.getElementById("txtPassword").value;
+				var ConfirmPassword = document.getElementById("txtConfirmPassword").value;
+				var Amount = document.getElementById("txtAmount").value;
+				var PaymentMode = document.getElementById("txtPaymentMode").value;
+				var Email = document.getElementById("txtEmail").value;
+
+				var Errors = [ ];
+
+				//validation 1: Username can't be blank
+				if (Username == "" || Username == null)
+				{
+					var ErrorMsg = "Username can't blank";
+					Errors.push(ErrorMsg);
+					document.getElementById("SpanUsername") .innerHTML = ErrorMsg;
+				}
+
+				//validation 2: Password can't be blank
+				if (pwd == "" || pwd == null)
+				{
+					var ErrorMsg = "Password can't blank";
+					Errors.push(ErrorMsg);
+					document.getElementById("SpanPassword") .innerHTML = ErrorMsg;
+				}
+
+				//validation 3: Confirm Password can't be blank
+				if (ConfirmPassword == "" || ConfirmPassword == null)
+				{
+					var ErrorMsg = "Confirm Password can't blank";
+					Errors.push(ErrorMsg);
+					document.getElementById("SpanConfirmPassword") .innerHTML = ErrorMsg;
+				}
+
+				//validation 4: Password & Confirm Password must match
+				if (pwd!= ConfirmPassword)
+				{
+					var ErrorMsg = "Password and Confirm Password do not match";
+					Errors.push(ErrorMsg);
+					document.getElementById("SpanConfirmPassword") .innerHTML += ErrorMsg;
+				}
+
+				//validation 5: Amount should be between 1000 to 100000
+				if (Amount < 1000 || Amount > 100000)
+				{
+					var ErrorMsg = "Amount should be in between 1000 and 100000.";
+					Errors.push(ErrorMsg);
+					document.getElementById("SpanAmount") .innerHTML = ErrorMsg;
+				}
+
+				//validation 6: Payment mode should be specified
+				if (PaymentMode == "" || PaymentMode == "None")
+				{
+					var ErrorMsg = "Select any Payment Mode.";
+					Errors.push(ErrorMsg);
+					document.getElementById("SpanPaymentMode") .innerHTML = ErrorMsg;
+				}
+
+				//validation 7: Email should be in proper format
+				var patt1 = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$/i;
+				if (patt1.test(Email) == false)
+				{
+					//debugger;
+					var ErrorMsg = "Email should be in proper format";
+					Errors.push(ErrorMsg);
+					document.getElementById("SpanEmail") .innerHTML += ErrorMsg;
+				}
+
+				//alert(Errors.length);
+
+				var ErrorsList = document.getElementById("ErrorsList");
+				ErrorsList.innerHTML = "";
+
+				for (i=0; i<Errors.length; i++)
+				{
+					document.getElementById("ErrorsList").innerHTML += "<li>" + Errors[i] + "</li>";
+				}
+
+				if (Errors.length == 0)
+				{
+					return true; //submit the form
+				}
+				else
+				{
+					return false; //don't submit the form
+					event.preventDefault(); //don't submit the form
+				}
+
+				/**/
+
+			}
+
+			//document.getElementById("form1") .addEventListener("submit", fun1);
+
+		</script>
+
+	</body>
+</html>

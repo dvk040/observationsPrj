@@ -1,0 +1,34 @@
+1) Unpaired tags list:
+          <br>
+	  <hr>
+	  <img>
+	  <meta>
+	  <input>
+	  <link>
+
+
+2) Paired tags list:   (all remaining)
+
+	  <html>
+	  <body>
+	  <head>
+	  <title>
+	  <h1>
+	  <h2>
+	  <h3>
+	  <h4>
+	  <h5>
+	  <h6>
+	  <b>
+	  <i>
+	  <u>
+	  <strike>
+	  <sup>
+	  <sub>
+	  <span>
+	  <div>
+	  <form>
+	  <textarea>
+	  <iframe>
+	  etc.
+

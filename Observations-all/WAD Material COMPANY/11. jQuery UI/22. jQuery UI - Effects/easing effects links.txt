@@ -1,0 +1,12 @@
+jQuery easing effects - download:
+http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js
+
+
+to see preview of easing effects:
+
+http://jqueryui.com/resources/demos/effect/easing.html
+
+http://matthewlein.com/experiments/easing.html
+
+http://ralphwhitbeck.com/demos/jqueryui/effects/easing/
+

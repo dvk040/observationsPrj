@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>JavaScript - changing css</title>
+		<style type="text/css">
+			body,input
+			{
+				font: 30px tahoma;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">div 1</div>
+		<input type="button" id="btn1" value="Change css"">
+
+		<script type="text/javascript">
+			document.getElementById("btn1").addEventListener("click", fun1);
+
+			function fun1()
+			{
+				document.getElementById("div1").style.fontFamily = "Comic Sans MS";
+				document.getElementById("div1").style.fontSize = "50px";
+				document.getElementById("div1").style.fontWeight = "bold";
+				document.getElementById("div1").style.fontStyle = "italic";
+				document.getElementById("div1").style.width = "500px";
+				document.getElementById("div1").style.height = "200px";
+				document.getElementById("div1").style.backgroundColor = "#006633";
+				document.getElementById("div1").style.color = "#ccffff";
+				document.getElementById("div1").style.border = "5px double red";
+				document.getElementById("div1").style.paddding = "20px";
+			}
+		</script>
+	</body>
+</html>

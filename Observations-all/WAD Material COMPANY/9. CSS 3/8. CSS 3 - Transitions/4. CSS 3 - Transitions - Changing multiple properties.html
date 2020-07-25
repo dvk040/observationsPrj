@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>CSS 3 - Transitions - Multiple Properties</title>
+		<style type="text/css">
+			body
+			{
+				font-family: 'Tahoma';
+				font-size: 25px;
+			}
+            #div1
+			{
+                width: 100px;
+                height: 100px;
+                background-color: darkgreen;
+                position: relative;
+                color: yellow;
+                font-size: 25px;
+
+                transition: background-color 2s, font-size 1s, width 2s;
+            }
+			#div1:hover
+			{
+				background-color: blue;
+				font-size: 50px;
+				width: 400px;
+			}
+        </style>
+	</head>
+	<body>
+		
+		<div id="div1">hover me</div>
+
+	</body>
+</html>

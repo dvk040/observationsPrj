@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJS - $watch</title>		
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<!-- import angular-js script file -->
+		<script type="text/javascript" src="angular.js">
+		</script>
+
+		<script type="text/javascript">
+			//creating a module called "mymodule"
+			var app = angular.module("mymodule", [ ] );
+
+			//creating a controller called "mycontroller", in a module called "mymodule"
+			app.controller("mycontroller", function($scope)
+			{
+				$scope.username = "scott";
+
+				$scope.$watch(
+					function(scope) { return scope.username },
+					function(newvalue, oldvalue) {
+						console.log("Old value: " + oldvalue + ", " + "New value:" + newvalue);
+					});
+			});
+		</script>
+	</head>
+	<body>
+		<!-- angularjs view starts -->
+		<div ng-app="mymodule" ng-controller="mycontroller">
+
+			Username <input type="text" ng-model="username"><br>
+			Hello to {{username}}
+
+		</div>
+		<!-- angularjs view ends -->
+	</body>
+</html>

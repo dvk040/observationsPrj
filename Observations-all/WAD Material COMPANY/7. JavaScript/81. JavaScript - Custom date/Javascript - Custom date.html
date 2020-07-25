@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>JavaScript - Custom date</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Set values</h1>
+		<script type="text/javascript">
+			var d = new Date();
+			d.setMonth(11); //0 to 11
+			d.setDate(31);
+			d.setFullYear(2015);
+			document.write(d.toLocaleDateString());
+		</script>
+	</body>	
+</html>

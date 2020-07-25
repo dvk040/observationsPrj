@@ -1,0 +1,55 @@
+﻿<html>
+    
+<head>
+
+    <title>Client Page</title>
+
+    <style type="text/css">
+
+        body, input, select, table
+        {
+            font-family: Tahoma;
+            font-size: 26px;
+        }
+
+    </style>
+
+</head>
+
+    <body>
+
+        Username:
+        <input type="text" id="textbox1" />
+        <br />
+
+        <input type="button" id="button1" value="OK" />
+        <div id="div1">Output here</div>
+
+        <script type="text/javascript" src="jquery-2.1.4.js">
+        </script>
+
+        <script type="text/javascript">
+
+            $("#button1").click(fun1);
+
+            function fun1() {
+                var s = $("#textbox1").val();
+                var address = "serverpage.aspx?uname=" + s;
+
+                $.ajax({
+                    url: address,
+                    type: "GET",
+                    success: fun2
+                });
+                
+            }
+
+            function fun2(response)
+            {
+                $("#div1").html(response);
+            }
+        </script>
+
+    </body>
+
+</html>

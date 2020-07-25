@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>jQuery - click</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: Tahoma;
+				font-size: 30px;
+			}
+			#div1
+			{
+				width: 300px;
+				height: 200px;
+				background-color: #00cccc;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">div 1</div>
+
+		<script src="jquery-2.2.1.js" type="text/javascript">
+		</script>
+
+		<script type="text/javascript">
+			$("#div1").click(function( )
+			{
+				alert("hai");
+				$("#div1").html("Thanx");
+			});
+			
+		</script>
+
+	</body>
+</html>
+

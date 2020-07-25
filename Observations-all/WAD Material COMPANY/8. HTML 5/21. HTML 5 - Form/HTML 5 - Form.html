@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML 5 - form</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>	
+		<form action="http://localhost/serverpage.aspx" id="form1">
+			First name:<br>
+			<input type="text" name="firstname" id="txt1"><br>
+			
+			<input type="submit" value="Submit">
+		</form>
+		<hr>
+		Last name (logically member of form1):<br>
+        <input type="text" name="lastname" id="txt2" form="form1">
+	</body>
+</html>

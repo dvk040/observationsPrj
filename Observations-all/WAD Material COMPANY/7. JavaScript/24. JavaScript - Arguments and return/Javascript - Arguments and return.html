@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>JavaScript - functions</title>
+		<style type="text/css">
+			body
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>JavaScript - functions</h1>
+
+		<script type="text/javascript">
+			function add(a,b)
+			{
+				var c; //local variable
+				c = a+b;
+				return (c);
+			}
+			
+			var result;
+			result = add(10, 20);
+			document.write(result); //30
+			document.write("<br>");
+
+			var x = 100;
+			var y = 250;
+			var result2 = add(x, y);
+			document.write(result2); //350
+		</script>
+	</body>
+</html>

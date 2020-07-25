@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJS - Ajax - Post</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<!-- import angular-js script file -->
+		<script type="text/javascript" src="angular.js">
+		</script>
+
+		<script type="text/javascript">
+				//creating a module called "mymodule"
+				var app = angular.module("mymodule", [ ] );
+
+				//creating a controller called "mycontroller", in a module called "mymodule"
+				app.controller("mycontroller", function($scope, $http)
+				{
+					$scope.emp = { empid: "", empname: "", salary: "" };
+
+					$scope.insert = function ()
+					{
+						alert(JSON.stringify($scope.emp));
+						//ajax
+						$http.post("ServerPage.aspx", $scope.emp).success(
+						function (response)
+						{
+							$scope.message = response;
+						});
+					};
+
+				});
+		</script>
+	</head>
+	<body>
+		<!-- angularjs view starts -->
+		<div ng-app="mymodule" ng-controller="mycontroller">
+
+			<h3>New Employee</h3>
+			Emp ID: <input type="text" ng-model="emp.empid"><br>
+			Emp Name: <input type="text" ng-model="emp.empname"><br>
+			Salary: <input type="text" ng-model="emp.salary"><br>
+			<input type="button" value="Insert" ng-click="insert()">
+			<span>{{message}}</span>
+
+		</div>
+		<!-- angularjs view ends -->
+	</body>
+
+</html>

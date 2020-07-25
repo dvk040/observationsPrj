@@ -1,0 +1,17 @@
+﻿<table border="1" cellpadding="5">
+
+    <tr>
+        <th>Country</th>
+        <th>Population</th>
+        <th>Flag</th>
+    </tr>
+
+    <tr ng-repeat="country in myCountries">
+        <td>
+            <a href='#/{{country.CountryName}}'>{{country.CountryName}}</a>
+        </td>
+        <td>{{country.Population}}</td>
+        <td><img ng-src="{{country.FlagURL}}" width="100px" /></td>
+    </tr>
+
+</table>

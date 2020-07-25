@@ -1,0 +1,43 @@
+XHTML Rules:
+----------------
+   
+   1) <!DOCTYPE> is must.
+		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+   2) <html>, <head>, <body>, <title> tags are must.
+
+   3) A <meta> tag with content-type is mandatory.
+
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+	
+
+			Means we are using Unicode format. Unicode supports all natural language characters like English, Chinese, French etc..
+
+
+   4) xmlns (xml namespace) attribute is must in <html> tag.
+		<html xmlns="http://www.w3.org/1999/xhtml">
+
+			This says that we are following the prescribed tags in the above mentioned namespace.
+
+			namespace = group of tags.
+
+
+   5) Case sensitive (code should be in lower case only).
+		<h1>Hello</h1>
+
+   6) Attribute's values should be in double quotes.
+		<img src="img1.jpg">
+
+   7) All paired tags must be closed.
+		<p>hai</p>
+
+   8) All unpaired tags must be end with /
+		<input type="text" />
+
+   9) Inner-most tag should be closed first.
+		<p><b><i>hello</i></b></p>
+
+   10) Attribute minification not allowed.
+		<input type="text" readonly="readonly">
+
+---------------------------------------------------------------

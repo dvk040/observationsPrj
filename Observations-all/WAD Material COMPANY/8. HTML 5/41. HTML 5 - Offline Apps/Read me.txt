@@ -1,0 +1,5 @@
+1) Copy and paste "offline" folder into "c:\inetpub\wwwroot" folder.
+
+2) Open the browser and type url:
+
+	http://localhost/offline/page1.html

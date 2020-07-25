@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>jQuery - JSON - Object</title>
+		<style type="text/css">
+			body
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			span
+			{
+				font-weight: bold;
+				color: green;
+			}
+		</style>
+	</head>	
+	<body>
+
+		<p>
+			Emp ID: <span id="span1"></span><br>
+			Emp Name: <span id="span2"></span><br>
+			Salary: <span id="span3"></span><br>
+		</p>
+
+        <script type="text/javascript" src="jquery-2.2.1.js">
+        </script>
+
+        <script type="text/javascript">
+			var emp = { "empid": 1, "empname": "Scott", "salary": 5000 };
+
+			$("#span1").html(emp.empid);
+			$("#span2").html(emp.empname);
+			$("#span3").html(emp.salary);
+        </script>		
+	</body>
+</html>

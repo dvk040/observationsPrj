@@ -1,0 +1,13 @@
+			jQuery Validation Plugin
+			====================
+
+Validation = It is the process of checking the user input values whether those are correct or not & also avoid submiting invalid values to the web server.
+
+Using jQuery validation plugin, we can perform validations easily.
+
+This requires two .js files as follows:
+   1) jquery-1.9.1.min.js		(jQuery Core script file)
+   2) jquery.validate.min.js	(jQuery Validation plugin)
+
+
+Observation: The second file works based on the first file.

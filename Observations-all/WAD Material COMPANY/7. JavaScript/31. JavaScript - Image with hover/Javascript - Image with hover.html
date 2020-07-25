@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>JavaScript - Image with hover</title>
+		<style type="text/css">
+			body
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#myimage
+			{
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Image with hover</h1>
+
+		<img src="tick1.jpg" id="myimage">
+
+		<script type="text/javascript">
+			document.getElementById("myimage").addEventListener("mouseover", fun1);
+			document.getElementById("myimage").addEventListener("mouseout", fun2);
+
+			function fun1()
+			{
+				document.getElementById("myimage").setAttribute("src", "tick2.jpg");
+			}
+
+			function fun2()
+			{
+				document.getElementById("myimage").setAttribute("src", "tick1.jpg");
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>JavaScript - Alphabets only</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Alphabets only</h1>
+
+		<input type="text" id="txt1">
+
+		<script type="text/javascript">
+			document.getElementById("txt1").addEventListener("keypress", fun1);
+
+			function fun1(event)
+			{
+				//event means "browser given details"
+
+				//ascii value of currently pressed character
+				var ch = event.which;
+				//alert(ch);
+
+				if ( !((ch >=65 && ch <=90) || (ch >=97 && ch <=122) || (ch == 32) || (ch == 8) || (ch == 0)))
+				{
+					event.preventDefault(); //cancel the currently pressed character
+				}
+			}
+		</script>
+	</body>
+</html>

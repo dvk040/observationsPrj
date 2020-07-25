@@ -1,0 +1,47 @@
+﻿<html>
+	<head>
+		<title>jQuery - Selectors</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<p class="class1">Lorem Ipsum is simply dummy text of the printing.</p>
+
+		<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+
+		<p class="class1">Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+
+		<p class="class1">It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
+
+		<p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+
+		<div class="class1">div1</div>
+		<div>div2</div>
+		<div class="class1">div3</div>
+		<div>div4</div>
+
+		<input type="button" value="Select" id="button1">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+				$(".class1").css("background-color", "lightgreen"); //class selector
+				//It selects the <p> tags and <div> tags that have class="class1"
+			}
+
+		</script>
+
+	</body>
+</html>

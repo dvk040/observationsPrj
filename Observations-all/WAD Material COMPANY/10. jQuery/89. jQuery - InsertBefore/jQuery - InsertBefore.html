@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>jQuery - InsertBefore</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#div1
+			{
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="div1">div1</div>
+		<span id="span1">span1</span>
+		<br>
+
+		<input type="button" id="button1" value="insert before">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+				//insert before starting tag
+				$("#span1").insertBefore("#div1");
+			}
+
+		</script>
+
+	</body>
+</html>

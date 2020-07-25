@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>AngularJS - $inject</title>
+		<style type="text/css">
+			body
+			{
+				font-family: Tahoma;
+				font-size: 30px;
+			}
+			.class1
+			{
+				margin: 10px;
+				padding: 10px;
+				border: 5px solid red;
+			}
+		</style>
+
+		<script src="angular.js" type="text/javascript">
+		</script>
+
+		<script>
+			var app = angular.module("mymodule", [ ] );
+
+			app.controller("controller1", fun1);
+
+			function fun1(s, r)
+			{
+				//$scope = sub model 1
+				//$rootScope = root model
+				s.submessage = "message from sub model";
+				r.rootmessage = "message from root model";
+			}
+
+			fun1.$inject = [ "$scope", "$rootScope" ];
+
+		</script>
+	</head>
+	<body>
+		<div ng-app="mymodule" class="class1">
+
+			<p>{{rootmessage}}</p>
+
+			<div ng-controller="controller1" class="class1">
+				<p>{{submessage}}</p>
+			</div>
+
+		</div>
+	</body>
+</html>

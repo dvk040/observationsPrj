@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>JavaScript OOPS - Constructor</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>JavaScript OOPS - Constructor</h1>
+
+		<script type="text/javascript">
+			/*creating class*/
+			function Student(a, b, c)
+			{
+				this.studentid = a;
+				this.studentname = b;
+				this.marks = c;
+
+				//this = current object (either student1 or student2)
+			}
+
+			/*creating objects*/
+			var student1 = new Student(101, "scott", 70);
+			var student2 = new Student(102, "allen", 80);
+
+			document.write(student1.studentid);
+			document.write("<br>");
+			document.write(student1.studentname);
+			document.write("<br>");
+			document.write(student1.marks);
+			document.write("<hr>");
+
+			document.write(student2.studentid);
+			document.write("<br>");
+			document.write(student2.studentname);
+			document.write("<br>");
+			document.write(student2.marks);
+		</script>
+	</body>
+</html>

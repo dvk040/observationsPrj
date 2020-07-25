@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>jQuery - Disabling right click</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<input type="text" id="TextBox1" >
+
+		<input type="text" id="TextBox2">
+
+		<input type="text" id="TextBox3">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+			$(document).bind("contextmenu", fun1);
+
+			function fun1(event)
+			{
+				alert("right click not allowed");
+				event.preventDefault();
+			}
+
+			//event = browser given information
+		</script>
+	</body>
+</html>

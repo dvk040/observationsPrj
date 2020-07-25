@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>JavaScript - Adding elements</title>
+		<style type="text/css">
+			body,input
+			{
+				font: 30px tahoma;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">	
+			<p>para 1</p>
+			<p>para 2</p>
+			<p>para 3</p>
+
+		</div>
+		<input type="button" id="btn1" value="add para to div">
+
+		<script type="text/javascript">
+			document.getElementById("btn1").addEventListener("click", fun1);
+			var n = 4;
+
+			function fun1()
+			{
+				var mypara = document.createElement("p");
+				mypara.innerHTML = "para " + n;
+				document.getElementById("div1").appendChild(mypara);
+				n++;
+			}
+		</script>
+	</body>
+</html>

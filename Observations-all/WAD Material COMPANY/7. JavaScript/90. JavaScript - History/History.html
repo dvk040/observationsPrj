@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>JavaScript - History example</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="btnBack" value="Back">
+		<input type="button" id="btnForward" value="Forward">
+		<br>
+		<a href="page2.html">Go to Page2</a>
+		<script type="text/javascript">
+			document.getElementById("btnBack") .addEventListener("click", goBack);
+			document.getElementById("btnForward") .addEventListener("click", goForward);
+			function goBack()
+			{
+				window.history.back(); //go to previous page
+			}
+			function goForward()
+			{
+				window.history.forward(); //go to next page
+			}
+		</script>
+	</body>
+</html>

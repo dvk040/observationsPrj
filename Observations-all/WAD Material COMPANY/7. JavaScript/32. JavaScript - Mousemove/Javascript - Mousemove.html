@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>JavaScript - mousemove</title>
+		<style type="text/css">
+			body
+			{
+				font-family: 'Tahoma';
+				font-size: 26px;
+			}
+			#div1
+			{
+				width: 400px;
+				height: 200px;
+				background-color: lightgreen;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>JavaScript Events - mousemove</h1>
+
+		<div id="div1">
+			mouseover me
+		</div>
+
+		<script type="text/javascript">
+			document.getElementById("div1").addEventListener("mousemove", fun1);
+
+			function fun1(event)
+			{
+				//event = browser given information
+				var x = event.pageX;
+				var y = event.pageY;
+				document.getElementById("div1").innerHTML = x + ", " + y;
+			}
+		</script>
+	</body>
+</html>

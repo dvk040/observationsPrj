@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>KnockoutJS - foreach</title>
+		<style type="text/css">
+			body,table
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h1>Employees</h1>
+
+		<table data-bind="foreach: employees" border="1">
+
+			<tr>
+				<td data-bind="text: empid"></td>
+				<td data-bind="text: empname"></td>
+				<td data-bind="text: salary"></td>
+			</tr>
+
+		</table>
+
+		<script type="text/javascript" src="knockout-3.4.0.js">
+		</script>
+
+		<script type="text/javascript">
+
+            function myviewmodel()
+			{
+
+				this.employees = [
+					{ "empid": 101, "empname": "Scott", "salary": 3000 },
+					{ "empid": 102, "empname": "Allen", "salary": 6500 },
+					{ "empid": 103, "empname": "Jones", "salary": 7500 },
+					{ "empid": 104, "empname": "Smith", "salary": 2400 },
+					{ "empid": 105, "empname": "James", "salary": 9500 }
+				];
+
+            };
+
+            ko.applyBindings(new myviewmodel());
+				
+		</script>
+
+	</body>
+</html>

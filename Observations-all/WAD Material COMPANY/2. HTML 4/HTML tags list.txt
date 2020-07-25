@@ -1,0 +1,57 @@
+List of html tags:
+--------------------
+
+	1. <html>
+	2. <body>
+	3. <br>
+	4. <hr>
+	5. <h1>
+	6. <h2>
+	7. <h3>
+	8. <h4>
+	9. <h5>
+	10. <h6>
+	11. <p>
+	12. <b>
+	13. <i>
+	14. <u>
+	15. <strong>
+	16. <em>
+	17. <strike>
+	18. <sup>
+	19. <sub>
+	20. <img>
+	21. <a>
+	22. <ol>
+	23. <ul>
+	24. <li>
+	25. <dl>
+	26. <dt>
+	27. <dd>
+	28. <abbr>
+	29. <bdo>
+	30. <pre>
+	31. <table>
+	32. <tr>
+	33. <th>
+	34. <td>
+	35. <caption>
+	36. <iframe>
+	37. <title>
+	38. <meta>
+	39. <head>
+	40. <input>
+	41. <button>
+	42. <form>
+	43. <textarea>
+	44. <select>
+	45. <option>
+	46. <optgroup>
+	47. <label>
+	48. <fieldset>
+	49. <legend>
+	50. <link>
+	51. <script>
+
+================================
+

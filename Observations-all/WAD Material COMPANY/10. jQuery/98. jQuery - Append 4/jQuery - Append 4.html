@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>jQuery - Append 4</title>
+		<style type="text/css">
+			body, input, table
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h3>Enter Employee Details</h3>
+
+		<div id="div1">
+			
+			Emp ID:<br>
+			<input type="text" id="textbox1"><br>
+			
+			Emp Name:<br>
+			<input type="text" id="textbox2"><br>
+			
+			Salary:<br>
+			<input type="text" id="textbox3"><br>
+			
+		</div>
+		
+		<input type="button" id="button1" value="Add">
+		
+		<table id="table1" border="1" cellpadding="5px">
+			<tr style="background-color:gold">
+				<th>Emp ID</th>
+				<th>Emp Name</th>
+				<th>Salary</th>
+			</tr>
+
+		</table>
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+		
+		<script type="text/javascript">
+
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+				var s = "<tr><td>" + $("#textbox1").val() + "</td><td>" + $("#textbox2").val() + "</td><td>" + $("#textbox3").val() + "</td></tr>";
+				//alert(s);
+
+				$("#table1").append(s);				
+				$("#div1 input[type=text]").val("");				
+				$("#textbox1").focus();
+			};
+		</script>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>JavaScript - JSON User Data Example</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>Employee Details</h3>
+
+		<div id="div1">
+			Emp ID:<br>
+			<input type="text" id="txt1"><br>
+			Emp Name:<br>
+			<input type="text" id="txt2"><br>
+			
+			Salary:<br>
+			<input type="text" id="txt3"><br>
+		</div>
+		<input type="button" id="button1" value="Add">
+
+        <script type="text/javascript">
+			document.getElementById("button1").addEventListener("click", fun1);
+            //global variable
+            var emps = [ ];
+			function fun1()
+			{
+				var emp =
+					{
+						"empid": document.getElementById("txt1").value,
+						"empname": document.getElementById("txt2").value,
+						"salary": document.getElementById("txt3").value
+					};
+
+				emps.push(emp);
+				alert(JSON.stringify(emps));
+				document.getElementById("txt1").value = "";
+				document.getElementById("txt2").value = "";
+				document.getElementById("txt3").value = "";
+				document.getElementById("txt1").focus();
+			};
+        </script>
+	</body>
+</html>

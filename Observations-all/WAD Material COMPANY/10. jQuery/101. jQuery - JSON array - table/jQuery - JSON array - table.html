@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>jQuery - JSON - Array</title>
+		<style type="text/css">
+			body,table
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<table id="table1" border="1">
+
+			<tr style="background-color: gold;">
+				<th>Emp ID</th>
+				<th>Emp Name</th>
+				<th>Salary</th>
+			</tr>
+
+		</table>
+
+        <script type="text/javascript" src="jquery-2.2.1.js">
+        </script>
+
+        <script type="text/javascript">
+
+			var employees = 
+			[
+				{ "empid": 1, "empname": "Scott", "salary": 5000 },
+				{ "empid": 2, "empname": "Allen", "salary": 6000 },
+				{ "empid": 3, "empname": "John", "salary": 7000 },
+				{ "empid": 4, "empname": "Jones", "salary": 8000 },
+				{ "empid": 5, "empname": "Smith", "salary": 9000 }				
+			];
+
+			for(i = 0; i < employees.length; i++)
+			{
+				var employee = employees[i];
+				var temp = "<tr><td>" + employee.empid + "</td> <td>" + employee.empname + "</td> <td>" + employee.salary + "</td> </tr>";
+				$("#table1").append(temp);
+			}
+
+			$("#table1").on("mouseover", 'tr',
+			function() {
+				$(this).css("background-color", "darkgray");
+			});
+
+			$("#table1").on("mouseout", 'tr',
+			function() {
+				$(this).css("background-color", "white");
+			});
+
+        </script>
+		
+	</body>
+</html>

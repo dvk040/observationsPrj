@@ -1,0 +1,85 @@
+		Web Storage
+		============
+
+ - Storing Temporary Data is called as "Web Storage".
+
+ - While running the page, we can load current details of user, game scores, user preferences etc., on the browser's internally, temporarily.
+
+ - Note: Eariler we were using cookies for this requirement.
+	But cookies are having some drawbacks.
+		1) security is less
+		2) cookies are stored in the form of text files; so that anybody easily open it, change it, delete it or programmatically manipulate it.
+		3) most browsers has some limit for the cookies data. Ex: 4kb
+
+
+ - Types of Web Storage:
+	1) Local Storage
+	2) Session Storage
+
+
+1) Local Storage:
+	- data will be available forever, until you manually erase it (or) user deletes it.
+	- Syn:   localStorage.variable = value;
+	- Ex:   localStorage.x = 10;
+
+
+2) Session Storage
+	- data will be cleared automatically, when you close the browser window.
+	- Syn:   sessionStorage.variable = value;
+	- Ex:   sessionStorage.x = 10;
+
+
+Note:  'localStorage' and 'sessionStorage' are the pre-defined objects.
+
+
+===================================================
+
+
+Erasing the data:
+   localStorage.x = null;
+   sessionStorage.x = null;
+
+
+
+===================================================
+
+
+Setting data:
+***********
+
+   a) localStorage:
+
+	localStorage.variable = value;
+		(or)
+	localStorage.setItem("variable", value);
+
+
+   b) sessionStorage:
+
+	sessionStorage.variable = value;
+		(or)
+	sessionStorage.setItem("variable", value);
+
+
+===================================================
+
+
+Getting data:
+***********
+
+   a) localStorage:
+
+	localStorage.variable
+		(or)
+	localStorage.getItem("variable");
+
+
+   b) sessionStorage:
+
+	sessionStorage.variable
+		(or)
+	sessionStorage.getItem("variable");
+
+
+===================================================
+

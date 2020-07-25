@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>CSS - Direct Child selector</title>
+        <style type="text/css">
+            body
+			{
+                font-family: 'Tahoma';
+                font-size: 24px;
+            }
+
+			/*including grand children */
+			/*div p 
+			{
+				background-color: skyblue;
+			}*/
+
+			/*excluding grand children*/
+			div>p 
+			{
+				background-color: skyblue;
+			}
+
+			/*only grand children */
+			/*div b p 
+			{
+				background-color: skyblue;
+			}*/
+
+		</style>
+	</head>
+	<body>
+		<h1>Child Selector</h1>
+
+		<div id="div1">
+			<p>para 1</p>
+			<p>para 2</p>
+			<p>para 3</p>
+			<p>para 4</p>
+			<b>
+				<p>para 5</p>
+				<p>para 6</p>
+			</b>
+		</div>
+		<p>para 7</p>
+		<p>para 8</p>
+	</body>
+</html>

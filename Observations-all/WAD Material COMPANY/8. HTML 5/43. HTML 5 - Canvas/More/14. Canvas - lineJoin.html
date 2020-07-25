@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Canvas - lineJoin</title>
+	</head>
+	<body>
+
+		<canvas id="canvas1" width="400px" height="400px" style="border:5px solid black;">
+		</canvas>
+
+		<script>
+			var ctx = document.getElementById("canvas1").getContext("2d");
+			
+			ctx.beginPath();
+			ctx.lineWidth=10;
+			ctx.lineJoin="bevel"; //Options: bevel|round|miter
+			
+			ctx.moveTo(20,20);
+			ctx.lineTo(100,50);
+			ctx.lineTo(20,100);
+			ctx.stroke();
+		</script>
+
+	</body>
+</html>

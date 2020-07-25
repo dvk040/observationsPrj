@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJS - filters</title>		
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<!-- import angular-js script file -->
+		<script type="text/javascript" src="angular.js">
+		</script>
+
+		<script type="text/javascript">
+			//creating a module called "mymodule"
+			var app = angular.module("mymodule", [ ] );
+
+			//creating a controller called "mycontroller", in a module called "mymodule"
+			app.controller("mycontroller", function($scope)
+			{
+				$scope.emp = { "empid": 101, "firstname": "adam", "lastname": "smith", "salary": 4500 };
+			});
+		</script>
+	</head>
+	<body>
+		<!-- angularjs view starts -->
+		<div ng-app="mymodule" ng-controller="mycontroller">
+
+			Emp ID: {{emp.empid}}<br>
+			First Name: {{emp.firstname | uppercase}}<br>
+			Last Name: {{emp.lastname | lowercase}}<br>
+			Salary: {{emp.salary | number}}<br>
+			Salary: {{emp.salary | currency:'&#8377;'}}<br>
+
+		</div>
+		<!-- angularjs view ends -->
+	</body>
+</html>

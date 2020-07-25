@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>JavaScript - background color</title>
+		<style type="text/css">
+			body,input,select
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#div1
+			{
+				width: 300px; height: 300px;
+				border: 4px solid orange;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Choose background color</h1>
+
+		<select id="drp1">
+			<option value="select">Select</option>
+			<option value="red">Red</option>
+			<option value="green">Green</option>
+			<option value="blue">Blue</option>
+		</select>
+		<br>
+
+		<div id="div1">
+			div1
+		</div>
+
+		<script type="text/javascript">
+			document.getElementById("drp1").addEventListener("change", fun1);
+
+			function fun1()
+			{
+				var selectedcolor = document.getElementById("drp1").value;
+
+				if (selectedcolor == "red")
+					document.getElementById("div1").style.backgroundColor = "red";
+				else if (selectedcolor == "green")
+					document.getElementById("div1").style.backgroundColor = "green";
+				else if (selectedcolor == "blue")
+					document.getElementById("div1").style.backgroundColor = "blue";
+				else
+					document.getElementById("div1").style.backgroundColor = "white";
+			}
+		</script>
+	</body>
+</html>

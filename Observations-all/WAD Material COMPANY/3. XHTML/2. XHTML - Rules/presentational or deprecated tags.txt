@@ -1,0 +1,12 @@
+presentation tags or deprecated tags:
+<font>
+<center>
+<marquee>
+<strike>
+<basefont>
+etc.
+
+
+frameset tags:
+<frameset>
+<frame>

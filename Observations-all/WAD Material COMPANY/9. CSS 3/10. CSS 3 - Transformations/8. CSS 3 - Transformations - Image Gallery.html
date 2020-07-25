@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>CSS 3 - Transformations - Image Gallery</title>
+		<style type="text/css">
+			body
+			{
+				font-family: 'Tahoma';
+				font-size: 25px;
+			}
+
+            .photogallery
+			{
+                width: 200px;
+                height: 190px;
+                background-color: #00CCFF;
+                margin: 50px;
+                float: left;
+                cursor: pointer;
+
+                box-shadow: 10px 10px 10px 10px #ff0000;
+                transition: transform 0.8s;
+            }
+
+            .photogallery:hover 
+			{
+                background-color: #0099FF;
+
+                transform: rotate(360deg) scale(1.2);
+            }
+
+            .photogallery img 
+			{
+                width: 100%;
+            }
+        </style>
+	</head>
+	<body>
+
+		<div class="photogallery">
+			<img src="img1.jpg">
+			<span>image 1</span>
+		</div>
+		
+		<div class="photogallery">
+			<img src="img2.jpg">
+			<span>image 2</span>
+		</div>
+		
+		<div class="photogallery">
+			<img src="img3.jpg">
+			<span>image 3</span>
+		</div>
+		
+		<div class="photogallery">
+			<img src="img4.jpg">
+			<span>image 4</span>
+		</div>
+		
+		<div class="photogallery">
+			<img src="img5.jpg">
+			<span>image 5</span>
+		</div>
+		
+		<div class="photogallery">
+			<img src="img6.jpg">
+			<span>image 6</span>
+		</div>
+
+	</body>	
+</html>

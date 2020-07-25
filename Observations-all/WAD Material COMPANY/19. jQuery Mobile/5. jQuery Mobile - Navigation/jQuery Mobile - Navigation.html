@@ -1,0 +1,79 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<title>jQuery Mobile - Navigation</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="jquery.mobile-1.4.5.css" type="text/css">
+
+		<script src="jquery-2.2.0.js" type="text/javascript">
+		</script>
+
+		<script src="jquery.mobile-1.4.5.js" type="text/javascript">
+		</script>
+
+	</head>
+	<body>
+
+		<!-- First page starts -->
+		<div data-role="page" id="Page1">
+
+			<div data-role="header">
+				<h1>Page1</h1>
+			</div>
+
+			<div class="ui-content">
+
+				<p>Page 1 content here</p>
+				<p>Click here to go to <a href="#Page2" data-transition="slide">Page2</a></p>
+
+			</div>
+
+			<div data-role="footer">
+				<h4>Page Footer</h4>
+			</div>
+
+		</div>
+		<!-- First page ends -->
+
+		<!-- Second page starts -->
+		<div data-role="page" id="Page2">
+
+			<div data-role="header">
+				<h1>Page2</h1>
+			</div>
+
+			<div class="ui-content">
+
+				<p>Page 2 content here</p>
+
+				<p>Click here to go to <a href="#Page1" data-transition="slide">Page1</a></p>
+
+			</div>
+
+			<div data-role="footer">
+				<h4>Page Footer</h4>
+			</div>
+
+		</div>
+		<!-- Second page ends -->
+
+	</body>
+</html>
+
+<!--
+transitions:
+
+	fade
+	pop
+	flip
+	turn
+	flow
+	slidefade
+	slide
+	slideup
+	slidedown
+	none
+-->
+

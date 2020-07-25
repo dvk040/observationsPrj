@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>jQuery - CSS</title>
+		<style type="text/css">
+			body,input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="div1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+
+		<input type="button" id="button1" value="set a css property">
+
+		<script type="text/javascript" src="jquery-2.2.1.js">
+		</script>
+
+		<script type="text/javascript">
+			$("#button1").click(fun1);
+
+			function fun1()
+			{
+				$("#div1").css("color", "#ff0099");
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Canvas - quadraticCurveTo</title>
+	</head>
+	<body>
+
+		<canvas id="canvas1" width="400px" height="400px" style="border:5px solid black;">
+		</canvas>
+
+		<script>
+			var ctx = document.getElementById("canvas1").getContext("2d");
+			
+			ctx.beginPath();
+			ctx.moveTo(20,20);
+			ctx.quadraticCurveTo(20,100,200,20);
+			ctx.stroke();
+		</script>
+
+	</body>
+</html>

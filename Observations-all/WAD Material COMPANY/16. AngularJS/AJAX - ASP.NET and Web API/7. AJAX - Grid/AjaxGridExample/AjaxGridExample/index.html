@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS - AJAX - Grid</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        body, input
+        {
+            font-family: Tahoma;
+            font-size: 23px;
+        }
+        #table1
+        {
+            background-color: #e4055d;
+        }
+        #table1 tr
+        {
+            background-color: #68dcfb;
+        }
+        #table1 tr:first-child
+        {
+            background-color: gold;
+        }
+        #table1 tr td, #table1 tr th
+        {
+            padding: 5px;
+        }
+        #table1 tr:hover 
+        {
+            background-color: #21b1d8;
+            cursor: pointer;
+        }
+        #table1 .newrow {
+            background-color: #317bf1;
+        }
+
+        #table1 input[type=text] {
+            width: 200px;
+            border: 2px solid blue;
+        }
+    </style>
+
+    <script src="Scripts/angular.js"></script>
+
+    <script>
+        var app = angular.module("mymodule", []);
+
+        app.controller("mycontroller", function ($scope, $http) {
+            $scope.showloading = true;
+            $scope.mastercheckboxchecked = false;
+            $scope.employees= [];
+            $scope.newemployee = { "EmpID": "", "EmpName": "", "Salary": "" };
+            $scope.editemployee = { "EmpID": "", "EmpName": "", "Salary": "" };
+
+            $http.get("/api/employeesapi").success(function (response) {
+                for (var i = 0; i < response.length; i++) {
+                    $scope.employees.push({ "EmpID": response[i].EmpID, "EmpName": response[i].EmpName, "Salary": response[i].Salary, "IsSelected": false, "showedit": false });
+                }
+                $scope.showloading = false;
+            }).error(function (err) { alert(JSON.stringify(err)); });
+
+            $scope.mastercheckboxclicked = function () {
+                if ($scope.mastercheckboxchecked) {
+                    for (var i = 0; i < $scope.employees.length; i++) {
+                        $scope.employees[i].IsSelected = true;
+                    }
+                }
+                else {
+                    for (var i = 0; i < $scope.employees.length; i++) {
+                        $scope.employees[i].IsSelected = false;
+                    }
+                }
+            };
+
+            $scope.insert = function () {
+                if ($scope.newemployee.EmpID != "" && $scope.newemployee.EmpName != "" && $scope.newemployee.Salary != "") {
+                    $http.post("/api/employeesapi", $scope.newemployee).success(function (response) {
+                        //alert(response);
+                        $scope.employees.push({ "EmpID": $scope.newemployee.EmpID, "EmpName": $scope.newemployee.EmpName, "Salary": $scope.newemployee.Salary });
+                        $scope.newemployee.EmpID = "";
+                        $scope.newemployee.EmpName = "";
+                        $scope.newemployee.Salary = "";
+                    }).error(function (err) { alert(JSON.stringify(err)); });
+                }
+            };
+
+            $scope.delete = function (i) {
+                if (confirm("Are you sure to delete?")) {
+                    $http.delete("/api/employeesapi/" + $scope.employees[i].EmpID).success(function (response) {
+                        //alert(response);
+                        $scope.employees.splice(i, 1);
+                    }).error(function (err) { alert(JSON.stringify(err)); });
+                }
+            }
+
+            $scope.edit = function (i) {
+                $scope.employees[i].showedit = true;
+                $scope.editemployee.EmpID = $scope.employees[i].EmpID;
+                $scope.editemployee.EmpName = $scope.employees[i].EmpName;
+                $scope.editemployee.Salary = $scope.employees[i].Salary;
+            };
+
+            $scope.update = function (i) {
+                if ($scope.editemployee.EmpID != "" && $scope.editemployee.EmpName != "" && $scope.editemployee.Salary != "") {
+                    $http.put("/api/employeesapi/" + $scope.editemployee.EmpID, $scope.editemployee).success(function (response) {
+                        //alert(response);
+                        $scope.employees[i].EmpID = $scope.editemployee.EmpID;
+                        $scope.employees[i].EmpName = $scope.editemployee.EmpName;
+                        $scope.employees[i].Salary = $scope.editemployee.Salary;
+                        $scope.employees[i].showedit = false;
+                    }).error(function (err) { alert(JSON.stringify(err)); });
+                }
+            };
+        });
+    </script>
+</head>
+<body>
+    <h1>AngularJS - Ajax - Grid</h1>
+
+    <div ng-app="mymodule" ng-controller="mycontroller">
+
+        <img src="Images/ajax-loader.gif" ng-show="showloading" />
+
+        <table border="1" id="table1">
+
+            <tr>
+                <th><input type="checkbox" ng-model="mastercheckboxchecked" ng-change="mastercheckboxclicked()" /></th>
+                <th>Emp ID</th>
+                <th>Emp Name</th>
+                <th>Salary</th>
+                <th>Options</th>
+            </tr>
+
+            <tr ng-repeat="emp in employees">
+                <td><input type="checkbox" ng-model="emp.IsSelected" /></td>
+                <td>
+                    <span ng-show="!emp.showedit">{{emp.EmpID}}</span>
+                    <input type="text" ng-model="editemployee.EmpID" ng-show="emp.showedit" readonly="readonly" />
+                </td>
+                <td>
+                    <span ng-show="!emp.showedit">{{emp.EmpName}}</span>
+                    <input type="text" ng-model="editemployee.EmpName" ng-show="emp.showedit" />
+                </td>
+                <td>
+                    <span ng-show="!emp.showedit">{{emp.Salary}}</span>
+                    <input type="text" ng-model="editemployee.Salary" ng-show="emp.showedit" />
+                </td>
+                <td>
+                    <input type="button" value="Edit" ng-click="edit($index)" ng-show="!emp.showedit" />
+                    <input type="button" value="Update" ng-click="update($index)" ng-show="emp.showedit" />
+                    <input type="button" value="Delete" ng-click="delete($index)" />
+                </td>
+            </tr>
+
+            <tr class="newrow">
+                <td></td>
+                <td><input type="text" ng-model="newemployee.EmpID" autofocus="autofocus" /></td>
+                <td><input type="text" ng-model="newemployee.EmpName" /></td>
+                <td><input type="text" ng-model="newemployee.Salary" /></td>
+                <td><input type="button" value="Insert" ng-click="insert()" /></td>
+            </tr>
+
+        </table>
+
+    </div>
+</body>
+</html>

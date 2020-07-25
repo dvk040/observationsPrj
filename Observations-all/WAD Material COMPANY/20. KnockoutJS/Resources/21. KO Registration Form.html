@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width">
+		<title>KO Registration Form</title>
+	</head>
+
+	<body>
+
+		<form id="employeeForm">
+
+			<div>
+
+				<div>
+
+					<label>First Name:</label>
+					<input type="text" id="txtFirstName" name="txtFirstName" data-bind="value:Employee.FirstName">
+
+				</div>
+
+				 <div>
+
+					<label>Last Name:</label>
+					<input type="text" id="txtLastName" name="txtLastName" data-bind="value:Employee.LastName">
+
+				</div>
+
+				<div>
+
+					<label>Full Name:</label>
+					<input type="text" id="txtFullName" name="txtFullName" data-bind="value:Employee.FullName" readonly="readonly">
+
+				</div>
+
+				<div>
+
+					<label>Date Of Birth:</label>
+					<input type="text" id="txtDateOfBirth" name="dateOfBirth" data-bind="value:Employee.DateOfBirth">
+
+				</div>
+
+				<div>
+
+					<label>Education:</label>
+
+					<input type="checkbox" value="graduation" id="chkGraduation" name="chkGraduation" data-bind="checked:Employee.EducationList">Graduation
+
+					<input type="checkbox" value="postGraduation" id="chkPostGraduation" name="chkPostGraduation" data-bind="checked:Employee.EducationList">Post Graduation
+
+				</div>
+
+				<div>
+
+					<label>Gender:</label>
+
+					<input type="radio" id="rdoMale" name="gender" value="0"  data-bind="checked:Employee.Gender">Male
+
+					<input type="radio" id="rdoFeMale" name="gender" value="1" data-bind="checked:Employee.Gender" >Female
+
+				</div>
+
+				<div>
+
+					<label>Department:</label>
+
+					<select id="ddlDepartment" name="ddlDepartment" data-bind="options:$root.Employee.DepartmentList, optionsValue:'Id', optionsText:'Name', value:Employee.DepartmentId">
+					</select>
+
+				</div>
+
+				<div>
+
+					<input type="button" id="btnSubmit" value="Submit" data-bind = "click: submit">
+
+					 <input type="button" id="btnReset" value="Reset" data-bind = "click: reset">
+				</div>
+
+			</div>
+
+		</form>
+
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js">
+		</script>
+
+		<script type="text/javascript">
+
+			//model
+			function Employee() {
+
+				var m = this;
+
+				m.FirstName = ko.observable("");
+				m.LastName = ko.observable("");
+
+				m.FullName = ko.computed(function () {
+					return m.FirstName() + " " + m.LastName();
+				});
+
+				m.DateOfBirth = ko.observable("");
+				m.EducationList = ko.observableArray();
+				m.Gender = ko.observable("0");
+				m.DepartmentList = ko.observableArray([{ Id: '1', Name: "CSE" }, { Id: '2', Name: "ECE" }]);
+				m.DepartmentId = ko.observable("1");
+
+			}
+
+			//view model
+			function EmployeeVM() {
+
+				var vm = this;
+
+				vm.Employee = new Employee();
+
+				vm.reset = function () {
+					vm.Employee.FirstName("");
+					vm.Employee.LastName("");
+					vm.Employee.DateOfBirth("");
+				};
+
+				vm.submit = function () {
+					var json1 = ko.toJSON(vm.Employee);
+					alert(json1);
+					//ajax here
+				};
+
+			};
+
+			var vm = new EmployeeVM();
+			ko.applyBindings(vm);
+
+		</script>
+
+	</body>
+
+</html>

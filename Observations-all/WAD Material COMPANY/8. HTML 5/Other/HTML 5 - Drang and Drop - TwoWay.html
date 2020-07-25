@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>HTML 5 - Drag and Drop - Two way</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+			#div1, #div2
+			{
+				float:left;
+				width:400px;
+				height:400px;
+				margin:10px;
+				padding-left: 10px;
+				border:1px solid #aaaaaa;
+			}
+			#myimage
+			{
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="div1" >
+			<h1>div 1</h1>
+			<img src="img1.jpg" draggable="true" id="myimage" width="200px">
+	    </div>
+		
+		<div id="div2">
+			<h1>div 2</h1>
+
+		</div>
+
+		<script>
+			document.getElementById("myimage").addEventListener("dragstart", fun1);
+			document.getElementById("div1").addEventListener("dragover", fun2);
+			document.getElementById("div1").addEventListener("drop", fun3);
+			document.getElementById("div2").addEventListener("dragover", fun2);
+			document.getElementById("div2").addEventListener("drop", fun3);
+			function fun1(event)
+			{
+				event.dataTransfer.setData("x", event.target.id); //transfer image id to div
+			}
+
+			function fun2(event)
+			{
+				event.preventDefault();
+			}
+
+			function fun3(event)
+			{
+				event.preventDefault();
+				var data = event.dataTransfer.getData("x"); //receive image id
+				
+				var a = document.getElementById(data);
+				event.target.appendChild(a);
+			}
+		</script>
+
+	</body>
+</html>

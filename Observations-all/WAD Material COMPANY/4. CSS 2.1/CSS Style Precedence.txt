@@ -1,0 +1,24 @@
+The order of precedence for the various CSS selectors
+******************************************************
+
+Different selectors naturally override others. Here is in order in which this takes place:
+
+    1) The ID selector (always wins)
+    2) The attribute selector
+    3) The class selector
+    4) The child selector
+    5) The adjacent sibling selector
+    6) The direct child selector
+    7) The tag selector
+
+
+
+    The ID selector overrides all the selectors.
+
+    The attribute selector overrides the class selector, the child selector, the adjacent sibling selector, the descendant selector and the type selector.
+
+    The class selector overrides the child selector, the adjacent sibling selector, the descendant selector and the type selector.
+
+    The adjacent sibling selector overrides the descendant selector and the type selector.
+
+    The descendant selector overrides the type selector

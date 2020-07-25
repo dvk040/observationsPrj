@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>Complex JSON</title>
+		<style type="text/css">
+			body,input,table
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Complex JSON</h1>
+		<div id="div1"></div>
+
+		<script type="text/javascript">
+			var departments =
+			[
+				{ deptno: 10, deptname: "Accounting", loc: "New York", employees: [
+					{ empid: 1, empname: "Scott" },
+					{ empid: 2, empname: "Allen" },
+					{ empid: 3, empname: "Smith" }
+				]  },
+
+				{ deptno: 20, deptname: "Sales", loc: "New Delhi", employees: [
+					{ empid: 4, empname: "Jones" },
+					{ empid: 5, empname: "John" }
+				]  },
+
+				{ deptno: 30, deptname: "R&D", loc: "New Mumbai", employees: [
+					{ empid: 6, empname: "James" },
+					{ empid: 7, empname: "Mark" },
+					{ empid: 8, empname: "Potter" },
+					{ empid: 9, empname: "Jord" }
+				]  }
+
+			];
+
+			var temp = "";
+
+			for (i=0; i < departments.length; i++)
+			{
+				var dept = departments[i];
+				temp += "<p>" + dept.deptno + ", " + dept.deptname + ", " + dept.loc + "</p>";
+				temp += "<table border='1' cellpadding='4px'>";
+
+				for (j=0; j < dept.employees.length; j++)
+				{
+					var emp = dept.employees[j];
+					temp += "<tr>";
+					temp += "<td>" + emp.empid + "</td>";
+					temp += "<td>" + emp.empname + "</td>";
+					temp += "</tr>";
+				}
+				temp += "</table>";
+			}
+			document.getElementById("div1").innerHTML  = temp;
+		</script>
+	</body>
+</html>

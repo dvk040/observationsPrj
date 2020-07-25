@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title>Angular JS - Custom Filters</title>
+		<style type="text/css">
+			body, input
+			{
+				font-family: 'Tahoma';
+				font-size: 30px;
+			}
+		</style>
+
+		<script src="angular.js" type="text/javascript">
+		</script>
+
+		<script type="text/javascript">
+			//create a module called "mymodule"
+			var app = angular.module("mymodule", [ ] );
+
+			//add filter called "titlecase" to "mymodule"
+			app.filter("titlecase", function()
+			{
+				return function(value)
+				{
+					var temp = value[0].toString().toUpperCase() + value.slice(1);
+					return temp;
+				}
+			});
+
+			//add controller called "mycontroller" to "mymodule"
+			app.controller("mycontroller", function($scope)
+			{
+				$scope.empname = "scott";
+			});
+
+		</script>
+	</head>
+	<body>
+		<h2>Angular JS Custom Filters</h2>
+		<div ng-app="mymodule" ng-controller="mycontroller">
+			{{empname | titlecase}}
+		</div>
+	</body>
+</html>
