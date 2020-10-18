@@ -1,0 +1,189 @@
+/* Modal Content */
+
+.modal {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    /* padding: 20px; */
+    border: 1px solid #888;
+    width: 40%;
+    position: fixed;
+    height: 361px;
+    overflow-y: scroll;
+}
+
+.form-group {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.modal-header {
+    background-color: #8eb8d1;
+    text-align: center;
+    font-size: 28px;
+    color: #003e79;
+    /* height: 34px; */
+    padding: 10px;
+}
+
+.modal-content {
+    font-size: 18px;
+    margin: 20px;
+}
+
+
+/* The Close Button */
+
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin: -17px -13px;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* input[type="text"],
+  [type="number"],
+  [type="file"],
+  [type="password"],
+  .modal-content select .locButton {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  } */
+
+.select-div {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.modal-content .errortext {
+    border-left: 5px solid red;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 4px;
+    font-size: 14px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sbmt {
+    color: black;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.buttons {
+    position: relative;
+    /* bottom: 60px; */
+    /* font-size: 31px; */
+    width: 100%;
+}
+
+.submit {
+    text-align: right;
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+}
+
+.pos-relative {
+    position: relative;
+}
+
+.previous {
+    position: absolute;
+    text-align: left;
+    display: inline-block;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.65;
+    background-color: #eee;
+    color: #aaa;
+    border-color: #ccc;
+}
+
+
+/* Material css */
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.btn {
+    padding: 0px 7px;
+    font-size: 17px;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    height: 30px;
+    box-shadow: 0 0 10px #bdbdbd;
+}
+
+.txt-height {
+    height: 50px;
+}
+
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.pkg-class {
+    height: 60px;
+}

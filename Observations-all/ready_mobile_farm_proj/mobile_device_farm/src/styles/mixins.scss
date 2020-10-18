@@ -1,0 +1,43 @@
+// Border-radius
+@mixin border-radius($radius) {
+ -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+     -ms-border-radius: $radius;
+         border-radius: $radius;
+}
+
+// Box-shadow
+@mixin box-shadow($value) {
+ -webkit-box-shadow: $value;
+    -moz-box-shadow: $value;
+     -ms-box-shadow: $value;
+         box-shadow: $value;
+}
+
+// Transform 
+@mixin transform($transforms){
+    -moz-transform: $transforms;
+      -o-transform: $transforms;
+     -ms-transform: $transforms;
+ -webkit-transform: $transforms;
+         transform: $transforms;
+}
+
+// Translate
+@mixin translate($x,$y){
+    @include transform(translate($x,$y));
+}
+
+// Rotate
+@mixin rotate($deg){
+    @include transform(rotate($deg));
+}
+
+// Clear
+@mixin clearfix() {
+    &::after {
+        display: block;
+        content: "";
+          clear: both;
+    }
+}

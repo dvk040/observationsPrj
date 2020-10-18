@@ -1,0 +1,23 @@
+.screen {
+    height: 570px;
+    width: 320px;
+    position: relative;
+}
+
+img {
+    height: 570px !important;
+    width: 320px !important;
+}
+
+.subHeader {
+    font-size: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 8px;
+    color: #0b2f52;
+    margin: 30px 14px 0px 14px;
+}
+
+.screenshot-hover {
+    cursor: url("../../../assets/circle-cursor.png"), auto;
+}

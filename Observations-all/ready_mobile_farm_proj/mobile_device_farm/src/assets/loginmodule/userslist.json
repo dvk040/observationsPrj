@@ -1,0 +1,108 @@
+{
+    "code": 200,
+    "message": "User List.",
+    "data": {
+        "totalRecords": 11,
+        "records": [{
+                "id": 1,
+                "username": "kiran@gmail.com",
+                "role": 1,
+                "mobile": "8095233288",
+                "firstname": "Medini",
+                "lastname": "",
+                "updated_at": "2020-08-09T13:23:04.000Z",
+                "status": "Active"
+            },
+            {
+                "id": 2,
+                "username": "test1@dd2.com",
+                "role": 1,
+                "mobile": "1234567890",
+                "firstname": "Name",
+                "lastname": "Last",
+                "updated_at": "2020-08-14T05:05:56.000Z",
+                "status": "Inactive"
+            },
+            {
+                "id": 3,
+                "username": "test1@dd3.com",
+                "role": 1,
+                "mobile": "987654332",
+                "firstname": "onetest3",
+                "lastname": "test",
+                "updated_at": "2020-08-14T06:55:13.000Z",
+                "status": "Inactive"
+            },
+            {
+                "id": 16,
+                "username": "kiklmm040@gmail.com",
+                "role": 1,
+                "mobile": "7893362323",
+                "firstname": "DUGGI",
+                "lastname": "KIN",
+                "updated_at": "2020-08-14T07:41:24.000Z",
+                "status": "Active"
+            },
+            {
+                "id": 17,
+                "username": "test.241@gmail.com",
+                "role": 1,
+                "mobile": "7893312399",
+                "firstname": "Ram",
+                "lastname": "RAN",
+                "updated_at": "2020-08-14T07:49:47.000Z",
+                "status": "Inactive"
+            },
+            {
+                "id": 22,
+                "username": "tesl.241@gmail.com",
+                "role": 1,
+                "mobile": "7793345699",
+                "firstname": "rathod",
+                "lastname": "Ravi",
+                "updated_at": "2020-08-14T07:53:34.000Z",
+                "status": "Active"
+            },
+            {
+                "id": 23,
+                "username": "ted1d@gmail.com",
+                "role": 2,
+                "mobile": "7895545699",
+                "firstname": "Ravi",
+                "lastname": "Rvi",
+                "updated_at": "2020-08-14T07:54:06.000Z",
+                "status": "Inactive"
+            },
+            {
+                "id": 24,
+                "username": "rajesh@gmail.com",
+                "role": 1,
+                "mobile": "7893360299",
+                "firstname": "raju",
+                "lastname": "KIRAN",
+                "updated_at": "2020-08-14T07:56:28.000Z",
+                "status": "Inactive"
+            },
+            {
+                "id": 27,
+                "username": "test23@gmail.com",
+                "role": 1,
+                "mobile": "9193360299",
+                "firstname": "ajesh",
+                "lastname": "KIRAN",
+                "updated_at": "2020-08-14T09:46:24.000Z",
+                "status": "Inactive"
+            },
+            {
+                "id": 29,
+                "username": "test51@gmail.com",
+                "role": 1,
+                "mobile": "8893360299",
+                "firstname": "Ravi2",
+                "lastname": "KIRAN",
+                "updated_at": "2020-08-14T09:51:49.000Z",
+                "status": "Inactive"
+            }
+        ]
+    }
+}

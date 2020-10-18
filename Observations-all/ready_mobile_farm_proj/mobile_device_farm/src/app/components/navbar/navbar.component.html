@@ -1,0 +1,55 @@
+<!-- <nav mat-tab-nav-bar *ngIf="isLoggedIn$ | async as isLoggedIn">
+    <a mat-tab-link routerLink="/deviceListView" routerLinkActive #rla1="routerLinkActive" [active]="rla1.isActive">Devices</a
+    >
+    <a
+      mat-tab-link
+      routerLink="/deviceView"
+      routerLinkActive
+      #rla2="routerLinkActive"
+      [active]="rla2.isActive"
+      >Control</a
+    >
+    <a
+    mat-tab-link
+    routerLink="/register"
+    routerLinkActive
+    #rla2="routerLinkActive"
+    [active]="rla2.isActive"
+    >Register</a
+  >
+  </nav> -->
+
+<mat-toolbar color="secondary" class="mat-tool" *ngIf="isLoggedIn$ | async as isLoggedIn">
+    <mat-toolbar-row>
+        <mat-nav-list class="list-horizontal">
+
+            <mat-list-item>
+                <button mat-menu-item routerLink="/deviceListView" style="font-family: Helvetica Neue,Arial,sans-serif; font-size: 17px;">Devices</button>
+            </mat-list-item>
+
+            <mat-list-item>
+                <button mat-menu-item routerLink="/deviceView" style="font-family: Helvetica Neue,Arial,sans-serif; font-size: 17px;">Dashboard</button>
+            </mat-list-item>
+            <!-- <mat-menu #billsmenu="matMenu" [overlapTrigger]="false">
+         <button mat-menu-item>
+           <mat-icon>home</mat-icon>
+           <span>Bill Management</span>
+         </button>
+       </mat-menu> -->
+
+            <mat-list-item *ngIf="userdetails.role == 1 || userdetails.role == 2">
+                <button mat-menu-item [matMenuTriggerFor]="claimsmenu" style="font-family: Helvetica Neue,Arial,sans-serif; font-size: 17px;">Administration</button>
+            </mat-list-item>
+            <mat-menu #claimsmenu="matMenu" [overlapTrigger]="false">
+                <button mat-menu-item routerLink="/register" style="font-family: Helvetica Neue,Arial,sans-serif; font-size: 17px;">
+           <span>New User</span>
+         </button>
+                <button mat-menu-item routerLink="/editRegister" style="font-family: Helvetica Neue,Arial,sans-serif; font-size: 17px;">
+           <span>Users</span>
+         </button>
+            </mat-menu>
+
+        </mat-nav-list>
+    </mat-toolbar-row>
+
+</mat-toolbar>

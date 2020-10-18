@@ -1,0 +1,131 @@
+<section class="bg-light p-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="login-container">
+                    <div class="login-content">
+                        <mat-toolbar class="login-toolbar"> Register </mat-toolbar>
+                        <mat-card>
+
+                            <form [formGroup]="registerForm" novalidate (ngSubmit)="onRegisterSubmit()">
+                                <!-- <div class="form-group">
+                                    <label for="firstName" class='lbl-style required'>User Name</label>
+                                    <input type="text" class="form-control" formControlName="username">
+                                </div> -->
+                                <!-- <div class='err-style'>
+                                    <mat-error class='err-msg'>User Name is required</mat-error>
+                                </div> -->
+                                <div class="form-group">
+
+                                    <label for="emailId" class='lbl-style required'>Email Id</label>
+                                    <input type="email" class="form-control " formControlName="emailId">
+                                    <!-- <div class='err-style' *ngIf="f.emailId.errors" class="invalid-feedback">
+                                        <div *ngIf="f.emailId.errors.required && f.emailId.touched && f.emailId.value.length == 0">Email Id is required</div>
+                                    </div> -->
+                                </div>
+                                <div class='err-style'>
+                                    <mat-error class='err-msg' *ngIf='f.emailId.dirty && f.emailId.value.length == 0'>Email is required</mat-error>
+                                    <mat-error class='err-msg' *ngIf="f.emailId.errors && f.emailId.errors.pattern">Email must be a valid email address</mat-error>
+                                </div>
+                                <br/>
+                                <div class="form-group">
+                                    <label for="firstName" class='lbl-style required'>Emp ID</label>
+                                    <input type="text" class="form-control" formControlName="employeId">
+                                </div>
+                                <div class='err-style'>
+                                    <mat-error class='err-msg' *ngIf='f.employeId.dirty && f.employeId.value.length == 0'> Employ Id required</mat-error>
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstName" class='lbl-style required'>First Name</label>
+                                    <input type="text" class="form-control" formControlName="firstName">
+                                </div>
+                                <div class='err-style'>
+                                    <mat-error class='err-msg' *ngIf='f.firstName.dirty && f.firstName.value.length == 0'>First name is required</mat-error>
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstName" class='lbl-style '>Middle Name</label>
+                                    <input type="text" class="form-control" formControlName="middleName">
+                                </div>
+                                <div class='err-style'>
+                                    <mat-error class='err-msg'></mat-error>
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstName" class='lbl-style required'>Last Name</label>
+                                    <input type="text" class="form-control" formControlName="lastName">
+                                </div>
+                                <div class='err-style'>
+                                    <mat-error class='err-msg' *ngIf='f.lastName.dirty && f.lastName.value.length == 0'> Last Name is required</mat-error>
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstName" class='lbl-style required'>Mobile</label>
+                                    <input type="text" class="form-control" formControlName="mobile" minlength='10' maxlength='10'>
+                                </div>
+                                <div class='err-style'>
+                                    <mat-error class='err-msg' *ngIf='f.mobile.dirty && f.mobile.value.length == 0'> Mobile number is required</mat-error>
+                                    <mat-error class='err-msg' *ngIf=" f.mobile.invalid && f.mobile.errors.pattern"> Enter only number.</mat-error>
+                                    <mat-error class='err-msg' *ngIf="(!(f.mobile.invalid && f.mobile.errors.pattern)) && f.mobile.touched && f.mobile.value?.length >=1 && f.mobile.value?.length < 10">Minimumn 10 number requird</mat-error>
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstName" class='lbl-style required'>Role</label>
+                                    <select id="dropDownTestId" type="text" class="form-control" formControlName="role">
+                                        <!-- <option>Select Role</option>      -->
+                                        <option *ngFor="let Role of userRole"  [ngValue]="Role.id"  >
+                                            {{Role.role}}  
+                                        </option>  
+                                    </select>
+                                </div>
+                                <div class='err-style'>
+                                    <mat-error class='err-msg' *ngIf=" f.role.errors && f.role.touched && (f.role.errors)['required']"> Role is required</mat-error>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="firstName" class='lbl-style required'>Status</label>
+                                    <select id="dropDownTestId" type="text" class="form-control" formControlName="status">
+                                        <!-- <option>Select Status</option>      -->
+                                        <option *ngFor="let Status of statusDropdown"  [ngValue]="Status.value"  >
+                                            {{Status.name}} 
+                                        </option>
+                                    </select>
+                                </div>
+                                <!-- && (f.status.errors)['required'] -->
+                                <div class='err-style'>
+                                    <mat-error class='err-msg' *ngIf=" f.status.errors && f.status.touched "> Status is required</mat-error>
+                                </div>
+                                <div class="row">
+                                    <!-- routerLink="/deviceListView" -->
+                                    <a class="text-center col-4" style="margin-top: 15px; padding: 10px" (click)="this.registerForm.reset()">Reset</a>
+                                    <a class="text-center col-4" style="margin-top: 15px; padding: 10px" routerLink="/deviceListView">Back</a>
+
+                                    <!-- <button type="submit" class="btn btn-primary col-4 " style="margin-top: 15px;" routerLink="/deviceListView">Back</button> -->
+                                    <button type="submit" class="btn btn-primary col-4 " style="margin-top: 15px;" [disabled]="!this.registerForm.valid">Register</button>
+                                </div>
+                            </form>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- error Model start -->
+
+<div id="openModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="popup">
+                <mat-toolbar class="login-toolbar">Alert</mat-toolbar>
+                <mat-card>
+                    <h2 class="heading-3"> {{infoMessage}} </h2>
+                    <div class="mt-20">
+                        <button type="button" data-dismiss="modal" class="cancel-btn btn btn-primary cancel-btn-state">Ok</button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- error model end -->

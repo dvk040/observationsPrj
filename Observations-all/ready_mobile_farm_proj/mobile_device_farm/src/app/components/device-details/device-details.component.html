@@ -1,0 +1,71 @@
+<div class="content">
+  <div
+    style="
+      text-align: right;
+      height: 34px;
+      margin-top: 15px;
+      margin-right: 22px;
+    "
+  >
+    <span class="spanButton" (click)="refreshList()">Refresh Device List</span>
+    <span class="spanButton" (click)="openRegisterDeviceDialog()"
+      >Register Device
+    </span>
+  </div>
+  <table
+    class="table"
+    style="width: 97%; margin: 0 19px;"
+    *ngIf="devices && devices.length"
+  >
+    <thead>
+      <tr>
+        <th style="width: 5%;"></th>
+        <th style="width: 10%;">Status</th>
+        <th style="width: 10%;">Name</th>
+        <th style="width: 5%;">SerialNo</th>
+        <th style="width: 25%;">Build No</th>
+        <th style="width: 10%;">Model</th>
+
+        <th style="width: 10%;">OS</th>
+        <th style="width: 10%;">SDK Version</th>
+        <th style="width: 10%;">Height</th>
+        <th style="width: 10%;">Width</th>
+        <th style="width: 10%;">RAM</th>
+        <th style="width: 10%;">Storage</th>
+
+        <th style="width: 3%;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let device of devices; let i = index">
+        <td>
+          <span class="button" (click)="loadDevice(device)">Connect</span>
+        </td>
+        <td>{{ device.status }}</td>
+        <td>{{ device.name }}</td>
+        <td>{{ device.serialNo }}</td>
+        <td>{{ device.buildNo }}</td>
+        <td>{{ device.model }}</td>
+        <td>{{ device.osVersion }}</td>
+        <td>{{ device.sdkVersion }}</td>
+        <td>{{ device.height }}</td>
+        <td>{{ device.width }}</td>
+        <td>{{ device.ram }}</td>
+        <td>{{ device.storage }}</td>
+        <td>
+          <img
+            [src]="
+              device.isInUse ? 'assets/edit-disabled.png' : 'assets/edit.png'
+            "
+            class="editIcon"
+            (click)="editRegisteredDevice(device)"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="!devices || !devices.length" style="text-align: center;">
+    No Registered devices
+  </div>
+</div>
+<app-loader></app-loader>

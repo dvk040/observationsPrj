@@ -1,0 +1,39 @@
+<div>
+  <div
+    style="
+      text-align: right;
+      height: 34px;
+      margin-top: 10px;
+      margin-right: 22px;
+    "
+  >
+    <span class="spanButton" (click)="refreshList()">Refresh Device List</span>
+    <span class="spanButton" (click)="openRegisterDeviceDialog()"
+      >Register Device
+    </span>
+  </div>
+  <div class="deviceList" *ngIf="devices && devices.length">
+    <div class="deviceItem" *ngFor="let device of devices">
+      <img
+        [src]="device.isInUse ? 'assets/edit-disabled.png' : 'assets/edit.png'"
+        class="editIcon"
+        (click)="editRegisteredDevice(device)"
+      />
+
+      <img
+        src="assets/mob2.png"
+        class="icon"
+        (click)="loadDevice(device)"
+      /><br />
+      <span (click)="loadDevice(device)">{{ device.name }}</span
+      ><br /><br />
+      <span class="spanButtonStatus" (click)="loadDevice(device)">{{
+        device.status
+      }}</span>
+    </div>
+  </div>
+  <div *ngIf="!devices || !devices.length" style="text-align: center;">
+    No Registered devices
+  </div>
+</div>
+<app-loader></app-loader>

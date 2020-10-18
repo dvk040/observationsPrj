@@ -1,0 +1,88 @@
+.sidenav {
+  position: fixed;
+  height: 100%;
+  width: 220px;
+  top: 95px;
+  left: 0;
+  background-color: #111111;
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding-top: 20px;
+  margin-left: 8px;
+  border-color: #003e79;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  span {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: "Roboto", Tahoma, Geneva, Verdana, sans-serif;
+    color: #818181;
+    display: block;
+  }
+  .selected {
+    color: #e1e1e1;
+  }
+  :hover {
+    color: #f1f1f1;
+    cursor: pointer;
+  }
+}
+
+.subHeader {
+  font-size: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 8px;
+  color: #0b2f52;
+  margin: 30px 14px 0px 14px;
+}
+.content {
+  margin: 1 0px 10px;
+  border-width: 0px 3px 3px 3px;
+}
+table,
+th,
+td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table th {
+  background-color: lightblue;
+}
+
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.spanButton {
+  margin: 5px;
+  height: 18px;
+  text-decoration: none;
+
+  border-radius: 15px;
+  font-size: 14px;
+  border: #bdbdbd;
+  box-shadow: 0 0 10px #04649c;
+  color: #0d3b67;
+  color: white;
+  padding: 4px 7px;
+  border-radius: 9px;
+  background-color: #04649c;
+}
+.button {
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #bdbdbd;
+  margin: 7px;
+  padding: 2px;
+}
+.editIcon {
+  height: 19px;
+}

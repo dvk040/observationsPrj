@@ -1,0 +1,93 @@
+<!-- <div class="col-md-4"></div>
+<div class="col-md-4">
+  <h4 class="text-center">Login</h4>
+
+<div class="container">
+	<form [formGroup]="loginForm" novalidate>
+		<div class="form-group">
+			<label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
+      <small class="form-text text-muted" 
+        *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required">
+          Please enter email address.!
+      </small>
+
+      <small class="form-text text-muted"
+      *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.email">
+        Email address not well formed.!
+      </small>
+    </div>
+    
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" formControlName="password" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+  </form>
+</div>
+</div>
+<div class="col-md-4"></div>
+ -->
+
+<section class="bg-light p-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="login-container">
+                    <div class="login-content">
+                        <mat-toolbar class="login-toolbar">Login </mat-toolbar>
+                        <mat-card>
+                            <form [formGroup]="loginForm" novalidate (ngSubmit)="onLoginSubmit()">
+                                <mat-form-field class='mat-fm'>
+                                    <mat-icon matPrefix>email</mat-icon>
+                                    <input autofocus type="text" matInput placeholder="Enter Email" formControlName="username" required>
+                                </mat-form-field>
+                                <mat-error class='err-msg' *ngIf='f.username.dirty && f.username.value.length == 0'>Email is required</mat-error>
+                                <mat-error class='err-msg' *ngIf="f.username.errors && f.username.errors.pattern">Email must be a valid email address</mat-error>
+                                <br/>
+                                <mat-form-field class='mat-fm'>
+                                    <mat-icon matPrefix>lock_outline</mat-icon>
+                                    <input [type]="hide ? 'password' : 'text'" autocomplete="false" matInput placeholder="Enter Password" formControlName="password" minlength='5' required>
+                                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </mat-form-field>
+                                <mat-error class='err-msg' *ngIf='f.password.dirty && f.password.value.length == 0'>Password Required</mat-error>
+                                <mat-error class='err-msg' *ngIf='f.password.dirty && f.password.value.length >= 1 && f.password.value.length < 5'>Minimum 5 charecters required</mat-error>
+                                <button type="submit" mat-raised-button class="login-toolbar" [disabled]='loginForm.invalid'>Login</button>
+                                <div class="row">
+                                    <!-- <button type="button" class="btn btn-danger col-4 btn-cancel" style="margin-top: 15px;">Cancel</button> -->
+                                    <!-- <a href="#" class="text-center col-4" style="margin-top: 15px; padding: 10px">Click here to Sign Up</a> -->
+                                    <a routerLink="/forgotPassword" class="text-center col-12" style="margin-top: 15px; padding: 10px">Forgot Password?</a>
+                                </div>
+                            </form>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- error Model start -->
+
+<div id="openModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="popup">
+                <mat-toolbar class="login-toolbar">Alert</mat-toolbar>
+                <mat-card>
+                    <h2 class="heading-3"> {{infoMessage}} </h2>
+                    <div class="mt-20">
+                        <button type="button" data-dismiss="modal" class="cancel-btn btn btn-primary cancel-btn-state">Ok</button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- error model end -->

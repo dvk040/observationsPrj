@@ -1,0 +1,421 @@
+<!-- <mat-toolbar color="secondary">
+    <mat-toolbar-row>
+        <mat-nav-list class="nav-list list-horizontal">
+
+            <mat-list-item class='list-item'>
+                <button mat-menu-item routerLink="/deviceListView">Devices</button>
+            </mat-list-item>
+
+            <mat-list-item class='list-item'>
+                <button mat-menu-item routerLink="/deviceView">Control</button>
+            </mat-list-item>
+            <mat-list-item class='list-item'>
+                <button mat-menu-item [matMenuTriggerFor]="claimsmenu">Administration</button>
+            </mat-list-item>
+            <mat-menu #claimsmenu="matMenu" [overlapTrigger]="false">
+                <button mat-menu-item routerLink="/register">
+         <span>New User</span>
+       </button>
+                <button mat-menu-item routerLink="/editRegister">
+         <span>Users</span>
+       </button>
+            </mat-menu>
+
+        </mat-nav-list>
+    </mat-toolbar-row>
+
+</mat-toolbar> -->
+
+<!-- <div class="tab">
+     <button class="tablinks" (click)="manualAutoFun($event,'MANUAL')">Manual Test</button>
+    <button class="tablinks" (click)="manualAutoFun($event,'AUTO')">Automation Test</button>
+     <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button> 
+</div> -->
+<mat-toolbar color="secondary" class="mat-tool">
+    <mat-toolbar-row>
+        <mat-nav-list class="list-horizontal">
+
+            <mat-list-item>
+                <button mat-menu-item (click)="manualAutoFun($event,'MANUAL')"><strong>Manual Test</strong></button>
+            </mat-list-item>
+
+            <!-- <mat-list-item>
+                <button mat-menu-item (click)="manualAutoFun($event,'AUTO')">Automation Test</button>
+            </mat-list-item> -->
+        </mat-nav-list>
+    </mat-toolbar-row>
+
+</mat-toolbar>
+
+<div class="row row-device">
+    <header class="subheader">
+        <strong>Device Name:</strong> <span class="margin10 spanColor">
+    {{ deviceDetail && deviceDetail.name }} |
+  </span><strong>SerialNo:</strong><span class="margin10 spanColor">
+    {{ deviceDetail && deviceDetail.serialNo }} </span
+  >| <strong>Version:</strong><span class="margin10 spanColor">
+    {{ deviceDetail && deviceDetail.osVersion }}</span
+  >
+</header>
+</div>
+
+<!-- Manual -->
+ <div style="height: 150px;" *ngIf="isManula =='MANUAL'"> 
+
+  <div class="itemList height-margin-top-list">
+    <div class="item top-item" style="width: 48%;">
+      <form [formGroup]="apkForm">
+        <div class="form-group">
+          <div class="item-heading" style="text-align: left;">Upload File (.apk)</div>
+          <br />
+          <input
+            type="file"
+            formControlName="APKFile"
+            class="form-control apk-clss" 
+            (change)="onSelectedFile($event, 'APKFile')"
+          />
+        </div>
+        <br />
+        <div class="submit" class="submit-margin">
+          <button
+            class="btn btn-primary"
+            [disabled]="!apkForm.valid"
+            (click)="uploadAPK()"
+          >
+            Upload
+            <img
+              class="submit"
+              style="height: 20px;"
+              (click)="uploadAPK()"
+              src="assets/upload-icon.png"
+            />
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="item top-item" *ngIf="false">
+      <form [formGroup]="shellForm">
+        <div class="form-group">
+          <div>Enter command to execute with shell</div>
+          <br />
+
+          <input type="text" formControlName="command" class="form-control" />
+          <div
+            *ngIf="shellFormError && shellCommandFormControl.command.error"
+            class="errortext"
+          >
+            {{ shellFormError }}
+          </div>
+        </div>
+
+        <div class="submit" style="margin: 10px;">
+          <button
+            class="btn btn-primary submit"
+            [disabled]="!shellForm.valid"
+            (click)="runCommand()"
+          >
+            Execute
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="item top-item" style="width: 48%;">
+      <div class="form-group">
+        <div class="item-heading" style="text-align: left">
+          <img src="assets/chrome-icon.jpeg" style="height: 14px;" />Enter URL to open in browser
+        </div>
+        <br />
+
+        <input type="text" class="form-control txt-height" [(ngModel)]="browserUrl"  style= "height: 45px;" />
+      </div>
+      <br />
+      <div class="submit-margin">
+        <button
+          class="btn btn-primary"
+          [disabled]="!browserUrl"
+          (click)="shellExec('chrome', browserUrl)"
+        >
+          Execute
+        </button>
+      </div>
+    </div>
+  </div>
+
+ </div> 
+ <!-- Manual End-->
+  <!-- Automation -->
+  <div *ngIf="isManula =='MANUAL' || isManula =='AUTO' "  style="margin-top: 20px;">
+  <div class='command'>
+  <div style="color: #003e79; margin: 2px 0px 0px 10px;"><b>Commands</b></div>
+  <div class="itemList">
+    <div class="item">
+      <img
+        src="assets/home-icon.jpg"
+        class="icon"
+        (click)="shellExec('home')" matTooltip="Home"
+      />
+    </div>
+    <div class="item">
+      <img src="assets/back.png" class="icon" (click)="shellExec('back')" matTooltip="Back to Home screen" />
+    </div>
+    <div
+      class="item"
+      [style]="isSwipeModeEnabled ? 'background-color : #7398d0' : ''"
+    >
+      <img src="assets/swipe.png" class="icon" (click)="onstartSwipe()" matTooltip="Swipe"/>
+    </div>
+    <div class="item" *ngIf="false">
+      <img
+        [src]="pause ? 'assets/pause-1.png' : 'assets/play.png'"
+        class="icon"
+        (click)="shellExec('pause', pause)"
+      />
+    </div>
+    <!-- <div class="item">
+      <img src="assets/record.png" class="icon" />
+    </div> -->
+    <!-- <div class="item">
+      <img src="assets/record1.png" class="icon" />
+    </div> -->
+
+    <div class="item" *ngIf="startRecordButtuon">
+      <img src="assets/record.png" class="icon" (click)="onStartRecord('screenrecord-start')" matTooltip="Start Record"/>
+    </div>
+
+
+    <div *ngIf="recordButton"
+      class="item" matTooltip="Stop Record"
+      [style]="isRecordModeEnabled ? 'background-color : #7398d0' : ''"
+    >
+      <img src="assets/record1.png" class="icon" (click)="onStopRecord('screenrecord-stop')" />
+    </div>
+    <div class="item">
+      <img
+        src="assets/screenshot.png"
+        class="icon"
+        matTooltip="Screenshot" (click)="onScreenshot($event)"
+      />
+    </div>
+
+  </div>
+</div>
+<div style="height: auto; border: grey solid;">
+  <div style="width: auto; margin-top: 6px;">
+    <div class="tableHead">Test Details</div>
+    <div style="width: 17%; display: inline-block; font-size: 13px;">
+      <mat-form-field style="width: 134px;">
+        <mat-label>Search Field</mat-label>
+        <mat-select
+          [(ngModel)]="searchKey"
+          (ngModelChange)="onSearchKeyChange($event)"
+        >
+          <mat-option>None</mat-option>
+
+          <mat-option *ngFor="let keys of searchKeys" [value]="keys.key">
+            {{ keys.displayName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div style="width: 17%; display: inline-block; font-size: 13px;">
+      <mat-form-field style="width: 134px;">
+        <mat-label>Search Value</mat-label>
+        <input matInput [(ngModel)]="searchValue" [disabled]="!searchKey" />
+      </mat-form-field>
+    </div>
+    <div style="width: 12%; display: inline-block;">
+      <span class="spanButton" (click)="getTestList()">Search</span>
+</div>
+<div style="width: 20%; display: inline-block; text-align: right;">
+    <button style="border: none;" [disabled]="page == 0" (click)="getTestList('decrement')">
+        <img style="height: 15px;" src="assets/left-arrow.png" />
+      </button>
+    <div class="page-display">{{ page + 1 }} of {{ totalPages }}</div>
+    <button style="border: none;" [disabled]="page + 1 == totalPages" (click)="getTestList('increment')">
+        <img style="height: 15px;" src="assets/right-arrow.png" />
+      </button>
+</div>
+<div style="width: 12%; display: inline-block; text-align: right;">
+    <span class="spanButton" (click)="openDialog()">New Test</span>
+</div>
+</div>
+<!-- <div class="tableHead"></div>
+  <span class="spanButton" (click)="openDialog()">New Test</span> -->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="width: 125px;">Project</th>
+            <th style="width: 120px;">Test Name</th>
+
+            <th style="width: 180px;">Description</th>
+            <th style="width: 180px;">App File / Package Name</th>
+            <th style="width: 110px;">Last Executed</th>
+            <th style="width: 100px;">Action</th>
+            <th style="width: 100px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let test of tests; let i = index">
+            <td>{{ test.projectName }}</td>
+            <td>{{ test.name }}</td>
+
+            <td>
+                <div class="text-ellipse">{{ test.description }}</div>
+            </td>
+            <td>{{ test.appFileNameOriginal || test.packageName }}</td>
+            <td>
+                {{ test.lastExecutedAt ? (test.lastExecutedAt | date: "mediumTime":"UTC") : "-" }}
+            </td>
+            <td class='td-btn'><button class="test-btn" (click)="onExecute(test.id)">Execute</button></td>
+            <td class='td-btn'> <button class="test-btn" (click)="onRowApkDownload(test.testScriptPath)">Download</button></td>
+            <!-- <span class="button" (click)="onExecute(test.id)">Download</span> -->
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+<!-- Automation End -->
+
+
+
+<!-- <div id="screenshotModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel" style="display: none; height: 500px; width: 350px;" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <img src="" alt="image"/>
+          <div class="popup">
+            
+              <mat-toolbar class="login-toolbar">Image</mat-toolbar>
+              <mat-card>
+                  <h2 class="heading-3"> <img src="" /> </h2>
+                  <div class="mt-20">
+                      <button type="button" data-dismiss="modal" class="cancel-btn btn btn-primary cancel-btn-state">Ok</button>
+                  </div>
+              </mat-card>
+          </div>
+      </div>
+  </div>
+  <div class="close">
+    <button class="btn btn-primary">Download</button>
+  </div>
+</div> -->
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="screenshotModal" style="height: auto;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 60%; height: 596px;">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLongTitle"><strong>Screenshot</strong></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body scrn-scroll">
+                <!-- <img src="" style="height: 400px;"> -->
+                <img *ngIf="screenshot" src={{screenshot}} style="height: 393px; width: 262px;" />
+            </div>
+            <div class="row ro-mrg">
+                <div class="col-3 fl-rec-name">File Name:</div>
+                <div class="col-8 tx-fl">
+                    <input type="text" class="form-control inp-width" [(ngModel)]="screenFileName" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="onImageSave()">Download</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Record Modal -->
+<div class="modal fade" id="videoModal" style="height: auto;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 67%;">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLongTitle"><strong>Screenshot</strong></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <!-- <video width="300" height="400" controls>
+                      <source src="assets/loginmodule/ee364c28-new.mp4" type="video/mp4">
+                        <source src={{screenRecord}} type="video/mp4">
+                   <source src="http:localhost:4000/recordings?fileName=ee364c282020-9-1-9-57-32.mp4" type="video/mp4">           
+                    </video> -->
+                Recorded Successfully.Ready to Download
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="onRecordSave()">Download</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Record alert -->
+<div id="recordModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="popup">
+                <mat-toolbar class="login-toolbar header-cls">Alert</mat-toolbar>
+                <mat-card>
+                    <h2 class="heading-3"> Record Created Successfully.Ready to download</h2>
+                    <div class="row ro-mrg">
+                        <div class="col-2 fl-name">File Name:</div>
+                        <div class="col-8 tx-fl">
+                            <input type="text" class="form-control inp-width" [(ngModel)]="recordFile" />
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" (click)="onRecordSave()">Download</button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- APk Download -->
+<!-- Record alert -->
+<div id="ApkModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="popup">
+                <mat-toolbar class="login-toolbar">Alert</mat-toolbar>
+                <mat-card>
+                    <h2 class="heading-3"> {{apkDetails?.message}}</h2>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" (click)="onApkDownload()">Download</button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Info Modal -->
+<div id="infoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="popup">
+                <mat-toolbar class="login-toolbar" color="primary">Alert</mat-toolbar>
+                <mat-card>
+                    <h2 class="heading-3"> {{infoMessage}} </h2>
+                    <div class="mt-20">
+                        <button type="button" data-dismiss="modal" class="cancel-btn btn btn-primary cancel-btn-state">Ok</button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

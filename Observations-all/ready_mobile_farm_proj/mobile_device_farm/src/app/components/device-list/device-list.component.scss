@@ -1,0 +1,82 @@
+.sidenav {
+  position: fixed;
+  height: 100%;
+  width: 220px;
+  top: 95px;
+  left: 0;
+  background-color: #111111;
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding-top: 20px;
+  margin-left: 8px;
+  border-color: #003e79;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  span {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: "Roboto", Tahoma, Geneva, Verdana, sans-serif;
+    color: #818181;
+    display: block;
+  }
+  .selected {
+    color: #e1e1e1;
+  }
+  :hover {
+    color: #f1f1f1;
+    cursor: pointer;
+  }
+}
+.editIcon {
+  float: right;
+  margin: -4px -2px;
+  border-radius: 13px;
+  height: 19px;
+  box-shadow: 0 0 10px #bdbdbd;
+  padding: 5px;
+}
+.deviceList {
+  width: 100%;
+  margin: 0 auto;
+  height: 250px;
+}
+.deviceItem {
+  float: left;
+  text-align: center;
+  width: 20%;
+  height: 200px;
+  padding: 10px 10px 10px 5px;
+  margin: 10px 0px 10px 10px;
+  background-color: white;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #bdbdbd;
+}
+
+.icon {
+  height: 120px;
+  margin-right: -13px;
+}
+.spanButton {
+  margin: 5px;
+  height: 25px;
+  font-size: 14px;
+  border: #bdbdbd;
+  box-shadow: 0 0 10px #04649c;
+  color: #0d3b67;
+  color: white;
+  padding: 4px 7px;
+  border-radius: 9px;
+  background-color: #04649c;
+  display: inline-block;
+}
+.spanButtonStatus {
+  padding: 4px 7px;
+  font-size: 13px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  height: 30px;
+  box-shadow: 0 0 10px #bdbdbd;
+}

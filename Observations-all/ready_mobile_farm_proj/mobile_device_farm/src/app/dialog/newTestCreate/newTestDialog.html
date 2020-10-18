@@ -1,0 +1,91 @@
+<span class="close" mat-dialog-close>&times;</span>
+<div mat-dialog-title>Create New Test</div>
+<div mat-dialog-content style="height: 230px;">
+    <form [formGroup]="modalApkForm1" [style]="submittedForm == 0 ? 'display:block' : 'display:none'">
+        <!-- <div class="form-group">
+          <label>Name <span>*</span></label>
+          <input type="text" formControlName="testName" matInput />
+        </div> -->
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label class='required'>Project Name</mat-label>
+
+            <input type="text" matInput formControlName="projectName" [matAutocomplete]="auto" />
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredProjectName | async" [value]="option">
+                    {{ option }}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label class='required'>Name</mat-label>
+
+            <input type="text" matInput formControlName="testName" /></mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Description</mat-label>
+            <input type="text" matInput formControlName="testDescription" /></mat-form-field>
+    </form>
+    <form [formGroup]="modalApkForm2" [style]="submittedForm == 1 ? 'display:block' : 'display:none'">
+        <!-- <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Project Name</mat-label>
+          <input
+            type="file"
+            formControlName="apk"
+            matInput
+            (change)="onSelectedFile($event, 'apk')"
+          />
+        </mat-form-field> -->
+        <!-- <div class="form-group" style="margin-bottom: 10px;">
+            <label>APK File </label>
+            <input type="file" formControlName="apk" class="form-control txt-height" (change)="onSelectedFile($event, 'apk')" />
+        </div> -->
+        <!-- <div style="text-align: center;">OR</div> -->
+        <mat-form-field class="example-full-width pkg-class" appearance="outline">
+            <mat-label class='required'>Package Name</mat-label>
+            <input type="text" formControlName="packageName" matInput />
+        </mat-form-field>
+        <div class='err-style'>
+            <mat-error class='err-msg' *ngIf='f.packageName.invalid && f.packageName.dirty && f.packageName.value.length == 0'> Package Name is required</mat-error>
+        </div>
+    </form>
+    <form [formGroup]="modalApkForm3" [style]="submittedForm == 2 ? 'display:block' : 'display:none'">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label class='required'>Language</mat-label>
+
+            <input type="text" matInput formControlName="language" [matAutocomplete]="auto1" />
+            <mat-autocomplete autoActiveFirstOption #auto1="matAutocomplete" [displayWith]="displayFunc">
+                <mat-option *ngFor="let lang of languages" [value]="lang.code">
+                    {{ lang.displayName }}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <div class="form-group">
+            <label class='required'>Automation Script </label>
+            <!-- <span>*</span> -->
+            <input type="file" formControlName="testFile" class="form-control txt-height" (change)="onSelectedFile($event, 'testFile')" />
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <div class="buttons">
+        <div class="previous" [style]="submittedForm == 0 ? 'display:none':'display:block' ">
+            <button class="btn btn-primary button" (click)="onBackPress()">
+        Back
+      </button>
+        </div>
+        <div class="submit" [style]="submittedForm == 0 ? 'display:block' : 'display:none'">
+            <button style="text-align: right;" class="btn btn-primary sbmt" type="submit" (click)="onSubmit(1)" [disabled]="!modalApkForm1.valid">
+        Next
+      </button>
+        </div>
+        <div class="submit" [style]="submittedForm == 1 ? 'display:block' : 'display:none'">
+            <button style="text-align: right;" class="btn btn-primary sbmt" type="submit" (click)="onSubmit(2)" [disabled]="!modalApkForm2.controls.packageName.value && !modalApkForm2.controls.apk.value">
+        Next
+      </button>
+        </div>
+        <div class="submit" [style]="submittedForm == 2 ? 'display:block' : 'display:none'">
+            <button style="text-align: right;" class="btn btn-primary sbmt" type="submit" (click)="onSubmit(3)" [disabled]="!modalApkForm3.valid">
+        Save
+      </button>
+        </div>
+    </div>
+</div>

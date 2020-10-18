@@ -1,0 +1,30 @@
+.mt-20 {
+    text-align: right;
+}
+
+.lbl-style {
+    font-weight: bold;
+}
+
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.err-msg {
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 0px;
+}
+
+.err-style {
+    padding-bottom: 10px;
+}
+
+.login-toolbar {
+    justify-content: center;
+    background-color: #003e79;
+    color: white;
+}

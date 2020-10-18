@@ -1,0 +1,231 @@
+<section class="bg-light p-4">
+    <div class="container ">
+        <div class="row">
+            <div class="login-container">
+                <div class="login-content">
+                    <mat-toolbar class="login-toolbar">
+                        <h3 style="color: white;">User Details</h3>
+                    </mat-toolbar>
+                    <mat-card>
+                        <div class="tableHead">Users List</div>
+                        <div style="width: 17%; display: inline-block; font-size: 13px;">
+                            <mat-form-field style="width: 134px;">
+                                <mat-label>Enter Email</mat-label>
+                                <input matInput [(ngModel)]="emailId" (keyup)="searchFun($event)" />
+                            </mat-form-field>
+                        </div>
+                        <div style="width: 12%; display: inline-block;">
+                            <span class="spanButton">Search</span>
+                        </div>
+
+                        <div style="width: 20%; display: inline-block; text-align: right;">
+                            <button style="border: none;" [disabled]="page == 1" (click)="pagenationList('DEC')">
+          <img style="height: 15px;" src="assets/left-arrow.png" />
+        </button>
+                            <div class="page-display">{{page }} of {{totalPages}}</div>
+                            <button style="border: none;" [disabled]="page  == totalPages" (click)="pagenationList('INC')">
+          <img style="height: 15px;" src="assets/right-arrow.png" />
+        </button>
+                        </div>
+                        <!-- Table start -->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 90px;">Sr.No</th>
+                                    <th style="width: 125px; ">Email ID</th>
+                                    <th style="width: 120px;">Employ ID</th>
+
+                                    <th style="width: 180px;">User Name</th>
+                                    <th style="width: 100px;">Role</th>
+                                    <th style="width: 110px;">Mobile Number</th>
+                                    <th style="width: 110px;">Updated On</th>
+                                    <th style="width: 110px;">Status</th>
+                                    <!-- <th style="width: 80px;">Action</th> -->
+                                    <th style="width: 80px;">Edit</th>
+                                    <th style="width: 80px;">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let user of usersCollection;let i = index;">
+                                    <td class="td-style">
+                                        <!-- {{i+1}} -->
+                                        {{ (page - 1) * itemsPerPage + i +1 }}
+                                    </td>
+                                    <td class="td-style-name "> {{user.username}}</td>
+                                    <td class="td-style"> {{user.emp_id}} </td>
+                                    <td class="td-style-name"><span>{{user.firstname }}</span>
+                                        <span> {{user.middlename}} </span>
+                                        <span> {{user.lastname}} </span>
+                                    </td>
+                                    <td class="td-style">{{user.role== 1? "Super Admin": user.role== 2? "Admin": "User" }} </td>
+                                    <td class="td-style"> {{user.mobile}} </td>
+                                    <td class="td-style"> {{user.updated_at | date :'dd-MMM-yyyy'}} </td>
+                                    <td class="td-style"> {{user.status == 0? 'Inactive': user.status== 1? "Active": "Archive" }} </td>
+                                    <!-- <td class="td-style"><button class='button' (click)="toDoAction(user)">{{user.status == 1? 'Inactive': user.status== 0? "Active": "Archive" }}</button></td> -->
+                                    <td class="td-style"><button class='button' (click)="editRowDetails(user)"><mat-icon>edit</mat-icon></button></td>
+                                    <!-- <td class="td-style"><button class='button' (click)="deleteRowDetails(user)"><mat-icon>delete</mat-icon></button></td> -->
+                                    <td class="td-style"><button class='button' (click)="onClickDelete(user)"><mat-icon>delete</mat-icon></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- Table end -->
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div>
+    <button type="button" mdbBtn color="light" style="margin-left: 200px;" routerLink="/deviceListView" mdbWavesEffect>Back</button>
+</div>
+
+<!-- edit popup -->
+<div id="openModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="popup">
+                <mat-toolbar class="login-toolbar">Edit User Details</mat-toolbar>
+                <mat-card>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="firstname">Email Id:</label>
+                            <span style="color: blue;">{{editRowData?.username}}</span>
+                        </div>
+                    </div>
+
+                    <form [formGroup]="profileEditForm" novalidate appFormfocus>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstname" class='lbl-style required'>First Name</label>
+                                    <input type="text" class="form-control" formControlName="firstname" />
+                                </div>
+                                <div class='err-style'>
+                                    <mat-error class='err-msg' *ngIf='f.firstname.dirty && f.firstname.value?.length == 0'>First name is required</mat-error>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastname" class='lbl-style required'>Last Name</label>
+                                    <input type="text" class="form-control" formControlName="lastname" required />
+                                </div>
+                                <div class='err-style'>
+                                    <mat-error class='err-msg' *ngIf='f.lastname.dirty && f.lastname.value?.length == 0'> Last Name is required</mat-error>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstName" class='lbl-style '>Middle Name</label>
+                                    <input type="text" class="form-control" formControlName="middlename">
+                                </div>
+                                <div class='err-style'>
+                                    <mat-error class='err-msg'></mat-error>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstName" class='lbl-style required'>Mobile</label>
+                                    <input type="text" class="form-control" formControlName="mobile" minlength='10' maxlength='10'>
+                                </div>
+                                <div class='err-style'>
+                                    <mat-error class='err-msg' *ngIf='f.mobile.dirty && f.mobile.value?.length == 0'> Mobile number is required</mat-error>
+                                    <mat-error class='err-msg' *ngIf=" f.mobile.invalid && f.mobile.errors.pattern"> Enter only number.</mat-error>
+                                    <mat-error class='err-msg' *ngIf="(!(f.mobile.invalid && f.mobile.errors.pattern)) && f.mobile.touched && f.mobile.value?.length >=1 && f.mobile.value?.length < 10">Minimumn 10 number requird</mat-error>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="emp_id" class='lbl-style required'>Employ Id</label>
+                                    <input type="text" class="form-control" formControlName="emp_id">
+                                </div>
+                                <div class='err-style'>
+                                    <mat-error class='err-msg' *ngIf='f.emp_id.dirty && f.emp_id.value.length == 0'> Employ Id required</mat-error>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstName" class='lbl-style required'>Role</label>
+                                    <select id="dropDownTestId" type="text" class="form-control" formControlName="role">
+                                        <option *ngFor="let Role of userRole"  [ngValue]="Role.id">
+                                            {{Role.role}}  
+                                        </option> 
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstName" class='lbl-style required'>Status</label>
+                                    <select id="dropDownTestId" type="text" class="form-control" formControlName="status">
+                                        <option *ngFor="let Status of statusDropdown"  [ngValue]="Status.value" >
+                                            {{Status.name}} 
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class='err-style'>
+                                    <mat-error class='err-msg' *ngIf=" f.status.errors && f.status.touched "> Status is required</mat-error>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <a data-dismiss="modal" class="oncancel-btn  cancel-btn-state col-6">Cancel</a>
+                            <button type="submit" class="btn btn-primary col-6 " style="margin-top: 15px;" [disabled]=" !profileEditForm.valid" (click)="onUpdateDetails()">Update</button>
+
+                        </div>
+                    </form>
+
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End edit -->
+
+
+<!-- Message Model start -->
+
+<div id="messageModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="popup">
+                <mat-toolbar class="login-toolbar">Alert</mat-toolbar>
+                <mat-card>
+                    <h2 class="heading-3"> {{infoMessage}} </h2>
+                    <div class="mt-20">
+                        <button type="button" data-dismiss="modal" class="cancel-btn btn btn-primary cancel-btn-state alert-btns">Ok</button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- error model end -->
+<!-- Message Model start -->
+
+<div id="deleteModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="popup">
+                <mat-toolbar class="login-toolbar">Alert</mat-toolbar>
+                <mat-card>
+                    <h2 class="heading-3">Do you want to delete user: <span style="color: blue;">{{rowEmail}}</span> </h2>
+                    <div class="mt-20">
+                        <button type="button" data-dismiss="modal" class="cancel-btn btn btn-primary cancel-btn-state alert-btns">NO</button>
+                        <button type="button" data-dismiss="modal" class="cancel-btn btn btn-primary cancel-btn-state alert-btns" (click)="deleteRowDetails()">Yes</button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- error model end -->

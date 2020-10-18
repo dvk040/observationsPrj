@@ -1,0 +1,29 @@
+.spanButton {
+  height: 30px;
+  font-size: 13px;
+  border: solid;
+  text-decoration: none;
+  color: #0d3b67;
+  background-color: white;
+  padding: 4px 7px 5px 7px;
+  border-top: 1px solid #cccccc;
+  border-right: 1px solid #003e79;
+  border-bottom: 1px solid #003e79;
+}
+.active {
+  color: white;
+  background-color: rgb(0, 62, 121);
+}
+a {
+  text-decoration: none;
+  color: rgb(0, 62, 121);
+}
+nav {
+  margin: 10px 0px;
+  padding: 8px 10px 8px 0px;
+  background: #d4d5da;
+  text-align: center;
+}
+.tab-labels {
+  background-color: #e9edf1;
+}

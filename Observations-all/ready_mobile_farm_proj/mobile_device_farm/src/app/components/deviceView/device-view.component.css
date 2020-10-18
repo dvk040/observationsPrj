@@ -1,0 +1,119 @@
+.screen {
+    height: 560px;
+    width: 233px;
+}
+
+.subHeader {
+    font-size: 16px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 5px;
+    /* margin: 10px 14px 0px 14px; */
+    /* color: #0b2f52; */
+    background-color: whitesmoke;
+}
+
+.div100 {
+    width: 100%;
+    margin: 0 auto;
+    height: 572px;
+}
+
+.noDevice {
+    padding: 8px;
+    margin: 20px 14px 0px 14px;
+    text-align: center;
+}
+
+.twoFivediv {
+    float: left;
+    text-align: center;
+    /* width: 25%; */
+    height: 590px;
+    padding: 10px 10px 10px 5px;
+    margin: 10px 0px 10px 10px;
+    background-color: white;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #bdbdbd;
+}
+
+.landScape {
+    width: 70%;
+    height: 150px;
+    padding: 10px 10px 10px 5px;
+    margin: 10px 0px 10px 10px;
+    background-color: white;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #bdbdbd;
+    transform: rotate(90deg);
+}
+
+.sevenZerodiv {
+    float: left;
+    /* text-align: center; */
+    width: 810px;
+    height: 670px;
+    padding: 10px 10px 10px 5px;
+    margin: 10px 0px 10px 10px;
+    background-color: white;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #bdbdbd;
+    position: relative;
+}
+
+.spanButton {
+    height: 25px;
+    font-size: 14px;
+    border: #bdbdbd;
+    box-shadow: 0 0 10px #04649c;
+    color: white;
+    padding: 4px 7px;
+    border-radius: 9px;
+    background-color: #04649c;
+    display: inline-block;
+}
+
+.mobileview {
+    height: 640px;
+}
+
+.contentview {
+    height: auto;
+    width: auto;
+}
+
+.container {
+    max-width: 1440px;
+}
+
+.lanscapemobile {
+    height: 340px;
+}
+
+.landPortBtn {
+    margin-right: 15px;
+    height: 25px;
+    font-size: 14px;
+    border: #bdbdbd;
+    box-shadow: 0 0 10px #04649c;
+    color: white;
+    padding: 4px 7px;
+    border-radius: 9px;
+    background-color: #04649c;
+    display: inline-block;
+}
+
+.screen-wth {
+    max-width: 32%;
+}
+
+.ttl-row {
+    margin-left: 15px;
+}
+
+.mat-box {
+    width: auto;
+}

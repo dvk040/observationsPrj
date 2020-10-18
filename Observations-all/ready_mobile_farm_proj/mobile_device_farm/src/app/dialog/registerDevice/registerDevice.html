@@ -1,0 +1,149 @@
+<span class="close" mat-dialog-close>&times;</span>
+<div mat-dialog-title style="height: 30px;">
+    {{isEditMode?'Update ':'Register '}}Device
+    <div style="display: inline; text-align: right; float: right;" *ngIf="isEditMode">
+        <button (click)="getDeviceDetails()">Get device Details</button>
+    </div>
+</div>
+<div mat-dialog-content style="height: 450px;">
+    <div *ngIf="showDeviceDetails" class="details-box">
+        <div class="row">
+            <div class="heading">Device OS Version</div>
+            <div class="description">{{deviceDetails.osVersion}}</div>
+        </div>
+        <div class="row">
+            <div class="heading">Device SDK Version</div>
+            <div class="description">{{deviceDetails.sdkVersion}}</div>
+        </div>
+        <div class="row">
+            <div class="heading">Device Hardware</div>
+            <div class="description">{{deviceDetails.hardware}}</div>
+        </div>
+        <div class="row">
+            <div class="heading">Device Hardware Version</div>
+            <div class="description">{{deviceDetails.hardwareVersion}}</div>
+        </div>
+        <div class="row">
+            <div class="heading">Device Width</div>
+            <div class="description">{{deviceDetails.width}}</div>
+        </div>
+        <div class="row">
+            <div class="heading">Device Height</div>
+            <div class="description">{{deviceDetails.height}}</div>
+        </div>
+        <div class="row">
+            <div class="heading">IP Address</div>
+            <div class="description">{{deviceDetails.ipAddress}}</div>
+        </div>
+        <div class="row" style="text-align: right;">
+            <div class="heading"></div>
+            <div class="description">
+                <button style="margin-right: 3px;" (click)="showDeviceDetails=false">
+          Hide Details
+        </button>
+                <button style="margin-right: 8px;" (click)="applyDetails()">Use Details</button>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 5px;">
+        <mat-form-field class="example-full-width" appearance="outline" *ngIf="!isEditMode">
+            <mat-label class='required'>Select device to Connect</mat-label>
+
+            <input type="text" matInput [(ngModel)]="selectedDevice" (ngModelChange)="onSelectDeviceChange($event)" [matAutocomplete]="auto1" />
+            <mat-autocomplete autoActiveFirstOption #auto1="matAutocomplete" (optionSelected)="onOptionSelection($event)" [displayWith]="displayFunc">
+                <mat-option *ngFor="let device of filteredDeviceList" [value]="device.name">
+                    {{ device.name + (device.buildNo?' - '+device.buildNo:'')}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" *ngIf="isEditMode">
+            <mat-label>Registered Device</mat-label>
+            <input matInput [readonly]="true" value="{{ registeredDevice.name + (registeredDevice.buildNo?' - '+registeredDevice.buildNo:'')}}" />
+        </mat-form-field>
+        <form [formGroup]="registerDeviceForm">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label class='required'>Name </mat-label>
+                <input type="text" formControlName="name" matInput [readonly]="((selectedDevice!='Add Manually' && selectedDevice) || isEditMode)==true" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label class='required'>Serial No</mat-label>
+                <input type="text" formControlName="serialNo" matInput [readonly]="((selectedDevice!='Add Manually' && selectedDevice) || isEditMode)==true" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label class='required'>Model</mat-label>
+                <input type="text" formControlName="model" matInput [readonly]="((selectedDevice!='Add Manually' && selectedDevice) || isEditMode)==true" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label class='required'>Build Number</mat-label>
+                <input type="text" formControlName="buildNo" matInput [readonly]="((selectedDevice!='Add Manually' && selectedDevice) || isEditMode)==true" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>OS Version</mat-label>
+                <input type="text" formControlName="osVersion" matInput [readonly]="((selectedDevice!='Add Manually' && selectedDevice) ||(isEditMode && registeredDevice.osVersion))==true" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>SDK Version</mat-label>
+                <input type="text" formControlName="sdkVersion" matInput [readonly]="((selectedDevice!='Add Manually' && selectedDevice) ||(isEditMode && registeredDevice.sdkVersion))==true" />
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Height of Device</mat-label>
+                <input type="number" formControlName="height" matInput [readonly]="((selectedDevice!='Add Manually' && selectedDevice) ||(isEditMode && registeredDevice.height))==true" />
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Width of Device</mat-label>
+                <input type="number" formControlName="width" matInput [readonly]="((selectedDevice!='Add Manually' && selectedDevice) ||(isEditMode && registeredDevice.width))==true" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Hardware</mat-label>
+                <input type="text" formControlName="hardware" matInput [readonly]="((selectedDevice!='Add Manually' && selectedDevice) ||(isEditMode && registeredDevice.hardware))==true" />
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Hardware Version</mat-label>
+                <input type="text" formControlName="hardwareVersion" matInput [readonly]="((selectedDevice!='Add Manually' && selectedDevice) ||(isEditMode && registeredDevice.hardwareVersion))==true" />
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>IP Address</mat-label>
+                <input type="text" formControlName="ipAddress" matInput />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>RAM </mat-label>
+                <input type="text" formControlName="ram" matInput />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Storage</mat-label>
+                <input type="text" formControlName="storage" matInput />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Remarks</mat-label>
+                <textarea matInput formControlName="remarks"></textarea>
+            </mat-form-field>
+        </form>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <div style="width: 50%; text-align: left;">
+        <form [formGroup]="registerDeviceForm">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Device Status</mat-label>
+                <mat-select formControlName="deviceStatus">
+                    <mat-option [value]="'Active'">
+                        Active
+                    </mat-option>
+                    <mat-option [value]="'Inactive'">
+                        Inactive
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+    </div>
+    <div style="width: 50%; text-align: right;">
+        <button class="btn btn-primary button" (click)="registerDevice()" [disabled]="!registerDeviceForm.valid">
+      {{isEditMode?'Save':'Register'}}
+    </button>
+    </div>
+</div>
+<app-loader></app-loader>

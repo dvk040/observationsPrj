@@ -1,0 +1,255 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    background-color: #edf1f2;
+    // background-image: url('assets/img/trans-bg.png');
+    background-position: left top;
+    background-repeat: repeat;
+    color: #141f39;
+}
+
+$finalnavwidth: #{$navigation-width} + 20;
+
+section {
+    margin: $header-height 0 0 $navigation-width;
+    width: calc(100vw - #{$finalnavwidth});
+    padding: 30px 0;
+    .page-head {
+        button {
+            margin-bottom: 10px;
+            background-color: $brand-color;
+            border: none;
+            &:hover {
+                background-color: lighten($brand-color, 5%);
+            }
+            &.reset {
+                background-color: grey;
+            }
+        }
+    }
+    .component-container {
+        width:94%;
+        margin: 0 3%;
+        border: 1px solid $grey;
+        border-radius: 5px;
+        padding: 15px 0 0;
+        background-color: $white;
+        box-shadow: 0 0 10px 1px $grey;
+        h4 {
+            font-size: 22px;
+            margin: 8px 0 20px 0;
+        }
+        thead {
+            background-color: lighten($grey, 20%);
+            th {
+                &.aligncenter {
+                    text-align: center;
+                }
+            }
+        }
+        tbody {
+            th {
+                padding: 5px;
+                vertical-align: middle;
+                
+            }
+            td {
+                padding: 5px;
+                vertical-align: middle;
+                &.textindent {
+                    text-indent: 8px;
+                }
+                &.aligncenter {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+// modal-container {
+//     pointer-events: none;
+// }
+.modal-dialog {
+    pointer-events: auto;
+    max-width: 640px;
+    .modal-content {
+        .form-grp-button {
+            .btn-group {
+                button {
+                    border: 1px solid $brand-color;
+                    color: $brand-color;
+                    background-color: transparent;
+                    margin: 10px 5px;
+                    border-radius: 3px;
+                    padding: 7px 44px;
+                }
+            }
+        }
+    }
+    .modal-body {
+        padding: 10px 50px;
+        &.support-requests {
+            padding: 15px;
+        }
+        .form-button {
+            text-align: center;
+            button {
+                display: inline-block;
+            }
+        }
+        .form-group {
+            .form-check-input {
+                margin-left: 4px;
+            }
+            .form-check-label {
+                float: left;
+                margin-left: 24px;
+                cursor: pointer;
+            }
+        }
+        
+    }
+    .modal-delete {
+        margin-top: 0;
+        text-align: center;
+        .close {
+          padding: 10px 20px 0 0;
+          position: absolute;
+          top: 0px;
+          right: -3px;
+        }
+        i.fa {
+            font-size: 55px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        h3, h6 {
+          width: 100%;
+          text-align: center;
+        }
+        h3 {
+          color: $black;
+          margin: 30px 0 0;
+        }
+        h6 {
+          color: darken($grey, 10%);
+          font-size: 16px;
+          margin: 12px 0 0;
+        }
+    }
+    .modal-footer {
+        padding: 10px 20px;
+        background-color: $white;
+        @include border-radius(0 0 5px 5px);
+        border-top: 1px solid $grey;
+        button {
+            padding: 8px;
+            &.cancel {
+                border: none;
+                color: darken($grey, 10%);
+                margin-right: 30px;
+                background-color: $white;
+                &:hover {
+                    background-color: $white;
+                    color: darken($grey, 15%);
+                }
+            }
+            &.save {
+                background-color: $brand-color;
+                width: 137px;
+                border: none;
+                &:hover {
+                    background-color: lighten($brand-color, 5%);
+                }
+            }
+        }
+    }
+}
+.table-buttons {
+    text-align: center;
+    .view-btn {
+        display: inline-block;
+        background-color: transparent;
+        border: 1px solid $brand-color;
+        color:  $brand-color;
+        padding: 5px 10px;
+    }
+    .delete-btn {
+        display: inline-block;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        font-size: 25px;
+        color: #ff5555;
+    }
+}
+
+.api-error, .form-error, .help-block  { 
+    color: red; 
+    text-indent: 10px; 
+    font-size: 15px; 
+    margin-top: 4px;
+}
+
+.form-grp-button {
+    div {
+        button {
+            min-width: 140px;
+            margin: 20px 0;
+        }
+    }
+}
+
+.no-records {
+    text-align: center;
+    margin: 100px auto;
+    font-size: 18px;
+}
+
+.pagination {
+    nav {
+        padding: 10px 30px;
+    }
+}
+
+.padding-0 {
+    padding-left: 0;
+}
+
+.cursor-click {
+    cursor: pointer;
+}
+
+.request-concern {
+    border: 1px solid #e9ecef;
+}
+// bs-daterangepicker-container {
+//     z-index: 99999999 !important;
+// }
+// .bs-datepicker  {
+//     z-index: 99999999 !important;
+// }
+
+.tab-details {
+    padding: 15px 20px 0;
+    border: 1px solid #dee2e6;
+    border-top-color: transparent;
+    border-radius: 0 0 5px 5px;
+    margin-bottom: 20px;
+}
+.tab-details-label {
+    p{
+        font-size: 14px;
+        margin-top: -12px;
+    }
+}
+
+.language-div{
+    margin-top: 10px;
+}
+
+.product-details {
+    margin-right: 9px;
+    height: 15px;
+    width: 15px;
+}
